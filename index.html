@@ -1,3 +1,10 @@
+You got it! I have changed the palm tree 🌴 to a coffee mug ☕️ to fit that perfect cozy vibe.
+
+This code has both the new **squiggly outline** around your image from your previous message and the **coffee mug emoji**.
+
+Once more, just **copy and replace** everything in your `index.html` file:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,21 +82,24 @@
       margin: 0 auto;
     }
 
-    /* Prettier Image Shape & Outline */
+    /* Perfect Circle with Squiggly Outline */
     .hero img {
-      /* Organic "blob" shape */
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      /* Pastel yellow outline color */
-      border: 6px solid #fdfd96;
-      box-shadow: 0 10px 30px rgba(253, 253, 150, 0.8);
-      margin-bottom: 30px;
+      /* Perfect circle shape */
+      border-radius: 50%;
+      /* Pink inner border */
+      border: 6px solid #ffafcc;
+      /* Cute squiggly/dotted yellow outer outline */
+      outline: 8px dotted #fdfd96;
+      outline-offset: 8px;
+      box-shadow: 0 15px 35px rgba(203, 170, 203, 0.3);
+      margin-bottom: 45px; /* Extra space so the outline fits nicely */
       transition: all 0.5s ease-in-out;
       animation: float 6s ease-in-out infinite;
     }
     .hero img:hover {
-      border-radius: 50%;
-      border-color: #cbaacb; /* Pastel purple on hover */
-      box-shadow: 0 10px 30px rgba(203, 170, 203, 0.6);
+      /* Turns to pastel purple dashed squiggles on hover */
+      outline: 8px dashed #cbaacb;
+      outline-offset: 12px;
       transform: translateY(-5px);
     }
 
@@ -183,7 +193,7 @@
 
       <!-- A Fun and Meaningful Message -->
       <p>
-        Welcome to my digital playground! 🌴 I'm passionate about blending creativity with code to build beautiful, user-friendly experiences. Whether I'm solving a complex problem or designing an elegant interface, every project here is a piece of my journey. Take a look around!
+        Welcome to my digital playground! ☕️ I'm passionate about blending creativity with code to build beautiful, user-friendly experiences. Whether I'm solving a complex problem or designing an elegant interface, every project here is a piece of my journey. Take a look around!
       </p>
 
       <a href="#projects" class="btn-primary">Explore My Work</a>
