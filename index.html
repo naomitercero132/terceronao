@@ -20,7 +20,7 @@
     body {
       font-family: 'Quicksand', sans-serif;
       /* Mixture of mint green, light yellow, light pink, and light purple */
-      background: linear-gradient(135deg, rgba(193,225,193,0.3) 0%, rgba(253,253,150,0.3) 33%, rgba(255,175,204,0.3) 66%, rgba(203,170,203,0.3) 100%);
+      background: linear-gradient(135deg, rgba(193,225,193,0.3) 0%, rgba(253,253,150,0.3) 50%, rgba(255,175,204,0.3) 100%);
       background-attachment: fixed;
       color: #555555;
       line-height: 1.6;
@@ -47,7 +47,7 @@
       font-family: 'Dancing Script', cursive;
       font-size: 2.5rem;
       font-weight: 700;
-      color: #cbaacb; /* Pastel purple */
+      color: #ffafcc; /* Pastel pink */
       text-shadow: 2px 2px 0px #fdfd96; /* Pastel yellow shadow */
     }
     .nav-links {
@@ -84,7 +84,7 @@
       /* Cute squiggly/dotted yellow outer outline */
       outline: 8px dotted #fdfd96;
       outline-offset: 8px;
-      box-shadow: 0 15px 35px rgba(203, 170, 203, 0.3); /* Purple shadow */
+      box-shadow: 0 15px 35px rgba(255, 175, 204, 0.3); /* Pink shadow */
       margin-bottom: 45px; /* Extra space so the outline fits nicely */
       transition: all 0.5s ease-in-out;
       animation: float 6s ease-in-out infinite;
@@ -92,7 +92,7 @@
     .hero img:hover {
       /* Turns to pastel mint green dashed squiggles and purple border on hover */
       outline: 8px dashed #c1e1c1; /* Mint green */
-      border-color: #cbaacb; /* Purple */
+      border-color: #fdfd96; /* Yellow */
       outline-offset: 12px;
       transform: translateY(-5px);
     }
@@ -134,7 +134,7 @@
       display: inline-block;
       padding: 15px 35px;
       /* Blend of all 4 colors */
-      background: linear-gradient(45deg, #ffafcc, #cbaacb, #c1e1c1, #fdfd96);
+      background: linear-gradient(45deg, #ffafcc, #c1e1c1, #fdfd96);
       background-size: 300% 300%;
       color: #555; /* Dark grey for better contrast */
       text-decoration: none;
@@ -142,7 +142,7 @@
       font-family: 'Quicksand', sans-serif;
       font-weight: 700;
       font-size: 1.2rem;
-      box-shadow: 0 6px 15px rgba(203, 170, 203, 0.4);
+      box-shadow: 0 6px 15px rgba(255, 175, 204, 0.4);
       transition: all 0.3s ease;
       animation: gradientBG 6s ease infinite;
     }
@@ -172,7 +172,7 @@
     #projects h2 {
       font-family: 'Dancing Script', cursive;
       font-size: 3.5rem;
-      color: #cbaacb; /* Pastel purple */
+      color: #ffafcc; /* Pastel pink */
       margin-bottom: 20px;
     }
 
@@ -187,7 +187,7 @@
       background: #ffffff;
       border-radius: 20px;
       padding: 30px 20px;
-      box-shadow: 0 10px 30px rgba(203, 170, 203, 0.15);
+      box-shadow: 0 10px 30px rgba(255, 175, 204, 0.15);
       border: 2px solid transparent;
       transition: all 0.3s ease;
       display: flex;
@@ -232,14 +232,14 @@
       display: inline-block;
       padding: 10px 20px;
       background-color: #fef5f9;
-      color: #cbaacb;
+      color: #ffafcc;
       text-decoration: none;
       border-radius: 20px;
       font-weight: 700;
       transition: all 0.3s ease;
     }
     .project-link:hover {
-      background-color: #cbaacb;
+      background-color: #ffafcc;
       color: #fff;
     }
   </style>
@@ -309,7 +309,7 @@
     // 1. Interactive Sparkle Cursor Trail
     document.addEventListener('mousemove', function(e) {
       if (Math.random() > 0.4) return; // Limit number of sparkles
-      const colors = ['#ffafcc', '#cbaacb', '#c1e1c1', '#fdfd96'];
+      const colors = ['#ffafcc', '#c1e1c1', '#fdfd96'];
       const star = document.createElement('div');
       star.innerHTML = '✦';
       star.style.position = 'fixed';
@@ -343,7 +343,7 @@
           e.preventDefault(); // Delay navigation for burst
         }
 
-        const colors = ['#ffafcc', '#cbaacb', '#c1e1c1', '#fdfd96'];
+        const colors = ['#ffafcc', '#c1e1c1', '#fdfd96'];
         for (let i = 0; i < 40; i++) {
           const star = document.createElement('div');
           star.innerHTML = '★';
@@ -387,7 +387,7 @@
       star.style.position = 'fixed';
       star.style.left = Math.random() * window.innerWidth + 'px';
       star.style.top = window.innerHeight + 50 + 'px';
-      const colors = ['#ffafcc', '#cbaacb', '#c1e1c1', '#fdfd96'];
+      const colors = ['#ffafcc', '#c1e1c1', '#fdfd96'];
       star.style.color = colors[Math.floor(Math.random() * colors.length)];
       star.style.opacity = Math.random() * 0.4 + 0.1;
       star.style.fontSize = Math.random() * 25 + 10 + 'px';
