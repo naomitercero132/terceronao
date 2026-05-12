@@ -160,6 +160,62 @@
       color: #cbaacb; /* Pastel purple */
       margin-bottom: 20px;
     }
+
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 30px rgba(203, 170, 203, 0.15);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: #ffafcc;
+      box-shadow: 0 15px 35px rgba(255, 175, 204, 0.3);
+    }
+    .project-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    .project-card h3 {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      color: #444;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      color: #6c757d;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .project-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fef5f9;
+      color: #cbaacb;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    .project-link:hover {
+      background-color: #cbaacb;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -195,7 +251,33 @@
     <!-- Projects Section -->
     <section id="projects">
       <h2>My Projects</h2>
-      <p style="color: #6c757d; font-size: 1.2rem; font-weight: 500;">Exciting things are coming soon! Stay tuned. 💌</p>
+      <p style="color: #6c757d; font-size: 1.2rem; font-weight: 500;">Check out some of my recent work below! 💌</p>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-icon">🌸</div>
+          <h3>Project Title 1</h3>
+          <p>A brief description of your amazing project goes here. Share what you built and the tools you used.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-icon">✨</div>
+          <h3>Project Title 2</h3>
+          <p>A brief description of your amazing project goes here. Share what you built and the tools you used.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-icon">🎨</div>
+          <h3>Project Title 3</h3>
+          <p>A brief description of your amazing project goes here. Share what you built and the tools you used.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
     </section>
 
   </main>
