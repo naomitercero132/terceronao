@@ -19,9 +19,9 @@
     }
     body {
       font-family: 'Quicksand', sans-serif;
-      /* Very soft pastel yellow-to-pink background */
-      background: linear-gradient(135deg, #fffdf2 0%, #fef5f9 100%);
-      background-color: #fffdf2;
+      /* Mixture of mint green, light yellow, light pink, and light purple */
+      background: linear-gradient(135deg, rgba(193,225,193,0.3) 0%, rgba(253,253,150,0.3) 33%, rgba(255,175,204,0.3) 66%, rgba(203,170,203,0.3) 100%);
+      background-attachment: fixed;
       color: #555555;
       line-height: 1.6;
     }
@@ -33,7 +33,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(203, 170, 203, 0.1);
+      box-shadow: 0 4px 20px rgba(193, 225, 193, 0.3); /* Mint green shadow */
     }
     nav {
       max-width: 1000px;
@@ -84,14 +84,15 @@
       /* Cute squiggly/dotted yellow outer outline */
       outline: 8px dotted #fdfd96;
       outline-offset: 8px;
-      box-shadow: 0 15px 35px rgba(203, 170, 203, 0.3);
+      box-shadow: 0 15px 35px rgba(203, 170, 203, 0.3); /* Purple shadow */
       margin-bottom: 45px; /* Extra space so the outline fits nicely */
       transition: all 0.5s ease-in-out;
       animation: float 6s ease-in-out infinite;
     }
     .hero img:hover {
-      /* Turns to pastel purple dashed squiggles on hover */
-      outline: 8px dashed #cbaacb;
+      /* Turns to pastel mint green dashed squiggles and purple border on hover */
+      outline: 8px dashed #c1e1c1; /* Mint green */
+      border-color: #cbaacb; /* Purple */
       outline-offset: 12px;
       transform: translateY(-5px);
     }
@@ -117,6 +118,7 @@
       display: inline-block;
       transform: rotate(-5deg);
       margin-left: 10px;
+      text-shadow: 2px 2px 0px #c1e1c1; /* Mint green shadow */
     }
 
     .hero p {
@@ -127,12 +129,14 @@
       font-weight: 500;
     }
 
-    /* Pastel Bubbly Button */
+    /* Pastel Bubbly Animated Button */
     .btn-primary {
       display: inline-block;
       padding: 15px 35px;
-      background: linear-gradient(45deg, #ffafcc, #cbaacb); /* Pastel pink to purple */
-      color: #fff;
+      /* Blend of all 4 colors */
+      background: linear-gradient(45deg, #ffafcc, #cbaacb, #c1e1c1, #fdfd96);
+      background-size: 300% 300%;
+      color: #555; /* Dark grey for better contrast */
       text-decoration: none;
       border-radius: 50px; /* Super bubbly rounded corners */
       font-family: 'Quicksand', sans-serif;
@@ -140,10 +144,17 @@
       font-size: 1.2rem;
       box-shadow: 0 6px 15px rgba(203, 170, 203, 0.4);
       transition: all 0.3s ease;
+      animation: gradientBG 6s ease infinite;
     }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .btn-primary:hover {
-      background: linear-gradient(45deg, #cbaacb, #ffafcc); /* Reverses on hover */
-      box-shadow: 0 8px 20px rgba(255, 175, 204, 0.6);
+      box-shadow: 0 8px 20px rgba(193, 225, 193, 0.6);
       transform: translateY(-3px) scale(1.05); /* Slight bounce on hover */
     }
 
@@ -182,12 +193,19 @@
     }
     .project-card:hover {
       transform: translateY(-10px);
-      border-color: #ffafcc;
+    }
+    /* Different colored borders on hover for each card */
+    .project-card:nth-child(1):hover {
+      border-color: #ffafcc; /* Pink */
       box-shadow: 0 15px 35px rgba(255, 175, 204, 0.3);
     }
-    .project-icon {
-      font-size: 3rem;
-      margin-bottom: 15px;
+    .project-card:nth-child(2):hover {
+      border-color: #c1e1c1; /* Mint green */
+      box-shadow: 0 15px 35px rgba(193, 225, 193, 0.3);
+    }
+    .project-card:nth-child(3):hover {
+      border-color: #fdfd96; /* Yellow */
+      box-shadow: 0 15px 35px rgba(253, 253, 150, 0.4);
     }
     .project-card h3 {
       font-family: 'Quicksand', sans-serif;
