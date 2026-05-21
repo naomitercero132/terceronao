@@ -5,29 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naomi | Portfolio</title>
 
-  <!-- Importing fun, girly, and bubbly fonts -->
+  <!-- Modern Professional Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* CSS Variables */
+    :root {
+      --bg-color: #f8f9fa;
+      --text-main: #212529;
+      --text-muted: #6c757d;
+      --primary: #4361ee;
+      --primary-hover: #3f37c9;
+      --surface: #ffffff;
+      --border: #e9ecef;
+    }
+
     /* Reset & Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Nunito', sans-serif;
-      /* Soft pink to light yellow gradient */
-      background: linear-gradient(135deg, #ffd1dc 0%, #fffacd 100%);
-      background-attachment: fixed;
-      color: #555;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
     }
 
-    /* Floating Pill Navigation */
+    /* Interactive Spotlight */
+    #spotlight {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(67, 97, 238, 0.08) 0%, rgba(255,255,255,0) 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Navigation */
     header {
       position: sticky;
       top: 20px;
@@ -35,262 +61,203 @@
       padding: 0 20px;
     }
     nav {
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 50px;
-      border: 2px solid #ffb6c1;
-      box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
     .logo {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #ffb6c1;
-      text-shadow: 1px 1px 0px #fffacd;
-      transform: rotate(-3deg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
     }
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 30px;
     }
     .nav-links a {
       text-decoration: none;
-      color: #ffb6c1;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-      display: inline-block;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s ease;
     }
     .nav-links a:hover {
-      color: #ffb6c1;
-      transform: scale(1.1) rotate(5deg);
-      text-shadow: 1px 1px 5px rgba(255, 250, 205, 0.8);
+      color: var(--primary);
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 100px 20px 80px;
+      padding: 120px 20px 80px;
       max-width: 800px;
       margin: 0 auto;
       position: relative;
-    }
-
-    /* Image Styling */
-    .hero img {
-      border-radius: 50%;
-      border: 6px solid #fffacd;
-      background-color: #fff;
-      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.6);
-      margin-bottom: 45px;
-      transition: all 0.5s ease-in-out;
-      animation: floatHero 6s ease-in-out infinite;
-    }
-    .hero img:hover {
-      border-color: #ffb6c1;
-      box-shadow: 0 10px 40px rgba(255, 250, 205, 0.8);
-    }
-
-    @keyframes floatHero {
-      0% { transform: translateY(0px) rotate(2deg); }
-      50% { transform: translateY(-10px) rotate(-1deg); }
-      100% { transform: translateY(0px) rotate(2deg); }
+      z-index: 10;
     }
 
     h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3.5rem;
-      font-weight: 600;
-      color: #ffb6c1;
+      font-family: 'Outfit', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--text-main);
       margin-bottom: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
-      display: inline-block;
-      padding: 5px 20px;
-      border: 3px solid #fffacd;
-      border-radius: 30px;
-      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+      letter-spacing: -1.5px;
+      line-height: 1.1;
     }
     .highlight {
-      font-family: 'Caveat', cursive;
-      font-size: 4.5rem;
-      color: #ffb6c1;
-      display: inline-block;
-      transform: rotate(-5deg);
-      margin-left: 10px;
-      text-shadow: 2px 2px 5px rgba(255, 250, 205, 0.8);
+      color: var(--primary);
     }
 
     .hero p {
-      font-size: 1.3rem;
-      max-width: 600px;
-      margin: 30px auto 30px;
-      color: #666;
-      font-weight: 500;
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 20px;
-      border: 2px solid #fffacd;
-      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      color: var(--text-muted);
+      font-weight: 400;
     }
 
-    /* Soft Animated Button */
+    /* Professional Button */
     .btn-primary {
       display: inline-block;
-      padding: 15px 40px;
-      background-color: #ffb6c1;
+      padding: 14px 32px;
+      background-color: var(--primary);
       color: #fff;
       text-decoration: none;
-      border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      font-size: 1.3rem;
-      border: 3px solid #fff;
-      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
-      transition: all 0.3s ease;
-    }
-
-    @keyframes bouncyBtn {
-      0%, 100% { transform: translateY(-2px) scale(1.02); }
-      50% { transform: translateY(-5px) scale(1.02); }
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+      position: relative;
+      overflow: hidden;
     }
     .btn-primary:hover {
-      background-color: #fffacd;
-      color: #ffb6c1;
-      box-shadow: 0 8px 20px rgba(255, 250, 205, 0.8);
-      animation: bouncyBtn 1.5s ease-in-out infinite;
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(67, 97, 238, 0.4);
     }
 
     /* Projects Section */
     #projects {
       padding: 80px 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
-      text-align: center;
+      position: relative;
+      z-index: 10;
     }
     #projects h2 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3.5rem;
-      color: #ffb6c1;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      color: var(--text-main);
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: -0.5px;
     }
 
-    /* Scrapbook Polaroid Cards - Soft Edit */
+    /* Clean Project Cards */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-top: 60px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
     }
+
     .project-card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 15px 15px 30px 15px;
-      border: 2px solid #ffb6c1;
-      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.2);
-      transition: all 0.4s ease;
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
-
-    /* Stars */
-    .project-card::before, .project-card:nth-child(2)::before, .project-card:nth-child(3)::before {
-      color: #ffffff;
-      text-shadow: 0 0 5px #e0e0e0, 0 0 10px #ffffff, 0 0 15px #c0c0c0;
-    }
-
-    .project-card::before {
-      content: '✦';
-      position: absolute;
-      top: -20px;
-      left: 10px;
-      font-size: 3rem;
-      transform: rotate(-15deg);
-      z-index: 2;
-    }
-
-    .project-card:nth-child(2)::before {
-      content: '✧';
-      top: -25px;
-      left: 80%;
-      transform: rotate(10deg);
-      font-size: 3.5rem;
-    }
-
-    .project-card:nth-child(3)::before {
-      content: '★';
-      top: -20px;
-      left: 10px;
-      font-size: 3.5rem;
-    }
-
-    /* Scattered Layout */
-    .project-card:nth-child(1) { transform: rotate(-2deg); }
-    .project-card:nth-child(2) { transform: rotate(2deg) translateY(10px); }
-    .project-card:nth-child(3) { transform: rotate(-1deg); }
-
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(-10px) scale(1.02); }
-      50% { transform: translateY(-15px) scale(1.02); }
     }
 
     .project-card:hover {
-      z-index: 10;
-      box-shadow: 0 15px 30px rgba(255, 250, 205, 0.6);
-      border-color: #fffacd;
-      animation: floatCard 2s ease-in-out infinite;
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      border-color: rgba(67, 97, 238, 0.3);
     }
 
     .project-card h3 {
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Outfit', sans-serif;
       font-weight: 600;
-      color: #ffb6c1;
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      margin-top: 15px;
-      text-shadow: 1px 1px 0px #fffacd;
+      color: var(--text-main);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
     }
+
     .project-card p {
-      color: #666;
-      font-weight: 500;
-      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-size: 1rem;
       margin-bottom: 25px;
       flex-grow: 1;
+      line-height: 1.6;
     }
+
     .project-link {
-      display: inline-block;
-      padding: 10px 25px;
-      background-color: #fffacd;
-      color: #ffb6c1;
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
       text-decoration: none;
-      border-radius: 20px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid #ffb6c1;
-      box-shadow: 0 3px 10px rgba(255, 182, 193, 0.3);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+      margin-top: auto;
+    }
+    .project-link::after {
+      content: '→';
+      margin-left: 6px;
+      transition: transform 0.2s ease;
     }
     .project-link:hover {
-      background-color: #ffb6c1;
-      color: #fff;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
+      color: var(--primary-hover);
+    }
+    .project-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    .project-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+
+    /* Click Ripple Effect */
+    .ripple {
+      position: fixed;
+      border-radius: 50%;
+      background: rgba(67, 97, 238, 0.4);
+      transform: scale(0);
+      animation: rippleAnim 0.6s linear;
+      pointer-events: none;
+      z-index: 10000;
+    }
+    @keyframes rippleAnim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Background Spotlight -->
+  <div id="spotlight"></div>
 
   <!-- Navigation Bar -->
   <header>
@@ -298,7 +265,7 @@
       <div class="logo">Naomi.</div>
       <ul class="nav-links">
         <li><a href="#hero">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#projects">Work</a></li>
       </ul>
     </nav>
   </header>
@@ -307,42 +274,37 @@
   <main>
     <!-- Hero Section -->
     <section id="hero" class="hero">
-      <img src="assets/Tercero.png" alt="Naomi Tercero" width="250">
-
-      <h1>Hello, I'm <span class="highlight">Naomi</span>!</h1>
-
+      <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
       <p>
-        Welcome to my digital playground! I'm passionate about blending creativity with code to build soft, user-friendly experiences. Whether I'm solving a complex problem or designing a cute interface, every project here is a piece of my journey. Take a look around!
+        Welcome to my digital portfolio. I am passionate about blending creativity with code to build seamless, user-friendly experiences. Whether I'm solving a complex problem or designing an intuitive interface, every project here reflects my commitment to quality and modern design.
       </p>
-
       <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-      <h2>My Projects</h2>
-      <p style="color: #ffb6c1; font-size: 1.4rem; font-weight: 700; font-family: 'Patrick Hand', cursive; background: rgba(255, 255, 255, 0.8); display: inline-block; padding: 5px 15px; border: 2px solid #fffacd; border-radius: 10px; transform: rotate(-2deg); box-shadow: 0 5px 10px rgba(255, 182, 193, 0.3);">Check out some of my recent work below!</p>
+      <h2>Featured Projects</h2>
 
       <div class="projects-grid">
         <!-- Project 1 -->
         <div class="project-card">
+          <img src="assets/Tercero.png" alt="2D Print" class="project-image">
           <h3>2D Print</h3>
-          <img src="assets/Tercero.png" alt="2D Print Image" style="width: 100%; border-radius: 10px; margin-bottom: 15px; border: 2px solid #ffb6c1; box-shadow: 0 5px 10px rgba(255, 182, 193, 0.3);">
-          <p>A deconstruction of my personal passport to create a look-alike model of Mexico.</p>
+          <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
           <a href="#" class="project-link">View Project</a>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
           <h3>3D Model</h3>
-          <p>Creating a new look for my Sonny Angel and adding personality to my liking.</p>
+          <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
           <a href="#" class="project-link">View Project</a>
         </div>
 
         <!-- Project 3 -->
         <div class="project-card">
           <h3>4D Video</h3>
-          <p>A combination of personal videos I love, demonstrating my favorite things.</p>
+          <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
           <a href="#" class="project-link">View Project</a>
         </div>
       </div>
@@ -351,117 +313,44 @@
   </main>
 
   <script>
-    // 1. Interactive Star Cursor Trail
-    document.addEventListener('mousemove', function(e) {
-      if (Math.random() > 0.3) return; // Limit number of stars
-      const star = document.createElement('div');
-      const symbols = ['✦', '✧', '★', '☆'];
-      star.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-      star.style.position = 'fixed';
-      star.style.left = e.clientX + 'px';
-      star.style.top = e.clientY + 'px';
-      star.style.color = '#ffffff';
-      star.style.textShadow = '0 0 5px #e0e0e0, 0 0 10px #ffffff';
-      star.style.fontSize = Math.random() * 15 + 15 + 'px';
-      star.style.pointerEvents = 'none';
-      star.style.zIndex = '9999';
-      star.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
-      document.body.appendChild(star);
+    // Professional Interactive Spotlight Effect
+    const spotlight = document.getElementById('spotlight');
 
-      setTimeout(() => {
-        star.style.transform = `translate(${Math.random() * 60 - 30}px, ${Math.random() * 60 - 30}px) scale(0.5) rotate(180deg)`;
-        star.style.opacity = '0';
-      }, 10);
-
-      setTimeout(() => {
-        star.remove();
-      }, 800);
+    document.addEventListener('mousemove', (e) => {
+      // Small delay for smooth effect
+      requestAnimationFrame(() => {
+        spotlight.style.left = e.clientX + 'px';
+        spotlight.style.top = e.clientY + 'px';
+      });
     });
 
-    // 2. Click Burst Effect (Mix of soft stars)
-    const btn = document.querySelector('.btn-primary');
-    if (btn) {
-      btn.addEventListener('click', function(e) {
-        const href = btn.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          // Anchor link
-        } else {
-          e.preventDefault();
-        }
+    // Hide spotlight when mouse leaves the window
+    document.addEventListener('mouseleave', () => {
+      spotlight.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      spotlight.style.opacity = '1';
+    });
 
-        const symbols = ['✦', '✧', '★', '☆'];
+    // Sleek Click Ripple Effect
+    document.addEventListener('click', function(e) {
+      // Don't trigger if clicking a link/button to avoid messy overlaps
+      if (e.target.tagName === 'A' || e.target.closest('a')) return;
 
-        for (let i = 0; i < 40; i++) {
-          const star = document.createElement('div');
-          const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-          star.innerHTML = symbol;
-          star.style.position = 'fixed';
-          star.style.left = e.clientX + 'px';
-          star.style.top = e.clientY + 'px';
-          star.style.color = '#ffffff';
-          star.style.textShadow = '0 0 5px #e0e0e0, 0 0 10px #ffffff, 0 0 15px #c0c0c0';
-          star.style.fontSize = Math.random() * 20 + 15 + 'px';
-          star.style.pointerEvents = 'none';
-          star.style.zIndex = '10000';
-          star.style.transition = 'transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease-out';
-          document.body.appendChild(star);
+      const ripple = document.createElement('div');
+      ripple.classList.add('ripple');
 
-          const angle = Math.random() * Math.PI * 2;
-          const velocity = Math.random() * 200 + 50;
-          const tx = Math.cos(angle) * velocity;
-          const ty = Math.sin(angle) * velocity;
+      const size = 50;
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - size/2) + 'px';
+      ripple.style.top = (e.clientY - size/2) + 'px';
 
-          setTimeout(() => {
-            star.style.transform = `translate(${tx}px, ${ty}px) rotate(${Math.random() * 360}deg) scale(0)`;
-            star.style.opacity = '0';
-          }, 10);
-
-          setTimeout(() => {
-            star.remove();
-          }, 1000);
-        }
-
-        if (href && !href.startsWith('#')) {
-          setTimeout(() => {
-            window.location.href = href;
-          }, 800);
-        }
-      });
-    }
-
-    // 3. Floating Background Soft Stars
-    function createBackgroundStar() {
-      const star = document.createElement('div');
-      const symbols = ['✦', '✧', '★', '☆'];
-      const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-      star.innerHTML = symbol;
-      star.style.position = 'fixed';
-      star.style.left = Math.random() * window.innerWidth + 'px';
-      star.style.top = window.innerHeight + 50 + 'px';
-      star.style.color = '#ffffff';
-      star.style.textShadow = '0 0 5px #e0e0e0, 0 0 10px #ffffff';
-      star.style.opacity = Math.random() * 0.5 + 0.3;
-      star.style.fontSize = Math.random() * 30 + 15 + 'px';
-      star.style.zIndex = '-1';
-      const duration = Math.random() * 10 + 10; // 10-20 seconds
-      star.style.transition = `transform ${duration}s linear, opacity ${duration}s linear`;
-      document.body.appendChild(star);
+      document.body.appendChild(ripple);
 
       setTimeout(() => {
-        star.style.transform = `translateY(-${window.innerHeight + 150}px) rotate(${Math.random() * 360}deg)`;
-      }, 10);
-
-      setTimeout(() => {
-        star.remove();
-      }, duration * 1000);
-    }
-
-    // Create initial batch
-    for(let i=0; i<15; i++) {
-      setTimeout(createBackgroundStar, Math.random() * 5000);
-    }
-    // Continuously spawn
-    setInterval(createBackgroundStar, 800);
+        ripple.remove();
+      }, 600);
+    });
   </script>
 </body>
 </html>
