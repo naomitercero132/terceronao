@@ -206,28 +206,34 @@
     }
 
     /* Stars */
+    .project-card::before, .project-card:nth-child(2)::before, .project-card:nth-child(3)::before {
+      color: #ffffff;
+      text-shadow: 0 0 5px #e0e0e0, 0 0 10px #ffffff, 0 0 15px #c0c0c0;
+    }
+
     .project-card::before {
-      content: '⭐';
+      content: '✦';
       position: absolute;
       top: -20px;
       left: 10px;
-      font-size: 2.5rem;
+      font-size: 3rem;
       transform: rotate(-15deg);
       z-index: 2;
     }
 
     .project-card:nth-child(2)::before {
-      content: '✨';
+      content: '✧';
       top: -25px;
       left: 80%;
       transform: rotate(10deg);
+      font-size: 3.5rem;
     }
 
     .project-card:nth-child(3)::before {
-      content: '🌟';
+      content: '★';
       top: -20px;
       left: 10px;
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
 
     /* Scattered Layout */
@@ -348,11 +354,13 @@
     document.addEventListener('mousemove', function(e) {
       if (Math.random() > 0.3) return; // Limit number of stars
       const star = document.createElement('div');
-      const symbols = ['⭐', '✨', '🌟'];
+      const symbols = ['✦', '✧', '★', '☆'];
       star.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
       star.style.position = 'fixed';
       star.style.left = e.clientX + 'px';
       star.style.top = e.clientY + 'px';
+      star.style.color = '#ffffff';
+      star.style.textShadow = '0 0 5px #e0e0e0, 0 0 10px #ffffff';
       star.style.fontSize = Math.random() * 15 + 15 + 'px';
       star.style.pointerEvents = 'none';
       star.style.zIndex = '9999';
@@ -380,8 +388,7 @@
           e.preventDefault();
         }
 
-        const symbols = ['⭐', '✨', '🌟', '★'];
-        const colors = ['#ffb6c1', '#fffacd', '#ff69b4', '#fff'];
+        const symbols = ['✦', '✧', '★', '☆'];
 
         for (let i = 0; i < 40; i++) {
           const star = document.createElement('div');
@@ -390,10 +397,9 @@
           star.style.position = 'fixed';
           star.style.left = e.clientX + 'px';
           star.style.top = e.clientY + 'px';
+          star.style.color = '#ffffff';
+          star.style.textShadow = '0 0 5px #e0e0e0, 0 0 10px #ffffff, 0 0 15px #c0c0c0';
           star.style.fontSize = Math.random() * 20 + 15 + 'px';
-          if(symbol === '★') {
-             star.style.color = colors[Math.floor(Math.random() * colors.length)];
-          }
           star.style.pointerEvents = 'none';
           star.style.zIndex = '10000';
           star.style.transition = 'transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease-out';
@@ -425,16 +431,14 @@
     // 3. Floating Background Soft Stars
     function createBackgroundStar() {
       const star = document.createElement('div');
-      const symbols = ['⭐', '✨', '🌟', '★'];
+      const symbols = ['✦', '✧', '★', '☆'];
       const symbol = symbols[Math.floor(Math.random() * symbols.length)];
       star.innerHTML = symbol;
       star.style.position = 'fixed';
       star.style.left = Math.random() * window.innerWidth + 'px';
       star.style.top = window.innerHeight + 50 + 'px';
-      if(symbol === '★') {
-          const colors = ['#ffb6c1', '#fffacd', '#fff'];
-          star.style.color = colors[Math.floor(Math.random() * colors.length)];
-      }
+      star.style.color = '#ffffff';
+      star.style.textShadow = '0 0 5px #e0e0e0, 0 0 10px #ffffff';
       star.style.opacity = Math.random() * 0.5 + 0.3;
       star.style.fontSize = Math.random() * 30 + 15 + 'px';
       star.style.zIndex = '-1';
