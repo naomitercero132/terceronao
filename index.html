@@ -19,10 +19,12 @@
     }
     body {
       font-family: 'Quicksand', sans-serif;
-      /* Mixture of mint green, light yellow, and light pink */
-      background: linear-gradient(135deg, rgba(193,225,193,0.3) 0%, rgba(253,253,150,0.3) 50%, rgba(255,175,204,0.3) 100%);
+      /* Pink Cheetah Print Background */
+      background: url('assets/cheetah.svg') repeat;
+      background-color: #ff69b4; /* Hot pink fallback */
+      background-size: 200px;
       background-attachment: fixed;
-      color: #555555;
+      color: #000;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -41,18 +43,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
+      background-color: #fff;
       border-radius: 50px; /* Pill shape */
-      box-shadow: 0 10px 25px rgba(193, 225, 193, 0.5); /* Mint green shadow */
-      border: 3px solid #fff;
+      border: 3px solid #000;
+      box-shadow: 5px 5px 0px #000; /* Edgy Y2K drop shadow */
     }
     .logo {
       font-family: 'Fredoka', sans-serif;
       font-size: 2rem;
       font-weight: 600;
-      color: #ffafcc; /* Pastel pink */
-      text-shadow: 2px 2px 0px #fdfd96; /* Pastel yellow shadow */
+      color: #000;
+      text-shadow: 2px 2px 0px #ff69b4; /* Hot pink shadow */
       transform: rotate(-3deg);
     }
     .nav-links {
@@ -62,16 +63,17 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: #888;
+      color: #000;
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
       font-size: 1.2rem;
-      transition: color 0.3s ease, transform 0.3s ease;
+      transition: all 0.3s ease;
       display: inline-block;
     }
     .nav-links a:hover {
-      color: #ffafcc; /* Pastel pink */
+      color: #ff1493; /* Deep pink */
       transform: scale(1.1) rotate(5deg);
+      text-shadow: 1px 1px 0px #000;
     }
 
     /* Hero Section */
@@ -83,35 +85,19 @@
       position: relative;
     }
 
-    /* Decorative Background Blob */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(253,253,150,0.5) 0%, rgba(255,255,255,0) 70%);
-      z-index: -1;
-      border-radius: 50%;
-    }
-
     /* Image Styling */
     .hero img {
       border-radius: 50%;
-      border: 6px solid #ffafcc;
-      outline: 8px dotted #fdfd96;
-      outline-offset: 8px;
-      box-shadow: 0 15px 35px rgba(255, 175, 204, 0.3);
+      border: 6px solid #000;
+      background-color: #fff;
+      box-shadow: 8px 8px 0px #ff1493;
       margin-bottom: 45px;
       transition: all 0.5s ease-in-out;
       animation: floatHero 6s ease-in-out infinite;
     }
     .hero img:hover {
-      outline: 8px dashed #c1e1c1; /* Mint green */
-      border-color: #fdfd96; /* Yellow */
-      outline-offset: 12px;
+      border-color: #ff1493;
+      box-shadow: 8px 8px 0px #000;
     }
 
     @keyframes floatHero {
@@ -124,52 +110,52 @@
       font-family: 'Fredoka', sans-serif;
       font-size: 3.5rem;
       font-weight: 600;
-      color: #444;
+      color: #000;
       margin-bottom: 20px;
+      background-color: #fff;
+      display: inline-block;
+      padding: 5px 20px;
+      border: 3px solid #000;
+      border-radius: 30px;
+      box-shadow: 5px 5px 0px #ff1493;
     }
     .highlight {
       font-family: 'Patrick Hand', cursive;
-      font-size: 5rem;
-      color: #ffafcc; /* Pastel pink */
+      font-size: 4.5rem;
+      color: #ff1493; /* Hot pink */
       display: inline-block;
       transform: rotate(-5deg);
       margin-left: 10px;
-      text-shadow: 3px 3px 0px #c1e1c1; /* Mint green shadow */
+      text-shadow: 2px 2px 0px #000; /* Black shadow */
     }
 
     .hero p {
       font-size: 1.3rem;
       max-width: 600px;
-      margin: 0 auto 30px;
-      color: #6c757d;
-      font-weight: 500;
-      background-color: rgba(255,255,255,0.5);
+      margin: 30px auto 30px;
+      color: #000;
+      font-weight: 700;
+      background-color: #fff;
       padding: 20px;
       border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+      border: 3px solid #000;
+      box-shadow: 6px 6px 0px #000;
     }
 
-    /* Pastel Bubbly Animated Button */
+    /* Edgy Y2K Animated Button */
     .btn-primary {
       display: inline-block;
       padding: 15px 40px;
-      background: linear-gradient(45deg, #ffafcc, #c1e1c1, #fdfd96);
-      background-size: 300% 300%;
-      color: #555;
+      background-color: #000;
+      color: #fff;
       text-decoration: none;
       border-radius: 50px;
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
       font-size: 1.3rem;
-      box-shadow: 0 6px 15px rgba(255, 175, 204, 0.4);
+      border: 3px solid #000;
+      box-shadow: 5px 5px 0px #ff1493;
       transition: all 0.3s ease;
-      animation: gradientBG 6s ease infinite;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     @keyframes bouncyBtn {
@@ -177,8 +163,10 @@
       50% { transform: translateY(-8px) scale(1.05) rotate(-2deg); }
     }
     .btn-primary:hover {
-      box-shadow: 0 8px 20px rgba(193, 225, 193, 0.6);
-      animation: bouncyBtn 1.5s ease-in-out infinite, gradientBG 6s ease infinite;
+      background-color: #ff1493;
+      color: #fff;
+      box-shadow: 5px 5px 0px #000;
+      animation: bouncyBtn 1.5s ease-in-out infinite;
     }
 
     /* Projects Section */
@@ -191,12 +179,13 @@
     #projects h2 {
       font-family: 'Fredoka', sans-serif;
       font-size: 3.5rem;
-      color: #ffafcc; /* Pastel pink */
+      color: #fff;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 0px #fff;
+      text-shadow: 4px 4px 0px #000;
+      -webkit-text-stroke: 2px #000;
     }
 
-    /* Scrapbook Polaroid Cards */
+    /* Scrapbook Polaroid Cards - Cool Girl Edit */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -207,8 +196,9 @@
     .project-card {
       background: #ffffff;
       border-radius: 5px;
-      padding: 15px 15px 30px 15px; /* Thicker bottom for polaroid look */
-      box-shadow: 0 10px 30px rgba(193, 225, 193, 0.4);
+      padding: 15px 15px 30px 15px;
+      border: 3px solid #000;
+      box-shadow: 8px 8px 0px #000;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: flex;
       flex-direction: column;
@@ -217,59 +207,61 @@
       position: relative;
     }
 
-    /* Washi tape decoration */
+    /* Washi tape / Stickers */
     .project-card::before {
-      content: '';
+      content: '🍒';
       position: absolute;
-      top: -15px;
-      left: 50%;
-      width: 100px;
-      height: 35px;
-      background-color: rgba(255, 175, 204, 0.7); /* Pink tape */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      top: -20px;
+      left: 10px;
+      font-size: 2.5rem;
+      transform: rotate(-15deg);
       z-index: 2;
     }
 
-    /* Scattered Layout & Tape Colors */
-    .project-card:nth-child(1) {
-      transform: rotate(-4deg);
-    }
-    .project-card:nth-child(1)::before {
-      transform: translateX(-50%) rotate(-5deg);
-    }
-
-    .project-card:nth-child(2) {
-      transform: rotate(3deg) translateY(20px);
-    }
     .project-card:nth-child(2)::before {
-      background-color: rgba(193, 225, 193, 0.8); /* Mint green tape */
-      transform: translateX(-50%) rotate(4deg);
+      content: '🎱';
+      top: -25px;
+      left: 80%;
+      transform: rotate(10deg);
     }
 
-    .project-card:nth-child(3) {
-      transform: rotate(-2deg);
-    }
     .project-card:nth-child(3)::before {
-      background-color: rgba(253, 253, 150, 0.9); /* Yellow tape */
-      transform: translateX(-50%) rotate(-3deg);
+      content: '★';
+      color: #000;
+      top: -20px;
+      left: 10px;
+      font-size: 3rem;
+    }
+
+    /* Scattered Layout */
+    .project-card:nth-child(1) { transform: rotate(-4deg); }
+    .project-card:nth-child(2) { transform: rotate(3deg) translateY(20px); }
+    .project-card:nth-child(3) { transform: rotate(-2deg); }
+
+    @keyframes bouncyCard {
+      0%, 100% { transform: translateY(-20px) scale(1.05); }
+      50% { transform: translateY(-30px) scale(1.05); }
     }
 
     .project-card:hover {
-      transform: translateY(-20px) rotate(0deg) scale(1.05);
       z-index: 10;
-      box-shadow: 0 20px 40px rgba(255, 175, 204, 0.5);
+      box-shadow: 12px 12px 0px #ff1493;
+      border-color: #ff1493;
+      animation: bouncyCard 1.5s ease-in-out infinite;
     }
 
     .project-card h3 {
-      font-family: 'Patrick Hand', cursive;
-      font-weight: 400;
-      color: #ffafcc; /* Pink */
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      color: #000;
       font-size: 2.2rem;
       margin-bottom: 10px;
       margin-top: 15px;
+      text-shadow: 2px 2px 0px #ffb6c1;
     }
     .project-card p {
-      color: #6c757d;
+      color: #000;
+      font-weight: 500;
       font-size: 1.1rem;
       margin-bottom: 25px;
       flex-grow: 1;
@@ -277,20 +269,21 @@
     .project-link {
       display: inline-block;
       padding: 10px 25px;
-      background-color: #fef5f9;
-      color: #ffafcc;
+      background-color: #fff;
+      color: #000;
       text-decoration: none;
       border-radius: 20px;
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
       transition: all 0.3s ease;
-      border: 2px dashed transparent;
+      border: 3px solid #000;
+      box-shadow: 3px 3px 0px #000;
     }
     .project-link:hover {
-      background-color: #ffafcc;
+      background-color: #ff1493;
       color: #fff;
-      border-color: #fff;
-      transform: rotate(-3deg);
+      transform: translateY(-3px) rotate(-3deg);
+      box-shadow: 5px 5px 0px #000;
     }
   </style>
 </head>
@@ -311,14 +304,12 @@
   <main>
     <!-- Hero Section -->
     <section id="hero" class="hero">
-      <!-- Image with new shape and outline -->
       <img src="assets/Tercero.png" alt="Naomi Tercero" width="250">
 
       <h1>Hello, I'm <span class="highlight">Naomi</span>!</h1>
 
-      <!-- A Fun and Meaningful Message -->
       <p>
-        Welcome to my digital playground! I'm passionate about blending creativity with code to build beautiful, user-friendly experiences. Whether I'm solving a complex problem or designing an elegant interface, every project here is a piece of my journey. Take a look around!
+        Welcome to my digital playground! 🎱 I'm passionate about blending creativity with code to build cool, user-friendly experiences. Whether I'm solving a complex problem or designing an edgy interface, every project here is a piece of my journey. Take a look around! 🍒
       </p>
 
       <a href="#projects" class="btn-primary">Explore My Work</a>
@@ -327,13 +318,13 @@
     <!-- Projects Section -->
     <section id="projects">
       <h2>My Projects</h2>
-      <p style="color: #6c757d; font-size: 1.3rem; font-weight: 500; font-family: 'Patrick Hand', cursive;">Check out some of my recent work below!</p>
+      <p style="color: #000; font-size: 1.4rem; font-weight: 700; font-family: 'Patrick Hand', cursive; background: #fff; display: inline-block; padding: 5px 15px; border: 2px solid #000; transform: rotate(-2deg); box-shadow: 3px 3px 0px #ff1493;">Check out some of my recent work below!</p>
 
       <div class="projects-grid">
         <!-- Project 1 -->
         <div class="project-card">
           <h3>2D Print</h3>
-          <p>A brief description of your amazing project goes here. Share what you built and the tools you used.</p>
+          <p>A deconstruction of my personal passport to create a look-alike model of Mexico.</p>
           <a href="#" class="project-link">View Project</a>
         </div>
 
@@ -356,17 +347,15 @@
   </main>
 
   <script>
-    // 1. Interactive Sparkle Cursor Trail
+    // 1. Interactive 8-Ball Cursor Trail
     document.addEventListener('mousemove', function(e) {
-      if (Math.random() > 0.4) return; // Limit number of sparkles
-      const colors = ['#ffafcc', '#c1e1c1', '#fdfd96'];
+      if (Math.random() > 0.3) return; // Limit number of pool balls
       const star = document.createElement('div');
-      star.innerHTML = '✦';
+      star.innerHTML = '🎱';
       star.style.position = 'fixed';
       star.style.left = e.clientX + 'px';
       star.style.top = e.clientY + 'px';
-      star.style.fontSize = Math.random() * 15 + 10 + 'px';
-      star.style.color = colors[Math.floor(Math.random() * colors.length)];
+      star.style.fontSize = Math.random() * 15 + 15 + 'px';
       star.style.pointerEvents = 'none';
       star.style.zIndex = '9999';
       star.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
@@ -382,26 +371,31 @@
       }, 800);
     });
 
-    // 2. Click Star Burst Effect
+    // 2. Click Burst Effect (Mix of 8-balls, cherries, and black stars)
     const btn = document.querySelector('.btn-primary');
     if (btn) {
       btn.addEventListener('click', function(e) {
         const href = btn.getAttribute('href');
         if (href && href.startsWith('#')) {
-          // It's an anchor link, let it scroll naturally but trigger burst
+          // Anchor link
         } else {
-          e.preventDefault(); // Delay navigation for burst
+          e.preventDefault();
         }
 
-        const colors = ['#ffafcc', '#c1e1c1', '#fdfd96'];
+        const symbols = ['🎱', '🍒', '★'];
+        const colors = ['#000', '#ff1493', '#fff'];
+
         for (let i = 0; i < 40; i++) {
           const star = document.createElement('div');
-          star.innerHTML = '★';
+          const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+          star.innerHTML = symbol;
           star.style.position = 'fixed';
           star.style.left = e.clientX + 'px';
           star.style.top = e.clientY + 'px';
-          star.style.fontSize = Math.random() * 20 + 10 + 'px';
-          star.style.color = colors[Math.floor(Math.random() * colors.length)];
+          star.style.fontSize = Math.random() * 20 + 15 + 'px';
+          if(symbol === '★') {
+             star.style.color = colors[Math.floor(Math.random() * colors.length)];
+          }
           star.style.pointerEvents = 'none';
           star.style.zIndex = '10000';
           star.style.transition = 'transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease-out';
@@ -430,17 +424,21 @@
       });
     }
 
-    // 3. Floating Background Stars
+    // 3. Floating Background Cool Girl Elements
     function createBackgroundStar() {
       const star = document.createElement('div');
-      star.innerHTML = '★';
+      const symbols = ['🎱', '🍒', '★'];
+      const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+      star.innerHTML = symbol;
       star.style.position = 'fixed';
       star.style.left = Math.random() * window.innerWidth + 'px';
       star.style.top = window.innerHeight + 50 + 'px';
-      const colors = ['#ffafcc', '#c1e1c1', '#fdfd96'];
-      star.style.color = colors[Math.floor(Math.random() * colors.length)];
-      star.style.opacity = Math.random() * 0.4 + 0.1;
-      star.style.fontSize = Math.random() * 25 + 10 + 'px';
+      if(symbol === '★') {
+          const colors = ['#000', '#ff1493', '#fff'];
+          star.style.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      star.style.opacity = Math.random() * 0.5 + 0.3;
+      star.style.fontSize = Math.random() * 30 + 15 + 'px';
       star.style.zIndex = '-1';
       const duration = Math.random() * 10 + 10; // 10-20 seconds
       star.style.transition = `transform ${duration}s linear, opacity ${duration}s linear`;
