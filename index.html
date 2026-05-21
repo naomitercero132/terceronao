@@ -19,12 +19,10 @@
     }
     body {
       font-family: 'Quicksand', sans-serif;
-      /* Pink Cheetah Print Background */
-      background: url('assets/cheetah.svg') repeat;
-      background-color: #ff69b4; /* Hot pink fallback */
-      background-size: 200px;
+      /* Soft pink to light yellow gradient */
+      background: linear-gradient(135deg, #ffd1dc 0%, #fffacd 100%);
       background-attachment: fixed;
-      color: #000;
+      color: #555;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -43,17 +41,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #fff;
-      border-radius: 50px; /* Pill shape */
-      border: 3px solid #000;
-      box-shadow: 5px 5px 0px #000; /* Edgy Y2K drop shadow */
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      border: 2px solid #ffb6c1;
+      box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
     }
     .logo {
       font-family: 'Fredoka', sans-serif;
       font-size: 2rem;
       font-weight: 600;
-      color: #000;
-      text-shadow: 2px 2px 0px #ff69b4; /* Hot pink shadow */
+      color: #ff69b4;
+      text-shadow: 1px 1px 0px #fffacd;
       transform: rotate(-3deg);
     }
     .nav-links {
@@ -63,7 +62,7 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: #000;
+      color: #ff69b4;
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
       font-size: 1.2rem;
@@ -71,9 +70,9 @@
       display: inline-block;
     }
     .nav-links a:hover {
-      color: #ff1493; /* Deep pink */
+      color: #ffb6c1;
       transform: scale(1.1) rotate(5deg);
-      text-shadow: 1px 1px 0px #000;
+      text-shadow: 1px 1px 5px rgba(255, 250, 205, 0.8);
     }
 
     /* Hero Section */
@@ -88,84 +87,84 @@
     /* Image Styling */
     .hero img {
       border-radius: 50%;
-      border: 6px solid #000;
+      border: 6px solid #fffacd;
       background-color: #fff;
-      box-shadow: 8px 8px 0px #ff1493;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.6);
       margin-bottom: 45px;
       transition: all 0.5s ease-in-out;
       animation: floatHero 6s ease-in-out infinite;
     }
     .hero img:hover {
-      border-color: #ff1493;
-      box-shadow: 8px 8px 0px #000;
+      border-color: #ffb6c1;
+      box-shadow: 0 10px 40px rgba(255, 250, 205, 0.8);
     }
 
     @keyframes floatHero {
-      0% { transform: translateY(0px) rotate(3deg); }
-      50% { transform: translateY(-15px) rotate(-2deg); }
-      100% { transform: translateY(0px) rotate(3deg); }
+      0% { transform: translateY(0px) rotate(2deg); }
+      50% { transform: translateY(-10px) rotate(-1deg); }
+      100% { transform: translateY(0px) rotate(2deg); }
     }
 
     h1 {
       font-family: 'Fredoka', sans-serif;
       font-size: 3.5rem;
       font-weight: 600;
-      color: #000;
+      color: #ff69b4;
       margin-bottom: 20px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.8);
       display: inline-block;
       padding: 5px 20px;
-      border: 3px solid #000;
+      border: 3px solid #fffacd;
       border-radius: 30px;
-      box-shadow: 5px 5px 0px #ff1493;
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
     }
     .highlight {
       font-family: 'Patrick Hand', cursive;
       font-size: 4.5rem;
-      color: #ff1493; /* Hot pink */
+      color: #ffb6c1;
       display: inline-block;
       transform: rotate(-5deg);
       margin-left: 10px;
-      text-shadow: 2px 2px 0px #000; /* Black shadow */
+      text-shadow: 2px 2px 5px rgba(255, 250, 205, 0.8);
     }
 
     .hero p {
       font-size: 1.3rem;
       max-width: 600px;
       margin: 30px auto 30px;
-      color: #000;
-      font-weight: 700;
-      background-color: #fff;
+      color: #666;
+      font-weight: 500;
+      background-color: rgba(255, 255, 255, 0.8);
       padding: 20px;
       border-radius: 20px;
-      border: 3px solid #000;
-      box-shadow: 6px 6px 0px #000;
+      border: 2px solid #fffacd;
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
     }
 
-    /* Edgy Y2K Animated Button */
+    /* Soft Animated Button */
     .btn-primary {
       display: inline-block;
       padding: 15px 40px;
-      background-color: #000;
+      background-color: #ffb6c1;
       color: #fff;
       text-decoration: none;
       border-radius: 50px;
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
       font-size: 1.3rem;
-      border: 3px solid #000;
-      box-shadow: 5px 5px 0px #ff1493;
+      border: 3px solid #fff;
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
       transition: all 0.3s ease;
     }
 
     @keyframes bouncyBtn {
-      0%, 100% { transform: translateY(-3px) scale(1.05) rotate(2deg); }
-      50% { transform: translateY(-8px) scale(1.05) rotate(-2deg); }
+      0%, 100% { transform: translateY(-2px) scale(1.02); }
+      50% { transform: translateY(-5px) scale(1.02); }
     }
     .btn-primary:hover {
-      background-color: #ff1493;
-      color: #fff;
-      box-shadow: 5px 5px 0px #000;
+      background-color: #fffacd;
+      color: #ff69b4;
+      box-shadow: 0 8px 20px rgba(255, 250, 205, 0.8);
       animation: bouncyBtn 1.5s ease-in-out infinite;
     }
 
@@ -179,13 +178,12 @@
     #projects h2 {
       font-family: 'Fredoka', sans-serif;
       font-size: 3.5rem;
-      color: #fff;
+      color: #ff69b4;
       margin-bottom: 20px;
-      text-shadow: 4px 4px 0px #000;
-      -webkit-text-stroke: 2px #000;
+      text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
     }
 
-    /* Scrapbook Polaroid Cards - Cool Girl Edit */
+    /* Scrapbook Polaroid Cards - Soft Edit */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -194,12 +192,12 @@
       padding: 20px;
     }
     .project-card {
-      background: #ffffff;
-      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
       padding: 15px 15px 30px 15px;
-      border: 3px solid #000;
-      box-shadow: 8px 8px 0px #000;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid #ffb6c1;
+      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.2);
+      transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -207,9 +205,9 @@
       position: relative;
     }
 
-    /* Washi tape / Stickers */
+    /* Stars */
     .project-card::before {
-      content: '🍒';
+      content: '⭐';
       position: absolute;
       top: -20px;
       left: 10px;
@@ -219,48 +217,47 @@
     }
 
     .project-card:nth-child(2)::before {
-      content: '🎱';
+      content: '✨';
       top: -25px;
       left: 80%;
       transform: rotate(10deg);
     }
 
     .project-card:nth-child(3)::before {
-      content: '★';
-      color: #000;
+      content: '🌟';
       top: -20px;
       left: 10px;
       font-size: 3rem;
     }
 
     /* Scattered Layout */
-    .project-card:nth-child(1) { transform: rotate(-4deg); }
-    .project-card:nth-child(2) { transform: rotate(3deg) translateY(20px); }
-    .project-card:nth-child(3) { transform: rotate(-2deg); }
+    .project-card:nth-child(1) { transform: rotate(-2deg); }
+    .project-card:nth-child(2) { transform: rotate(2deg) translateY(10px); }
+    .project-card:nth-child(3) { transform: rotate(-1deg); }
 
-    @keyframes bouncyCard {
-      0%, 100% { transform: translateY(-20px) scale(1.05); }
-      50% { transform: translateY(-30px) scale(1.05); }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(-10px) scale(1.02); }
+      50% { transform: translateY(-15px) scale(1.02); }
     }
 
     .project-card:hover {
       z-index: 10;
-      box-shadow: 12px 12px 0px #ff1493;
-      border-color: #ff1493;
-      animation: bouncyCard 1.5s ease-in-out infinite;
+      box-shadow: 0 15px 30px rgba(255, 250, 205, 0.6);
+      border-color: #fffacd;
+      animation: floatCard 2s ease-in-out infinite;
     }
 
     .project-card h3 {
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
-      color: #000;
+      color: #ff69b4;
       font-size: 2.2rem;
       margin-bottom: 10px;
       margin-top: 15px;
-      text-shadow: 2px 2px 0px #ffb6c1;
+      text-shadow: 1px 1px 0px #fffacd;
     }
     .project-card p {
-      color: #000;
+      color: #666;
       font-weight: 500;
       font-size: 1.1rem;
       margin-bottom: 25px;
@@ -269,21 +266,21 @@
     .project-link {
       display: inline-block;
       padding: 10px 25px;
-      background-color: #fff;
-      color: #000;
+      background-color: #fffacd;
+      color: #ff69b4;
       text-decoration: none;
       border-radius: 20px;
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
       transition: all 0.3s ease;
-      border: 3px solid #000;
-      box-shadow: 3px 3px 0px #000;
+      border: 2px solid #ffb6c1;
+      box-shadow: 0 3px 10px rgba(255, 182, 193, 0.3);
     }
     .project-link:hover {
-      background-color: #ff1493;
+      background-color: #ffb6c1;
       color: #fff;
-      transform: translateY(-3px) rotate(-3deg);
-      box-shadow: 5px 5px 0px #000;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
     }
   </style>
 </head>
@@ -309,7 +306,7 @@
       <h1>Hello, I'm <span class="highlight">Naomi</span>!</h1>
 
       <p>
-        Welcome to my digital playground! 🎱 I'm passionate about blending creativity with code to build cool, user-friendly experiences. Whether I'm solving a complex problem or designing an edgy interface, every project here is a piece of my journey. Take a look around! 🍒
+        Welcome to my digital playground! ✨ I'm passionate about blending creativity with code to build soft, user-friendly experiences. Whether I'm solving a complex problem or designing a cute interface, every project here is a piece of my journey. Take a look around! ⭐
       </p>
 
       <a href="#projects" class="btn-primary">Explore My Work</a>
@@ -318,7 +315,7 @@
     <!-- Projects Section -->
     <section id="projects">
       <h2>My Projects</h2>
-      <p style="color: #000; font-size: 1.4rem; font-weight: 700; font-family: 'Patrick Hand', cursive; background: #fff; display: inline-block; padding: 5px 15px; border: 2px solid #000; transform: rotate(-2deg); box-shadow: 3px 3px 0px #ff1493;">Check out some of my recent work below!</p>
+      <p style="color: #ff69b4; font-size: 1.4rem; font-weight: 700; font-family: 'Patrick Hand', cursive; background: rgba(255, 255, 255, 0.8); display: inline-block; padding: 5px 15px; border: 2px solid #fffacd; border-radius: 10px; transform: rotate(-2deg); box-shadow: 0 5px 10px rgba(255, 182, 193, 0.3);">Check out some of my recent work below!</p>
 
       <div class="projects-grid">
         <!-- Project 1 -->
@@ -347,11 +344,12 @@
   </main>
 
   <script>
-    // 1. Interactive 8-Ball Cursor Trail
+    // 1. Interactive Star Cursor Trail
     document.addEventListener('mousemove', function(e) {
-      if (Math.random() > 0.3) return; // Limit number of pool balls
+      if (Math.random() > 0.3) return; // Limit number of stars
       const star = document.createElement('div');
-      star.innerHTML = '🎱';
+      const symbols = ['⭐', '✨', '🌟'];
+      star.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
       star.style.position = 'fixed';
       star.style.left = e.clientX + 'px';
       star.style.top = e.clientY + 'px';
@@ -371,7 +369,7 @@
       }, 800);
     });
 
-    // 2. Click Burst Effect (Mix of 8-balls, cherries, and black stars)
+    // 2. Click Burst Effect (Mix of soft stars)
     const btn = document.querySelector('.btn-primary');
     if (btn) {
       btn.addEventListener('click', function(e) {
@@ -382,8 +380,8 @@
           e.preventDefault();
         }
 
-        const symbols = ['🎱', '🍒', '★'];
-        const colors = ['#000', '#ff1493', '#fff'];
+        const symbols = ['⭐', '✨', '🌟', '★'];
+        const colors = ['#ffb6c1', '#fffacd', '#ff69b4', '#fff'];
 
         for (let i = 0; i < 40; i++) {
           const star = document.createElement('div');
@@ -424,17 +422,17 @@
       });
     }
 
-    // 3. Floating Background Cool Girl Elements
+    // 3. Floating Background Soft Stars
     function createBackgroundStar() {
       const star = document.createElement('div');
-      const symbols = ['🎱', '🍒', '★'];
+      const symbols = ['⭐', '✨', '🌟', '★'];
       const symbol = symbols[Math.floor(Math.random() * symbols.length)];
       star.innerHTML = symbol;
       star.style.position = 'fixed';
       star.style.left = Math.random() * window.innerWidth + 'px';
       star.style.top = window.innerHeight + 50 + 'px';
       if(symbol === '★') {
-          const colors = ['#000', '#ff1493', '#fff'];
+          const colors = ['#ffb6c1', '#fffacd', '#fff'];
           star.style.color = colors[Math.floor(Math.random() * colors.length)];
       }
       star.style.opacity = Math.random() * 0.5 + 0.3;
