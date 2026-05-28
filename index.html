@@ -4,16 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naomi | Portfolio</title>
-
   <!-- Modern Professional Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
-
   <!-- Model Viewer for 3D Models -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-
-
   <style>
     /* CSS Variables */
     :root {
@@ -25,7 +21,6 @@
       --surface: #ffffff;
       --border: #e9ecef;
     }
-
     /* Reset & Base Styles */
     * {
       margin: 0;
@@ -41,7 +36,6 @@
       overflow-x: hidden;
       position: relative;
     }
-
     /* Interactive Spotlight */
     #spotlight {
       position: fixed;
@@ -56,7 +50,6 @@
       z-index: 9999;
       transition: opacity 0.3s ease;
     }
-
     /* Navigation */
     header {
       position: sticky;
@@ -99,7 +92,6 @@
     .nav-links a:hover {
       color: var(--text-main);
     }
-
     /* Hero Section */
     .hero {
       text-align: center;
@@ -109,7 +101,6 @@
       position: relative;
       z-index: 10;
     }
-
     h1 {
       font-family: 'Outfit', sans-serif;
       font-size: 4rem;
@@ -122,7 +113,6 @@
     .highlight {
       color: var(--primary);
     }
-
     .hero p {
       font-size: 1.25rem;
       max-width: 650px;
@@ -130,7 +120,6 @@
       color: var(--text-muted);
       font-weight: 400;
     }
-
     /* Professional Button */
     .btn-primary {
       display: inline-block;
@@ -152,7 +141,6 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(255, 255, 255, 0.7);
     }
-
     /* Projects Section */
     #projects {
       padding: 80px 20px;
@@ -169,7 +157,6 @@
       text-align: center;
       letter-spacing: -0.5px;
     }
-
     /* Clean Project Cards */
     .projects-grid {
       display: grid;
@@ -187,13 +174,11 @@
       display: flex;
       flex-direction: column;
     }
-
     .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.08);
       border-color: rgba(255, 255, 255, 0.8);
     }
-
     .project-card h3 {
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
@@ -231,7 +216,6 @@
     .project-link:hover::after {
       transform: translateX(4px);
     }
-
     .project-image {
       width: 100%;
       height: auto;
@@ -259,10 +243,8 @@
   </style>
 </head>
 <body>
-
   <!-- Background Spotlight -->
   <div id="spotlight"></div>
-
   <!-- Navigation Bar -->
   <header>
     <nav>
@@ -273,7 +255,6 @@
       </ul>
     </nav>
   </header>
-
   <!-- Main Content Area -->
   <main>
     <!-- Hero Section -->
@@ -284,11 +265,9 @@
       </p>
       <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
-
     <!-- Projects Section -->
     <section id="projects">
       <h2>Featured Projects</h2>
-
       <div class="projects-grid">
         <!-- Project 1 -->
         <div class="project-card">
@@ -314,9 +293,7 @@
         </div>
       </div>
     </section>
-
   </main>
-
   <script>
     // Professional Interactive Spotlight Effect
     const spotlight = document.getElementById('spotlight');
@@ -336,7 +313,6 @@
     document.addEventListener('mouseenter', () => {
       spotlight.style.opacity = '1';
     });
-
     // Sleek Click Ripple Effect
     document.addEventListener('click', function(e) {
       // Don't trigger if clicking a link/button to avoid messy overlaps
