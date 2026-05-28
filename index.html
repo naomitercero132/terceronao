@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naomi | Portfolio</title>
 
-  <!-- Modern Professional Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Model Viewer for 3D Models -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-
 
   <style>
     /* CSS Variables */
@@ -20,8 +17,8 @@
       --bg-color: #ffe4e8;
       --text-main: #212529;
       --text-muted: #6c757d;
-      --primary: #ffffff;
-      --primary-hover: #f8f9fa;
+      --primary: #d63384; /* Fixed: Changed from white so your name/highlights are visible */
+      --primary-hover: #b8236c;
       --surface: #ffffff;
       --border: #e9ecef;
     }
@@ -135,22 +132,22 @@
     .btn-primary {
       display: inline-block;
       padding: 14px 32px;
-      background-color: var(--primary);
-      color: var(--text-main);
+      background-color: var(--text-main);
+      color: #ffffff;
       text-decoration: none;
       border-radius: 8px;
       font-family: 'Inter', sans-serif;
       font-weight: 500;
       font-size: 1.1rem;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       position: relative;
       overflow: hidden;
     }
     .btn-primary:hover {
-      background-color: var(--primary-hover);
+      background-color: #343a40;
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
     /* Projects Section */
@@ -226,7 +223,7 @@
       transition: transform 0.2s ease;
     }
     .project-link:hover {
-      color: var(--primary-hover);
+      color: var(--primary);
     }
     .project-link:hover::after {
       transform: translateX(4px);
@@ -234,7 +231,8 @@
 
     .project-image {
       width: 100%;
-      height: auto;
+      height: 200px;
+      object-fit: cover;
       border-radius: 8px;
       margin-bottom: 20px;
       border: 1px solid var(--border);
@@ -306,16 +304,14 @@
     .modal-viewer-container {
       width: 100%;
       height: 100%;
-      background-color: var(--bg-color);
+      background-color: #fafafa;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Spotlight -->
   <div id="spotlight"></div>
 
-  <!-- Navigation Bar -->
   <header>
     <nav>
       <div class="logo">Naomi.</div>
@@ -326,9 +322,7 @@
     </nav>
   </header>
 
-  <!-- Main Content Area -->
   <main>
-    <!-- Hero Section -->
     <section id="hero" class="hero">
       <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
       <p>
@@ -337,12 +331,10 @@
       <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
       <h2>Featured Projects</h2>
 
       <div class="projects-grid">
-        <!-- Project 1 -->
         <div class="project-card">
           <img src="assets/Tercero.png" alt="2D Print" class="project-image">
           <h3>2D Print</h3>
@@ -350,7 +342,6 @@
           <a href="#" class="project-link">View Project</a>
         </div>
 
-        <!-- Project 2 -->
         <div class="project-card">
           <img src="assets/sonny_placeholder.png" alt="3D Model Placeholder" class="project-image">
           <h3>3D Model</h3>
@@ -358,8 +349,8 @@
           <a href="#" class="project-link" onclick="openModelModal(event)">View Project</a>
         </div>
 
-        <!-- Project 3 -->
         <div class="project-card">
+          <img src="assets/video_placeholder.png" alt="4D Video Placeholder" class="project-image">
           <h3>4D Video</h3>
           <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
           <a href="#" class="project-link">View Project</a>
@@ -369,11 +360,20 @@
 
   </main>
 
-  <!-- 3D Model Modal -->
   <div id="modelModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModelModal()">&times;</span>
-      <model-viewer src="assets/sonnywrap.glb" alt="A 3D model of a Sonny Angel" auto-rotate camera-controls class="modal-viewer-container"></model-viewer>
+      <model-viewer
+        id="sonnyViewer"
+        src="assets/sonnywrap.glb"
+        alt="A 3D model of a Sonny Angel"
+        auto-rotate
+        camera-controls
+        shadow-intensity="1"
+        ar
+        interaction-prompt="auto"
+        class="modal-viewer-container">
+      </model-viewer>
     </div>
   </div>
 
@@ -382,7 +382,6 @@
     const spotlight = document.getElementById('spotlight');
 
     document.addEventListener('mousemove', (e) => {
-      // Small delay for smooth effect
       requestAnimationFrame(() => {
         spotlight.style.left = e.clientX + 'px';
         spotlight.style.top = e.clientY + 'px';
@@ -399,7 +398,6 @@
 
     // Sleek Click Ripple Effect
     document.addEventListener('click', function(e) {
-      // Don't trigger if clicking a link/button to avoid messy overlaps
       if (e.target.tagName === 'A' || e.target.closest('a')) return;
 
       const ripple = document.createElement('div');
@@ -417,12 +415,20 @@
       }, 600);
     });
 
-    // 3D Model Modal Logic
+    // 3D Model Modal & Reset Logic
     const modal = document.getElementById('modelModal');
+    const modelViewer = document.getElementById('sonnyViewer');
 
     function openModelModal(e) {
       e.preventDefault();
       modal.classList.add('show');
+
+      // Fix: Force the 3D model camera to reset position every time it is opened
+      if(modelViewer && modelViewer.updateFraming) {
+        setTimeout(() => {
+          modelViewer.updateFraming();
+        }, 100);
+      }
     }
 
     function closeModelModal() {
