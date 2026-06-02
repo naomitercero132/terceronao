@@ -46,12 +46,21 @@
   <span class="project-link" style="opacity: 0.6; cursor: not-allowed;">Coming Soon</span>
 </div>
 
-        <div class="project-card">
-          <img src="assets/sonny_placeholder.png" alt="3D Model Placeholder" class="project-image">
-          <h3>3D Model</h3>
-          <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
-          <a href="#" class="project-link" onclick="openModelModal(event)">View Project</a>
-        </div>
+<div class="project-card">
+<div class="project-model-container">
+<model-viewer
+src="assets/Wrap Sonny.glb"
+alt="A 3D model of a Sonny Angel"
+auto-rotate
+camera-controls
+shadow-intensity="1"
+interaction-prompt="auto"
+style="width: 100%; height: 250px; background-color: #f0f0f0; border-radius: 8px;">
+</model-viewer>
+</div>
+<h3>3D Model</h3>
+<p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
+</div>
 
         <div class="project-card">
           <img src="assets/video_placeholder.png" alt="4D Video Placeholder" class="project-image">
