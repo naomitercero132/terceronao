@@ -165,13 +165,18 @@ style="width: 100%; height: 250px; background-color: #f0f0f0; border-radius: 8px
 
     <footer>
       <div class="footer-content">
-        <p>&copy; 2026 Naomi Tercero. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="mailto:your.email@example.com">Email</a>
+        <div class="footer-left">
+          <p>&copy; <span id="current-year"></span> Naomi Tercero. Built with passion & code.</p>
+        </div>
+
+        <div class="footer-right">
+          <div class="footer-links">
+            <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link">GitHub</a>
+            <a href="mailto:your.email@example.com" class="underlined-link">Email</a>
           </div>
+          <button onclick="scrollToTop()" id="backToTopBtn" aria-label="Back to top">↑</button>
+        </div>
       </div>
     </footer>
-
   </body>
   </html>
