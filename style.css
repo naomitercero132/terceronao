@@ -292,3 +292,16 @@ h1 {
   height: 100%;
   background-color: #fafafa;
 }
+.project-model-container {
+  width: 100%;
+  height: 250px; /* Adjust this height to match the size of your 2D Print image */
+  overflow: hidden;
+  border-radius: 8px; /* Keeps the corners soft and modern */
+  margin-bottom: 15px;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+  --poster-color: transparent; /* Removes any ugly loading flashes */
+}
