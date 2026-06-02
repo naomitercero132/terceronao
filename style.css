@@ -305,3 +305,47 @@ model-viewer {
   height: 100%;
   --poster-color: transparent; /* Removes any ugly loading flashes */
 }
+footer {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #0f0f11; /* Dark background to contrast with the site */
+  color: #a0a0a5; /* Soft gray text for modern legibility */
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  border-top: 1px solid #222225; /* Subtle separation line */
+  margin-top: 80px; /* Gives the project section breathing room */
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff4a5a; /* Replace this with whatever your site's highlight/accent color is! */
+}
+
+/* Make it look neat on mobile screens */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-links a {
+    margin: 0 10px;
+  }
+}
