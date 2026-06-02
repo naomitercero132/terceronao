@@ -64,22 +64,23 @@
 
   </main>
 
-  <div id="modelModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModelModal()">&times;</span>
-      <model-viewer
-        id="sonnyViewer"
-        src="assets/Wrap Sonny.glb"
-        alt="A 3D model of a Sonny Angel"
-        auto-rotate
-        camera-controls
-        shadow-intensity="1"
-        ar
-        interaction-prompt="auto"
-        class="modal-viewer-container">
-      </model-viewer>
-    </div>
+  <div id="modelModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModelModal()" aria-label="Close modal" style="cursor: pointer;">&times;</span>
+    <h3 id="modalTitle" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Sonny Angel 3D Model Viewer</h3>
+    <model-viewer
+      id="sonnyViewer"
+      src="assets/Wrap Sonny.glb"
+      alt="A 3D model of a Sonny Angel"
+      auto-rotate
+      camera-controls
+      shadow-intensity="1"
+      ar
+      interaction-prompt="auto"
+      class="modal-viewer-container">
+    </model-viewer>
   </div>
+</div>
 
   <script>
     // Professional Interactive Spotlight Effect
