@@ -13,19 +13,22 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
-  <!-- Proportional Layout Expansion (Original Colors Preserved) -->
+  <!-- Proportional Layout Expansion (Pink & White Palette) -->
   <style>
-    /* Reset defaults for expansive full-screen environments */
+    /* Reset defaults for a crisp, bright white and pink canvas */
     body {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      background-color: #ffffff; /* Pure white canvas */
+      color: #2d2327; /* Soft dark berry for highly legible, premium typography */
     }
 
     /* Expansive Navigation Framework */
     header {
       width: 100%;
       padding: 40px 0;
+      background-color: #ffffff;
     }
 
     nav {
@@ -41,6 +44,7 @@
       font-family: 'Outfit', sans-serif;
       font-weight: 700;
       font-size: calc(1.5rem + 0.5vw);
+      color: #ff4b72; /* Vibrant rose logo accent */
       cursor: pointer;
       transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -58,7 +62,7 @@
     }
 
     .nav-links a {
-      color: #a1a1aa;
+      color: #8c767e;
       text-decoration: none;
       font-family: 'Inter', sans-serif;
       font-weight: 500;
@@ -68,7 +72,7 @@
     }
 
     .nav-links a:hover {
-      color: #ffffff;
+      color: #ff4b72;
       transform: translateY(-2px);
     }
 
@@ -85,8 +89,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center; /* Centered layout */
-      text-align: center; /* Centered layout */
+      align-items: center;
+      text-align: center;
       padding: 140px 0 !important;
       max-width: 900px;
       margin: 0 auto;
@@ -97,29 +101,45 @@
       line-height: 1.1;
       margin-bottom: 30px;
       font-family: 'Outfit', sans-serif;
+      color: #2d2327;
+    }
+
+    .hero h1 .highlight {
+      color: #ff4b72; /* Pink accent on your name */
     }
 
     .hero p {
       font-size: calc(1.1rem + 0.4vw) !important;
       line-height: 1.7 !important;
-      color: #a1a1aa;
+      color: #615056;
       margin-bottom: 50px;
     }
 
     .btn-primary {
+      background: #ff4b72;
+      color: #ffffff !important;
+      padding: 16px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: inline-block;
+      box-shadow: 0 10px 25px rgba(255, 75, 114, 0.2);
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .btn-primary:hover {
+      background: #e0365b;
       transform: scale(1.05) translateY(-3px);
-      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 30px rgba(255, 75, 114, 0.35);
     }
 
-    /* Structural space filling capability architecture */
+    /* Structural space filling capability architecture (Soft Pink Accents) */
     .capabilities-section {
       padding: 100px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid #ffe3eb;
+      border-bottom: 1px solid #ffe3eb;
       margin-bottom: 100px;
     }
 
@@ -130,7 +150,7 @@
     }
 
     .cap-box {
-      text-align: center; /* Centered content details */
+      text-align: center;
       transition: transform 0.3s ease;
     }
 
@@ -142,47 +162,48 @@
       font-family: 'Outfit', sans-serif;
       font-size: calc(2.5rem + 1vw);
       margin: 0 0 10px 0;
-      color: #ffffff;
+      color: #ffb8cb; /* Pastel pink stylized numbers */
     }
 
     .cap-box h4 {
       font-family: 'Outfit', sans-serif;
       font-size: 1.3rem;
       margin: 0 0 15px 0;
-      color: #ffffff;
+      color: #2d2327;
     }
 
     .cap-box p {
       font-family: 'Inter', sans-serif;
       font-size: 1.05rem;
       line-height: 1.6;
-      color: #888892;
+      color: #7d6870;
       margin: 0;
     }
 
     /* Centered Project Gallery Setting */
     #projects {
       padding: 60px 0 140px 0 !important;
-      text-align: center; /* Centered main title */
+      text-align: center;
     }
 
     #projects h2 {
       font-family: 'Outfit', sans-serif;
       font-size: calc(2.2rem + 1vw);
       margin-bottom: 50px;
+      color: #2d2327;
     }
 
     .filter-container {
       display: flex;
-      justify-content: center; /* Centered filters layout */
+      justify-content: center;
       gap: 16px;
       margin-bottom: 60px;
     }
 
     .filter-btn {
-      background: #16161a;
-      color: #a1a1aa;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #fff0f3; /* Gentle blush pink button background */
+      color: #8c767e;
+      border: 1px solid #ffd1dc;
       padding: 14px 28px;
       border-radius: 40px;
       font-family: 'Outfit', sans-serif;
@@ -193,11 +214,11 @@
     }
 
     .filter-btn.active, .filter-btn:hover {
-      background: #ffffff;
-      color: #0d0d11 !important;
-      border-color: #ffffff;
+      background: #ff4b72;
+      color: #ffffff !important;
+      border-color: #ff4b72;
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 30px rgba(255, 75, 114, 0.25);
     }
 
     /* Massive Wide-Screen Proportional Columns */
@@ -206,13 +227,14 @@
       grid-template-columns: repeat(3, 1fr) !important;
       gap: 50px !important;
       width: 100% !important;
-      text-align: left; /* Keep project text cleanly aligned inside their blocks */
+      text-align: left;
     }
 
     .project-card {
       width: 100% !important;
       margin: 0 !important;
-      background: #16161a;
+      background: #fff8f9; /* Soft cream-pink background card */
+      border: 1px solid #ffe6ec;
       border-radius: 16px;
       padding: 32px;
       box-sizing: border-box;
@@ -225,7 +247,8 @@
     /* High Interactive Lift and Depth Effects */
     .project-card:hover {
       transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 25px 50px rgba(255, 184, 203, 0.4);
+      border-color: #ffd1dc;
     }
 
     /* Scaled asset cards */
@@ -251,22 +274,29 @@
       font-family: 'Outfit', sans-serif;
       font-size: 1.6rem;
       margin: 0 0 12px 0;
+      color: #2d2327;
     }
 
     .project-card p {
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       line-height: 1.6;
-      color: #a1a1aa;
+      color: #7d6870;
       margin: 0 0 24px 0;
     }
 
     .project-link {
+      color: #ff4b72;
+      text-decoration: none;
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
       font-size: 1.1rem;
       display: inline-block;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: #e0365b;
     }
 
     .project-card:hover .project-link {
@@ -281,15 +311,15 @@
       visibility: hidden;
     }
 
-    /* Premium Immersive Wide-Format Footer */
+    /* Premium Immersive Pink & White Format Footer */
     footer {
       width: 100%;
       padding: 120px 0 !important;
-      background: linear-gradient(180deg, #0d0d11 0%, #060608 100%) !important;
-      color: #a1a1aa !important;
+      background: #fff0f3 !important; /* Soft blush base */
+      color: #8c767e !important;
       font-family: 'Inter', sans-serif;
       font-size: 1.05rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+      border-top: 1px solid #ffd1dc !important;
       margin-top: 100px !important;
     }
 
@@ -316,7 +346,7 @@
     }
 
     .underlined-link {
-      color: #ffffff !important;
+      color: #ff4b72 !important;
       text-decoration: none;
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
@@ -335,7 +365,7 @@
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: #ffffff;
+      background-color: #ff4b72;
       transform-origin: bottom right;
       transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -346,9 +376,9 @@
     }
 
     #backToTopBtn {
-      background-color: #18181c !important;
-      color: #ffffff !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      background-color: #ffffff !important;
+      color: #ff4b72 !important;
+      border: 1px solid #ffd1dc !important;
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -361,10 +391,94 @@
     }
 
     #backToTopBtn:hover {
-      background-color: #ffffff !important;
-      color: #0d0d11 !important;
+      background-color: #ff4b72 !important;
+      color: #ffffff !important;
       transform: translateY(-5px);
-      border-color: #ffffff !important;
+      border-color: #ff4b72 !important;
+      box-shadow: 0 10px 20px rgba(255, 75, 114, 0.2);
+    }
+
+    /* Modals Overlay Base styling */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(45, 35, 39, 0.8); /* Elegant dark berry dimming mask */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 10000;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1100px;
+      height: 80vh;
+      background: #ffffff;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 2.5rem;
+      color: #8c767e;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      z-index: 10100;
+    }
+
+    .close-btn:hover {
+      color: #ff4b72;
+    }
+
+    .modal-body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Model fullscreen styling */
+    .model-fullscreen-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #ffffff;
+      color: #ff4b72;
+      border: 1px solid #ffd1dc;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .model-fullscreen-btn:hover {
+      background: #ff4b72;
+      color: #ffffff;
+      border-color: #ff4b72;
     }
 
     /* Graceful scale transitions across variable breakdown configurations */
@@ -425,7 +539,7 @@
       <p>
         Welcome to my digital portfolio. I am passionate about blending creativity with code to build seamless, user-friendly experiences. Whether I'm solving a complex problem or designing an intuitive interface, every project here reflects my commitment to quality and modern design.
       </p>
-      <a href="#projects" class="btn-primary" style="background: #ffffff; color: #0d0d11; padding: 16px 32px; border-radius: 30px; text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.1rem; display: inline-block;">Explore My Work</a>
+      <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
 
     <!-- Centered Capability Grid -->
@@ -468,7 +582,7 @@
 
         <!-- 1. Interactive 2D Print Card -->
         <div class="project-card" data-category="print">
-          <div class="media-wrapper" onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="background-color: #1a1a1e; cursor: zoom-in;">
+          <div class="media-wrapper" onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="background-color: #fff0f3; cursor: zoom-in;">
             <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
           <div>
@@ -480,7 +594,7 @@
 
         <!-- 2. Interactive 3D Model Card -->
         <div class="project-card" data-category="digital">
-          <div class="media-wrapper" style="background-color: #f0f0f0;">
+          <div class="media-wrapper" style="background-color: #fff0f3;">
             <model-viewer
               src="assets/Wrap Sonny.glb"
               alt="A 3D model of a Sonny Angel"
@@ -502,12 +616,12 @@
         <!-- 3. 4D Video Card -->
         <div class="project-card" data-category="digital">
           <div class="media-wrapper">
-            <div class="video-preview-container" onclick="openProject('4d', event)" style="height: 100%;">
+            <div class="video-preview-container" onclick="openProject('4d', event)" style="height: 100%; position: relative; cursor: pointer;">
               <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-              <div class="play-overlay">
-                <div class="play-icon">
+              <div class="play-overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(45,35,39,0.15); display:flex; align-items:center; justify-content:center;">
+                <div class="play-icon" style="background: #ffffff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 5v14l11-7z" fill="#0d0d11"/>
+                    <path d="M8 5v14l11-7z" fill="#ff4b72"/>
                   </svg>
                 </div>
               </div>
@@ -547,13 +661,13 @@
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
         <!-- 2D Image View -->
-        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(255,184,203,0.3);">
 
         <!-- 3D Model View -->
         <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
 
         <!-- 4D Video View -->
-        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"></video>
+        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(255,184,203,0.3);"></video>
       </div>
     </div>
   </div>
@@ -589,7 +703,6 @@
       passportImg.style.transform = 'scale(1.4)';
     }
 
-    // Smooth reset when leaving picture boundaries
     function resetPrint() {
       passportImg.style.transformOrigin = 'center center';
       passportImg.style.transform = 'scale(1)';
