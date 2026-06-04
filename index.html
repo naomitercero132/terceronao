@@ -174,7 +174,7 @@
       box-shadow: 0 6px 20px rgba(255, 184, 198, 0.4);
     }
 
-    /* NEW SECTION: Capabilities Grid Panel */
+    /* Capabilities Grid Panel */
     .capabilities-ribbon {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -335,7 +335,7 @@
       color: white;
     }
 
-    /* NEW SECTION: Design Philosophy Showcase */
+    /* Design Philosophy Showcase */
     .philosophy-banner {
       background: linear-gradient(135deg, #ffffff 0%, var(--pastel-pink) 100%);
       border: 1px solid rgba(255, 184, 198, 0.4);
@@ -357,6 +357,103 @@
       font-size: 1.05rem;
       line-height: 1.7;
       max-width: 850px;
+    }
+
+    /* NEW SECTION: "Write To Me" Contact Form Component */
+    .contact-section {
+      margin-bottom: 60px;
+    }
+
+    .contact-section h2 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+    }
+
+    .contact-container {
+      background: #ffffff;
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      padding: 50px;
+      border-radius: 24px;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(58, 46, 48, 0.02);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background-color: var(--bg-cream);
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: #ffffff;
+      border-color: var(--main-pink);
+      box-shadow: 0 0 0 4px rgba(255, 184, 198, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .btn-submit {
+      background-color: var(--text-dark);
+      color: #ffffff;
+      border: none;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(58, 46, 48, 0.1);
+    }
+
+    .btn-submit:hover {
+      background-color: var(--main-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 184, 198, 0.4);
+    }
+
+    .btn-submit svg {
+      transition: transform 0.25s ease;
+    }
+
+    .btn-submit:hover svg {
+      transform: translate(3px, -3px);
     }
 
     /* Modal Framework */
@@ -512,6 +609,7 @@
       header { padding: 15px; }
       main { padding: 0 20px; }
       .philosophy-banner { padding: 30px; }
+      .contact-container { padding: 30px; }
       footer {
         padding: 60px 24px !important;
         text-align: center;
@@ -538,6 +636,7 @@
         <li><a href="#hero">About</a></li>
         <li><a href="#capabilities">Focus</a></li>
         <li><a href="#projects">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -552,7 +651,7 @@
       <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
 
-    <!-- NEW Section 2: Expanded Focus Area Grid (Fills Space) -->
+    <!-- Section 2: Expanded Focus Area Grid -->
     <section id="capabilities" class="capabilities-ribbon">
       <div class="capability-card">
         <span class="num">01 / LAYOUT</span>
@@ -623,12 +722,45 @@
       </div>
     </section>
 
-    <!-- NEW Section 4: Creative Philosophy Frame (Fills Space) -->
+    <!-- Section 4: Creative Philosophy Frame -->
     <section class="philosophy-banner">
       <h3>Design Perspective</h3>
       <p>
         I believe that functional layouts don't have to be cold and clinical. By introducing soft, pastel tones and responsive interactions into technical asset frames, digital interfaces can feel both warmly human and clean. Every layout, polygon track, and media loop is a balance of precision engineering and personal style.
       </p>
+    </section>
+
+    <!-- NEW Section 5: Get In Touch Form (Fills out the end of the site beautifully) -->
+    <section id="contact" class="contact-section">
+      <h2>Get In Touch</h2>
+      <p class="contact-subtitle">Have a project in mind or just want to say hello? Drop a note below!</p>
+
+      <div class="contact-container">
+        <!-- Replace action URL with a real backend setup like Formspree or Netlify later if needed -->
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -682,7 +814,7 @@
 
     // 2. Click Aura Ring Interaction
     document.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON') return;
+      if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
       const ripple = document.createElement('div');
       ripple.classList.add('ripple');
