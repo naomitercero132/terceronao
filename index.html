@@ -30,6 +30,7 @@
 
     body {
       background-color: var(--bg-cream);
+      /* Subtle geometric grid to softly texture the whitespace */
       background-image:
         linear-gradient(rgba(255, 184, 198, 0.07) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 184, 198, 0.07) 1px, transparent 1px);
@@ -40,6 +41,7 @@
       position: relative;
     }
 
+    /* Soft Pastel Pink Aura Following the Mouse */
     #spotlight {
       position: fixed;
       top: 0;
@@ -53,6 +55,7 @@
       transition: opacity 0.4s ease;
     }
 
+    /* Soft expanding ripple upon clicking */
     .ripple {
       position: fixed;
       border: 2px solid rgba(255, 184, 198, 0.4);
@@ -67,6 +70,7 @@
       100% { transform: scale(2.2); opacity: 0; }
     }
 
+    /* Header Nav Configuration */
     header {
       width: 100%;
       padding: 30px 40px 0 40px;
@@ -114,6 +118,7 @@
       color: var(--main-pink);
     }
 
+    /* Main Grid Structure */
     main {
       max-width: 1140px;
       margin: 0 auto;
@@ -170,6 +175,7 @@
       box-shadow: 0 6px 20px rgba(255, 184, 198, 0.4);
     }
 
+    /* Capabilities Grid Panel */
     .capabilities-ribbon {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -205,6 +211,7 @@
       line-height: 1.5;
     }
 
+    /* Projects Display Configuration */
     #projects {
       padding-bottom: 80px;
     }
@@ -231,3 +238,824 @@
     }
 
     .project-card:hover {
+<<<<<<< HEAD
+=======
+      transform: translateY(-5px);
+      border-color: var(--main-pink);
+    }
+
+    .project-card h3 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .project-link {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--main-pink);
+    }
+
+    /* Video & Media Integration Engine */
+    .video-preview-container {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      background-color: var(--pastel-pink);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .video-preview-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 230, 235, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-preview-container:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .play-icon {
+      width: 54px;
+      height: 54px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .model-fullscreen-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 184, 198, 0.5);
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      color: var(--text-dark);
+      padding: 6px 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .model-fullscreen-btn:hover {
+      background: var(--text-dark);
+      color: white;
+    }
+
+    /* Design Philosophy Showcase */
+    .philosophy-banner {
+      background: linear-gradient(135deg, #ffffff 0%, var(--pastel-pink) 100%);
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      padding: 60px;
+      border-radius: 30px;
+      margin: 40px 0 100px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .philosophy-banner h3 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.8rem;
+    }
+
+    .philosophy-banner p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 850px;
+    }
+
+    /* Get In Touch Form */
+    .contact-section {
+      margin-bottom: 60px;
+    }
+
+    .contact-section h2 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+    }
+
+    .contact-container {
+      background: #ffffff;
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      padding: 50px;
+      border-radius: 24px;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(58, 46, 48, 0.02);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background-color: var(--bg-cream);
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: #ffffff;
+      border-color: var(--main-pink);
+      box-shadow: 0 0 0 4px rgba(255, 184, 198, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .btn-submit {
+      background-color: var(--text-dark);
+      color: #ffffff;
+      border: none;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(58, 46, 48, 0.1);
+    }
+
+    .btn-submit:hover {
+      background-color: var(--main-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 184, 198, 0.4);
+    }
+
+    .btn-submit svg {
+      transition: transform 0.25s ease;
+    }
+
+    .btn-submit:hover svg {
+      transform: translate(3px, -3px);
+    }
+
+    /* Modal Framework */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(58, 46, 48, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 85%;
+      max-width: 900px;
+      height: 75vh;
+      background: #ffffff;
+      border: 1px solid rgba(255, 184, 198, 0.5);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    }
+
+    /* Explore My Work Multi-Grid */
+    .explore-modal-content {
+      max-width: 1100px;
+      height: auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 40px;
+      display: block;
+    }
+
+    .explore-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .explore-modal-header h2 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 2rem;
+      color: var(--text-dark);
+    }
+
+    .explore-close-btn {
+      color: var(--text-dark);
+      font-size: 2.2rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+
+    .explore-close-btn:hover {
+      color: var(--main-pink);
+    }
+
+    .modal-body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      color: #ffffff;
+      font-size: 2.2rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .close-btn:hover {
+      color: var(--main-pink);
+    }
+
+    /* Refined Structured Footer */
+    footer {
+      width: 100%;
+      padding: 80px 40px !important;
+      background: linear-gradient(180deg, #ffffff 0%, var(--pastel-pink) 100%) !important;
+      color: var(--text-dark) !important;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 184, 198, 0.4) !important;
+      position: relative;
+    }
+
+    .footer-content {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .underlined-link {
+      color: var(--text-dark) !important;
+      text-decoration: none;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      position: relative;
+      padding-bottom: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .underlined-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--main-pink);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+    }
+
+    .underlined-link:hover {
+      color: var(--main-pink) !important;
+    }
+
+    .underlined-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    #backToTopBtn {
+      background-color: #ffffff !important;
+      color: var(--text-dark) !important;
+      border: 1px solid rgba(255, 184, 198, 0.6) !important;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+
+    #backToTopBtn:hover {
+      background-color: var(--text-dark) !important;
+      color: #ffffff !important;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      header { padding: 15px; }
+      main { padding: 0 20px; }
+      .philosophy-banner { padding: 30px; }
+      .contact-container { padding: 30px; }
+      .explore-modal-content { padding: 20px; }
+      footer {
+        padding: 60px 24px !important;
+        text-align: center;
+      }
+      .footer-content {
+        flex-direction: column-reverse;
+        gap: 35px;
+      }
+      .footer-right {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="spotlight"></div>
+
+  <header>
+    <nav>
+      <div class="logo">Naomi.</div>
+      <ul class="nav-links">
+        <li><a href="#hero">About</a></li>
+        <li><a href="#capabilities">Focus</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero Intro -->
+    <section id="hero" class="hero">
+      <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
+      <p>
+        Welcome to my digital portfolio. I am passionate about blending creativity with code to build seamless, user-friendly experiences. Whether I'm solving a complex structural problem or mapping a spatial layout, every project here reflects my commitment to elegant, modern aesthetics.
+      </p>
+      <button class="btn-primary" onclick="openExploreModal(event)">Explore My Work</button>
+    </section>
+
+    <!-- Section 2: Expanded Focus Area Grid -->
+    <section id="capabilities" class="capabilities-ribbon">
+      <div class="capability-card">
+        <span class="num">01 / LAYOUT</span>
+        <h3>2D Design Asset</h3>
+        <p>Deconstructing structural details and physical identity vectors down to precise balances.</p>
+      </div>
+      <div class="capability-card">
+        <span class="num">02 / DIMENSION</span>
+        <h3>3D Environments</h3>
+        <p>Manipulating virtual geometry, light values, and textures within spatial boundaries.</p>
+      </div>
+      <div class="capability-card">
+        <span class="num">03 / TIMELINE</span>
+        <h3>4D Media Space</h3>
+        <p>Formulating temporal media tracks and fluid structural video motion narratives.</p>
+      </div>
+    </section>
+
+    <!-- Section 3: Portfolio Core Works -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event, 'passportArtwork')" onmouseleave="resetPrint('passportArtwork')" style="width: 100%; height: 250px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: var(--pastel-pink); cursor: zoom-in; position: relative;">
+            <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+          </div>
+          <h3>2D Print</h3>
+          <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
+          <a href="#" class="project-link" onclick="openProject('2d', event)">View Project ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: #ffffff; position: relative; border: 1px solid rgba(255, 184, 198, 0.3);">
+            <model-viewer
+              src="assets/Wrap Sonny.glb"
+              alt="A 3D model of a Sonny Angel"
+              auto-rotate
+              camera-controls
+              shadow-intensity="1"
+              interaction-prompt="auto"
+              style="width: 100%; height: 100%;">
+            </model-viewer>
+            <button class="model-fullscreen-btn" onclick="openProject('3d', event)">Fullscreen ↗</button>
+          </div>
+          <h3>3D Model</h3>
+          <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
+          <a href="#" class="project-link" onclick="openProject('3d', event)">View Project ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="video-preview-container" onclick="openProject('4d', event)">
+            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z" fill="#3a2e30"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h3>4D Video</h3>
+          <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
+          <a href="#" class="project-link" onclick="openProject('4d', event)">View Project ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Creative Philosophy Frame -->
+    <section class="philosophy-banner">
+      <h3>Design Perspective</h3>
+      <p>
+        I believe that functional layouts don't have to be cold and clinical. By introducing soft, pastel tones and responsive interactions into technical asset frames, digital interfaces can feel both warmly human and clean. Every layout, polygon track, and media loop is a balance of precision engineering and personal style.
+      </p>
+    </section>
+
+    <!-- Section 5: Get In Touch Form -->
+    <section id="contact" class="contact-section">
+      <h2>Get In Touch</h2>
+      <p class="contact-subtitle">Have a project in mind or just want to say hello? Drop a note below!</p>
+
+      <div class="contact-container">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p>&copy; <span id="current-year"></span> Naomi Tercero. Built with passion & code.</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link">GitHub</a>
+          <a href="mailto:your.email@example.com" class="underlined-link">Email</a>
+        </div>
+        <button onclick="scrollToTop()" id="backToTopBtn" aria-label="Back to top">↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Explore Projects Pop-up Window -->
+  <div id="explore-modal" class="modal">
+    <div class="modal-content explore-modal-content">
+      <div class="explore-modal-header">
+        <h2>My Selected Work</h2>
+        <span class="explore-close-btn" onclick="closeExploreModal()">&times;</span>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div onclick="openProjectFromExplore('2d', event)" onmousemove="zoomPrint(event, 'modalPassportArtwork')" onmouseleave="resetPrint('modalPassportArtwork')" style="width: 100%; height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: var(--pastel-pink); cursor: zoom-in; position: relative;">
+            <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="modalPassportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+          </div>
+          <h3>2D Print</h3>
+          <p>A deconstruction of my personal passport to create a look-alike model of Mexico.</p>
+          <a href="#" class="project-link" onclick="openProjectFromExplore('2d', event)">View Project ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div style="width: 100%; height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: #ffffff; position: relative; border: 1px solid rgba(255, 184, 198, 0.3);">
+            <model-viewer
+              src="assets/Wrap Sonny.glb"
+              alt="A 3D model of a Sonny Angel"
+              auto-rotate
+              camera-controls
+              shadow-intensity="1"
+              interaction-prompt="auto"
+              style="width: 100%; height: 100%;">
+            </model-viewer>
+            <button class="model-fullscreen-btn" onclick="openProjectFromExplore('3d', event)">Fullscreen ↗</button>
+          </div>
+          <h3>3D Model</h3>
+          <p>Creating a new look for my Sonny Angel and adding personality to my liking.</p>
+          <a href="#" class="project-link" onclick="openProjectFromExplore('3d', event)">View Project ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="video-preview-container" style="height: 220px;" onclick="openProjectFromExplore('4d', event)">
+            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z" fill="#3a2e30"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h3>4D Video</h3>
+          <p>A combination of personal videos I love, demonstrating my favorite things.</p>
+          <a href="#" class="project-link" onclick="openProjectFromExplore('4d', event)">View Project ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Asset Window (Full View Player with Controls) -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-body" class="modal-body">
+        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
+
+        <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
+
+        <!-- Video element upgraded with dynamic player controls -->
+        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); background-color: #000;"></video>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. Subtle Radial Mouse Trail Effect
+    const spotlight = document.getElementById('spotlight');
+
+    document.addEventListener('mousemove', (e) => {
+      requestAnimationFrame(() => {
+        spotlight.style.left = e.clientX + 'px';
+        spotlight.style.top = e.clientY + 'px';
+      });
+    });
+
+    document.addEventListener('mouseleave', () => {
+      spotlight.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      spotlight.style.opacity = '1';
+    });
+
+    // 2. Click Aura Ring Interaction
+    document.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      const ripple = document.createElement('div');
+      ripple.classList.add('ripple');
+
+      const size = 50;
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - size/2) + 'px';
+      ripple.style.top = (e.clientY - size/2) + 'px';
+
+      document.body.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+
+    // 3. Smooth Elastic Zoom for 2D Card Artworks
+    function zoomPrint(e, imgId) {
+      const imgNode = document.getElementById(imgId);
+      const container = e.currentTarget;
+      const rect = container.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      imgNode.style.transformOrigin = `${x}% ${y}%`;
+      imgNode.style.transform = 'scale(1.5)';
+    }
+
+    function resetPrint(imgId) {
+      const imgNode = document.getElementById(imgId);
+      imgNode.style.transformOrigin = 'center center';
+      imgNode.style.transform = 'scale(1)';
+    }
+
+    // 4. Set Current Year Programmatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // 5. Explore Projects Pop-up Window Controls
+    const exploreModal = document.getElementById('explore-modal');
+
+    function openExploreModal(event) {
+      if (event) event.preventDefault();
+      exploreModal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeExploreModal() {
+      exploreModal.classList.remove('show');
+      if (!modal.classList.contains('show')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    function openProjectFromExplore(type, event) {
+      closeExploreModal();
+      setTimeout(() => {
+        openProject(type, event);
+      }, 300);
+    }
+
+    // 6. Interactive Popups Controller Logic (Full Media Viewers)
+    const modal = document.getElementById('project-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalViewer = document.getElementById('modal-viewer');
+    const modalVideo = document.getElementById('modal-video');
+
+    function openProject(type, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      modalImg.style.display = 'none';
+      modalViewer.style.display = 'none';
+      modalVideo.style.display = 'none';
+
+      modalImg.src = '';
+      modalViewer.src = '';
+      modalVideo.src = '';
+
+      if (type === '2d') {
+        modalImg.src = 'assets/Tercero.png';
+        modalImg.style.display = 'block';
+      } else if (type === '3d') {
+        modalViewer.src = 'assets/Wrap Sonny.glb';
+        modalViewer.style.display = 'block';
+        setTimeout(() => {
+          modalViewer.resize();
+        }, 50);
+      } else if (type === '4d') {
+        // Points directly to your media file and turns on full visibility & playback interaction controls
+        modalVideo.src = 'assets/4DVideo2.mp4';
+        modalVideo.style.display = 'block';
+        modalVideo.play().catch(err => console.log("Autoplay blocked by browser rules:", err));
+      }
+
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      // Pause video when closed so sound doesn't bleed into background
+      modalVideo.pause();
+      modal.classList.remove('show');
+      if (!exploreModal.classList.contains('show')) {
+        document.body.style.overflow = '';
+      }
+
+      setTimeout(() => {
+        if (!modal.classList.contains('show')) {
+          modalImg.src = '';
+          modalViewer.src = '';
+          modalVideo.src = '';
+          modalImg.style.display = 'none';
+          modalViewer.style.display = 'none';
+          modalVideo.style.display = 'none';
+        }
+      }, 300);
+    }
+
+    // Close overlays securely by clicking background backdrop spaces
+    exploreModal.addEventListener('click', (e) => {
+      if (e.target === exploreModal || e.target.classList.contains('explore-modal-content')) {
+        closeExploreModal();
+      }
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.classList.contains('modal-content') || e.target.classList.contains('modal-body')) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeExploreModal();
+      }
+    });
+  </script>
+</body>
+</html>
+>>>>>>> parent of be13c45 (update)
