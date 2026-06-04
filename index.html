@@ -95,7 +95,7 @@
   <!-- Cute Interactive Footer Section -->
   <footer>
     <div class="mascot-container">
-      <div class="mascot-bubble" id="mascot-bubble">Hi there! 🌸</div>
+      <div class="mascot-bubble" id="mascot-bubble">Hi there!</div>
       <svg class="mascot-bunny" id="bunny-mascot" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="triggerMascot()">
         <!-- Ears -->
         <rect x="25" y="10" width="16" height="40" rx="8" fill="#ffffff" stroke="#ffb7c5" stroke-width="3"/>
@@ -119,14 +119,14 @@
 
     <div class="footer-content">
       <div class="footer-left">
-        <p>&copy; <span id="current-year"></span> Naomi Tercero. Made with 💖 & code.</p>
+        <p>&copy; <span id="current-year"></span> Naomi Tercero. Made with <svg width="12" height="12" viewBox="0 0 24 24" fill="#d63384" style="display: inline-block; vertical-align: middle; margin: 0 2px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> & code.</p>
       </div>
 
       <div class="footer-right">
         <div class="footer-links">
           <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link wiggle-hover">GitHub</a>
           <a href="mailto:your.email@example.com" class="underlined-link wiggle-hover">Email</a>
-          <button class="love-btn" onclick="burstHearts(event)">Send Love <span>💖</span></button>
+          <button class="love-btn" onclick="burstHearts(event)">Send Love <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span></button>
         </div>
         <button onclick="scrollToTop()" id="backToTopBtn" aria-label="Back to top">↑</button>
       </div>
@@ -292,10 +292,18 @@
       }
     });
 
-    // 6. Sparkle Cursor Trail
+    // 6. Sparkle Cursor Trail (SVG Sparkles)
     let lastX = 0;
     let lastY = 0;
-    const sparkleEmojis = ['🌸', '✨', '💖', '⭐', '💕', '🍬'];
+    const sparkleColors = ['#ffb7c5', '#ffccd5', '#d63384', '#f14095', '#ff8da1'];
+    const sparkleShapes = [
+      // Star/Sparkle
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="COLOR"/></svg>',
+      // Heart
+      '<svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="COLOR"/></svg>',
+      // Circle
+      '<svg width="6" height="6" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="COLOR"/></svg>'
+    ];
 
     document.addEventListener('mousemove', (e) => {
       const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
@@ -304,14 +312,15 @@
       lastX = e.clientX;
       lastY = e.clientY;
 
-      const particle = document.createElement('span');
+      const particle = document.createElement('div');
       particle.classList.add('sparkle-particle');
-      particle.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
-      particle.style.left = (e.clientX - 10) + 'px';
-      particle.style.top = (e.clientY - 10) + 'px';
       
-      // Randomize font size slightly
-      particle.style.fontSize = Math.random() * 10 + 14 + 'px';
+      const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+      const shapeTemplate = sparkleShapes[Math.floor(Math.random() * sparkleShapes.length)];
+      particle.innerHTML = shapeTemplate.replace('COLOR', color);
+
+      particle.style.left = (e.clientX - 6) + 'px';
+      particle.style.top = (e.clientY - 6) + 'px';
 
       document.body.appendChild(particle);
 
@@ -327,15 +336,15 @@
     let bubbleTimeout;
 
     const bunnyMessages = [
-      "Have a lovely day! 🌸",
-      "You are amazing! ✨",
-      "Thanks for visiting! 🧸",
-      "Code is magic! 🌸",
-      "Be kind to yourself! 💕",
-      "Stay creative! 🎨",
-      "You're doing great! 🌟",
-      "Sending positive vibes! 🐰",
-      "You shine bright! ✨"
+      "Have a lovely day!",
+      "You are amazing!",
+      "Thanks for visiting!",
+      "Code is magic!",
+      "Be kind to yourself!",
+      "Stay creative!",
+      "You're doing great!",
+      "Sending positive vibes!",
+      "You shine bright!"
     ];
 
     function triggerMascot() {
@@ -364,7 +373,7 @@
     // Auto greet visitor after a small delay
     setTimeout(() => {
       if (bunnyBubble && !bunnyBubble.classList.contains('show')) {
-        bunnyBubble.textContent = "Welcome to my space! 💖";
+        bunnyBubble.textContent = "Welcome to my space!";
         bunnyBubble.classList.add('show');
         bubbleTimeout = setTimeout(() => {
           bunnyBubble.classList.remove('show');
@@ -372,21 +381,22 @@
       }
     }, 2000);
 
-    // 8. Love Burst Confetti Effect
+    // 8. Love Burst Confetti Effect (SVG Hearts)
     function burstHearts(e) {
       const rect = e.currentTarget.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 2;
+      const colors = ['#d63384', '#f14095', '#ff8da1', '#ffccd5', '#ffb7c5'];
 
       for (let i = 0; i < 16; i++) {
         const heart = document.createElement('div');
-        heart.innerHTML = ['💖', '💕', '✨', '🌸', '💝', '⭐'][Math.floor(Math.random() * 6)];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        heart.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="${color}"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
         heart.style.position = 'fixed';
         heart.style.left = x + 'px';
         heart.style.top = y + 'px';
         heart.style.pointerEvents = 'none';
         heart.style.zIndex = '100001';
-        heart.style.fontSize = Math.random() * 8 + 16 + 'px';
         heart.style.userSelect = 'none';
         
         const angle = Math.random() * Math.PI * 2;
