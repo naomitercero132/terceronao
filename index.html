@@ -13,85 +13,154 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
-  <!-- Dynamic Proportional Layout Adjustments -->
+  <!-- Proportional Layout Expansion Styles -->
   <style>
-    /* Reset body defaults to utilize full layout width */
+    /* Reset defaults for expansive full-screen environments */
     body {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      background-color: #0d0d11;
+      color: #ffffff;
     }
 
-    /* Expansive Navigation Layout */
+    /* Expansive Navigation Framework */
     header {
       width: 100%;
-      padding: 30px 0;
+      padding: 40px 0;
     }
 
     nav {
-      width: 90% !important;
-      max-width: 1600px !important;
+      width: 92% !important;
+      max-width: 1700px !important;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    /* Expansive Main Content Framework */
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: calc(1.5rem + 0.5vw);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links a {
+      color: #a1a1aa;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* Primary Dynamic Grid Framework */
     main {
-      width: 90% !important;
-      max-width: 1600px !important;
+      width: 92% !important;
+      max-width: 1700px !important;
       margin: 0 auto;
     }
 
-    /* Open, Proportionate Hero Sections */
+    /* Immersive & Deep Hero Section */
     .hero {
-      min-height: 50vh; /* Gives content vertical significance on screen load */
+      min-height: 65vh; /* Takes up more visual real estate on initial launch */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      padding: 100px 0 !important;
-      max-width: 900px; /* Keeps readable length for text blocks while layout stays wide */
+      padding: 140px 0 !important;
+      max-width: 1100px;
     }
 
     .hero h1 {
-      font-size: calc(2.5rem + 1.5vw) !important; /* Scales proportionally with monitor size */
-      margin-bottom: 24px;
+      font-size: calc(3rem + 2.5vw) !important; /* Forces bold, large presence on wider displays */
+      line-height: 1.1;
+      margin-bottom: 30px;
+      font-family: 'Outfit', sans-serif;
     }
 
     .hero p {
-      font-size: calc(1rem + 0.3vw) !important;
+      font-size: calc(1.1rem + 0.4vw) !important; /* Scales smoothly so text never looks tiny */
       line-height: 1.7 !important;
-      margin-bottom: 40px;
+      color: #a1a1aa;
+      margin-bottom: 50px;
     }
 
-    /* Spacious Project Grid Settings */
+    /* NEW FEATURE SECTION: Capabilities, Stats & Pillars to naturally fill empty space */
+    .capabilities-section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 100px;
+    }
+
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .cap-box h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: calc(2.5rem + 1vw);
+      margin: 0 0 10px 0;
+      color: #ffffff;
+    }
+
+    .cap-box h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      margin: 0 0 15px 0;
+      color: #ffffff;
+    }
+
+    .cap-box p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #888892;
+      margin: 0;
+    }
+
+    /* Spacious & Impactful Project Gallery Setting */
     #projects {
-      padding: 100px 0 !important; /* Generous vertical tracking separation */
+      padding: 60px 0 140px 0 !important;
     }
 
     #projects h2 {
-      font-size: calc(2rem + 0.5vw);
+      font-family: 'Outfit', sans-serif;
+      font-size: calc(2.2rem + 1vw);
       margin-bottom: 50px;
     }
 
     .filter-container {
       display: flex;
-      justify-content: flex-start; /* Aligns with modern premium asymmetrical layouts */
+      justify-content: flex-start;
       gap: 16px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     .filter-btn {
       background: #16161a;
       color: #a1a1aa;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 12px 24px;
-      border-radius: 30px;
+      padding: 14px 28px;
+      border-radius: 40px;
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1.05rem; /* Upgraded text size */
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -100,15 +169,15 @@
       background: #ffffff;
       color: #0d0d11 !important;
       border-color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
     }
 
-    /* Wide-format responsive layout framework overrides */
+    /* Massive Wide-Screen Proportional Columns */
     .projects-grid {
       display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important; /* Forces perfect proportional columns side by side */
-      gap: 40px !important; /* Generous breathing area between your cards */
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 50px !important; /* Expanded separation grid system */
       width: 100% !important;
     }
 
@@ -116,8 +185,8 @@
       width: 100% !important;
       margin: 0 !important;
       background: #16161a;
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: 16px;
+      padding: 32px; /* Amplified inner padding to breathe better */
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -125,10 +194,34 @@
       transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
     }
 
-    /* Set cards to scale beautifully on wider display nodes */
-    .project-card > div:first-child {
-      height: 300px !important; /* Taller visual preview containers */
-      border-radius: 8px;
+    /* Scaled asset cards to match massive displays cleanly */
+    .project-card .media-wrapper {
+      height: 380px !important; /* Elevated baseline height for visual dominance */
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .project-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      margin: 0 0 12px 0;
+    }
+
+    .project-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #a1a1aa;
+      margin: 0 0 24px 0;
+    }
+
+    .project-link {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
 
     .project-card.hide {
@@ -139,39 +232,38 @@
       visibility: hidden;
     }
 
-    /* Premium Original Tone Wide Footer Layout */
+    /* Premium Immersive Wide-Format Footer */
     footer {
       width: 100%;
-      padding: 100px 0 !important; /* Deep, luxury padding baseline */
+      padding: 120px 0 !important;
       background: linear-gradient(180deg, #0d0d11 0%, #060608 100%) !important;
       color: #a1a1aa !important;
       font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
-      margin-top: 160px !important;
+      font-size: 1.05rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+      margin-top: 100px !important;
     }
 
     .footer-content {
-      width: 90%;
-      max-width: 1600px;
+      width: 92%;
+      max-width: 1700px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 40px;
     }
 
     .footer-right {
       display: flex;
       align-items: center;
-      gap: 50px;
+      gap: 60px;
     }
 
     .footer-links {
       display: flex;
-      gap: 40px;
+      gap: 50px;
     }
 
     .underlined-link {
@@ -179,7 +271,7 @@
       text-decoration: none;
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: 0.02em;
       position: relative;
       padding-bottom: 6px;
@@ -208,11 +300,11 @@
       background-color: #18181c !important;
       color: #ffffff !important;
       border: 1px solid rgba(255, 255, 255, 0.15) !important;
-      width: 52px;
-      height: 52px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -226,29 +318,40 @@
       border-color: #ffffff !important;
     }
 
-    /* Screen adjustments to shift smoothly into columns on small tablets/phones */
-    @media (max-width: 1024px) {
+    /* Graceful scale transitions across variable breakdown configurations */
+    @media (max-width: 1200px) {
       .projects-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .cap-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
       }
     }
 
     @media (max-width: 768px) {
       .projects-grid {
         grid-template-columns: 1fr !important;
-        gap: 30px !important;
+        gap: 40px !important;
+      }
+      .cap-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero {
+        padding: 80px 0 !important;
       }
       footer {
-        padding: 60px 0 !important;
+        padding: 80px 0 !important;
       }
       .footer-content {
         flex-direction: column-reverse;
         text-align: center;
-        gap: 35px;
+        gap: 40px;
       }
       .footer-right {
         flex-direction: column;
-        gap: 25px;
+        gap: 30px;
       }
     }
   </style>
@@ -262,12 +365,14 @@
       <div class="logo">Naomi.</div>
       <ul class="nav-links">
         <li><a href="#hero">About</a></li>
+        <li><a href="#capabilities">Core</a></li>
         <li><a href="#projects">Work</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <!-- Expanded Hero Area -->
     <section id="hero" class="hero">
       <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
       <p>
@@ -276,10 +381,36 @@
       <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
 
+    <!-- NEW CONTENT CONTAINER: Structural space filling capability architecture -->
+    <section id="capabilities" class="capabilities-section">
+      <div class="cap-grid">
+        <div class="cap-box">
+          <h3>01</h3>
+          <h4>2D Print Assets</h4>
+          <p>Deconstructing structural components, layout frameworks, and physical spatial balance.</p>
+        </div>
+        <div class="cap-box">
+          <h3>02</h3>
+          <h4>3D Modeling</h4>
+          <p>Manipulating virtual dimensions, asset configurations, textures, and interactive layouts.</p>
+        </div>
+        <div class="cap-box">
+          <h3>03</h3>
+          <h4>4D Media Production</h4>
+          <p>Structuring time-driven assets, sequence timing logic, and immersive video narratives.</p>
+        </div>
+        <div class="cap-box">
+          <h3>04</h3>
+          <h4>Creative Code</h4>
+          <p>Integrating modern frontend technologies with elegant user interactive dynamics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Up-scaled Project Segment -->
     <section id="projects">
       <h2>Featured Projects</h2>
 
-      <!-- Useful Layout Filter Buttons -->
       <div class="filter-container">
         <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
         <button class="filter-btn" onclick="filterProjects('print', this)">2D Print</button>
@@ -290,17 +421,19 @@
 
         <!-- 1. Interactive 2D Print Card -->
         <div class="project-card" data-category="print">
-          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #1a1a1e; cursor: zoom-in; position: relative;">
+          <div class="media-wrapper" onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="background-color: #1a1a1e; cursor: zoom-in;">
             <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
-          <h3>2D Print</h3>
-          <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
+          <div>
+            <h3>2D Print</h3>
+            <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
+          </div>
           <a href="#" class="project-link" onclick="openProject('2d', event)">View Project</a>
         </div>
 
         <!-- 2. Interactive 3D Model Card -->
         <div class="project-card" data-category="digital">
-          <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #f0f0f0; position: relative;">
+          <div class="media-wrapper" style="background-color: #f0f0f0;">
             <model-viewer
               src="assets/Wrap Sonny.glb"
               alt="A 3D model of a Sonny Angel"
@@ -312,34 +445,39 @@
             </model-viewer>
             <button class="model-fullscreen-btn" onclick="openProject('3d', event)">Fullscreen ↗</button>
           </div>
-          <h3>3D Model</h3>
-          <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
+          <div>
+            <h3>3D Model</h3>
+            <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
+          </div>
           <a href="#" class="project-link" onclick="openProject('3d', event)">View Project</a>
         </div>
 
         <!-- 3. 4D Video Card -->
         <div class="project-card" data-category="digital">
-          <div class="video-preview-container" onclick="openProject('4d', event)">
-            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
-            <div class="play-overlay">
-              <div class="play-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 5v14l11-7z" fill="#0d0d11"/>
-                </svg>
+          <div class="media-wrapper">
+            <div class="video-preview-container" onclick="openProject('4d', event)" style="height: 100%;">
+              <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+              <div class="play-overlay">
+                <div class="play-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5v14l11-7z" fill="#0d0d11"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
-          <h3>4D Video</h3>
-          <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
+          <div>
+            <h3>4D Video</h3>
+            <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
+          </div>
           <a href="#" class="project-link" onclick="openProject('4d', event)">View Project</a>
         </div>
 
       </div>
     </section>
-
   </main>
 
-  <!-- Clean Professional Footer Section -->
+  <!-- Expanded Luxury Footer Section -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
