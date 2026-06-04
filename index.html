@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naomi | Portfolio</title>
 
+  <!-- Sophisticated Soft Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
   <style>
-    /* Coquette Pastel Dynamic Theme */
+    /* Elegant Pastel Chic Palette */
     :root {
-      --bg-cream: #fffdf9;
-      --pastel-pink: #ffde95; /* Accent yellow transition block */
-      --main-pink: #ffd3db;
-      --deep-pink: #ff8fa3;
-      --soft-yellow: #fff5cc;
-      --text-dark: #5c4146;
-      --text-muted: #8c6b71;
+      --bg-cream: #fdfbf7;
+      --pastel-pink: #ffe6eb;
+      --main-pink: #ffb8c6;
+      --accent-yellow: #fff3be;
+      --text-dark: #3a2e30;
+      --text-muted: #706062;
     }
 
     * {
@@ -31,75 +31,73 @@
 
     body {
       background-color: var(--bg-cream);
+      /* Subtle geometric grid to softly texture the whitespace */
       background-image:
-        radial-gradient(var(--main-pink) 15%, transparent 16%),
-        radial-gradient(var(--soft-yellow) 15%, transparent 16%);
-      background-size: 60px 60px;
-      background-position: 0 0, 30px 30px;
+        linear-gradient(rgba(255, 184, 198, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 184, 198, 0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
       color: var(--text-dark);
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 600;
+      font-family: 'Inter', sans-serif;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* Interactive Soft Pink Trail */
+    /* Soft Pastel Pink Aura Following the Mouse */
     #spotlight {
       position: fixed;
       top: 0;
       left: 0;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255, 211, 219, 0.5) 0%, transparent 70%);
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(255, 184, 198, 0.3) 0%, transparent 70%);
       pointer-events: none;
       transform: translate(-50%, -50%);
       z-index: 1;
       transition: opacity 0.4s ease;
     }
 
-    /* Expanding Soft Pastel Pink Bubbles on Click */
+    /* Soft expanding ripple upon clicking */
     .ripple {
       position: fixed;
-      background-color: rgba(255, 143, 163, 0.25);
+      border: 2px solid rgba(255, 184, 198, 0.4);
       border-radius: 50%;
       pointer-events: none;
-      animation: bubble-burst 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+      animation: ripple-out 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
       z-index: 9999;
     }
 
-    @keyframes bubble-burst {
+    @keyframes ripple-out {
       0% { transform: scale(0); opacity: 1; }
-      100% { transform: scale(3.5); opacity: 0; }
+      100% { transform: scale(2.2); opacity: 0; }
     }
 
-    /* Header Nav Styling */
+    /* Header Nav Configuration */
     header {
       width: 100%;
-      padding: 25px 50px;
+      padding: 30px 40px 0 40px;
       position: relative;
       z-index: 10;
     }
 
     nav {
-      max-width: 1200px;
+      max-width: 1140px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 15px 35px;
-      border-radius: 40px;
-      border: 3px solid var(--main-pink);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(255, 143, 163, 0.1);
+      background: rgba(255, 255, 255, 0.6);
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .logo {
-      font-family: 'Fredoka', sans-serif;
+      font-family: 'Comfortaa', sans-serif;
       font-weight: 700;
-      font-size: 1.8rem;
-      color: var(--deep-pink);
-      text-shadow: 2px 2px 0px var(--soft-yellow);
+      font-size: 1.5rem;
+      color: var(--text-dark);
     }
 
     .nav-links {
@@ -111,155 +109,174 @@
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.25s ease;
     }
 
     .nav-links a:hover {
-      color: var(--deep-pink);
-      transform: scale(1.1);
+      color: var(--main-pink);
     }
 
-    /* Content Layout Containers */
+    /* Main Grid Structure */
     main {
-      max-width: 1200px;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 40px;
+      padding: 0 40px;
       position: relative;
       z-index: 2;
     }
 
     .hero {
-      padding: 60px 40px;
-      text-align: center;
-      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255, 245, 204, 0.6) 100%);
-      border: 4px solid var(--main-pink);
-      border-radius: 30px;
-      margin-bottom: 60px;
-      box-shadow: 0 12px 32px rgba(255, 143, 163, 0.08);
+      padding: 120px 0 80px 0;
+      max-width: 750px;
     }
 
     .hero h1 {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 4rem;
-      color: var(--text-dark);
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .highlight {
-      color: var(--deep-pink);
-      background: var(--soft-yellow);
-      padding: 0 16px;
-      border-radius: 20px;
-      display: inline-block;
-      box-shadow: inset 0 -5px 0 var(--main-pink);
+      background: linear-gradient(120deg, var(--pastel-pink) 0%, var(--accent-yellow) 100%);
+      padding: 4px 12px;
+      border-radius: 12px;
     }
 
     .hero p {
       color: var(--text-muted);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1.7;
-      max-width: 800px;
-      margin: 0 auto 35px auto;
+      margin-bottom: 35px;
     }
 
     .btn-primary {
       display: inline-block;
-      background-color: var(--deep-pink);
+      background-color: var(--text-dark);
       color: #ffffff;
       text-decoration: none;
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.2rem;
+      font-family: 'Comfortaa', sans-serif;
       font-weight: 700;
-      padding: 16px 40px;
+      font-size: 0.95rem;
+      padding: 16px 36px;
       border-radius: 50px;
-      box-shadow: 0 8px 0px #d95d72, 0 12px 20px rgba(255, 143, 163, 0.3);
-      transition: all 0.15s ease;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(58, 46, 48, 0.1);
     }
 
     .btn-primary:hover {
-      background-color: #ff758c;
-      transform: translateY(2px);
-      box-shadow: 0 6px 0px #d95d72, 0 8px 15px rgba(255, 143, 163, 0.3);
+      background-color: var(--main-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 184, 198, 0.4);
     }
 
-    .btn-primary:active {
-      transform: translateY(6px);
-      box-shadow: 0 2px 0px #d95d72, 0 4px 10px rgba(255, 143, 163, 0.3);
+    /* NEW SECTION: Capabilities Grid Panel */
+    .capabilities-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 100px;
     }
 
-    /* Grid Sections Filling the Layout */
+    .capability-card {
+      background: #ffffff;
+      border: 1px solid rgba(255, 184, 198, 0.3);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(58, 46, 48, 0.02);
+    }
+
+    .capability-card .num {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 0.9rem;
+      color: var(--main-pink);
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .capability-card h3 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .capability-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Projects Display Configuration */
+    #projects {
+      padding-bottom: 80px;
+    }
+
     #projects h2 {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 2.8rem;
-      color: var(--text-dark);
-      text-align: center;
-      margin-bottom: 40px;
-      text-shadow: 2px 2px 0px var(--main-pink);
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 45px;
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 35px;
     }
 
     .project-card {
       background: #ffffff;
-      border: 4px solid var(--soft-yellow);
-      box-shadow: 0 10px 0px var(--main-pink), 0 15px 30px rgba(0,0,0,0.02);
-      border-radius: 24px;
-      padding: 25px;
-      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.25s ease;
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(58, 46, 48, 0.02);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-5px);
       border-color: var(--main-pink);
     }
 
     .project-card h3 {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.6rem;
-      color: var(--text-dark);
-      margin-bottom: 12px;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
     }
 
     .project-card p {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 25px;
     }
 
     .project-link {
-      color: var(--deep-pink);
+      color: var(--text-dark);
       text-decoration: none;
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.1rem;
+      font-family: 'Comfortaa', sans-serif;
       font-weight: 700;
-      display: inline-block;
+      font-size: 0.9rem;
       transition: color 0.2s;
     }
 
     .project-link:hover {
-      color: #ff5c75;
+      color: var(--main-pink);
     }
 
-    /* Rich Media Components */
+    /* Video & Media Integration Engine */
     .video-preview-container {
       width: 100%;
       height: 250px;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 12px;
       margin-bottom: 20px;
-      background-color: var(--soft-yellow);
+      background-color: var(--pastel-pink);
       cursor: pointer;
       position: relative;
-      border: 2px solid rgba(255, 211, 219, 0.5);
     }
 
     .video-preview-container video {
@@ -274,7 +291,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 211, 219, 0.3);
+      background: rgba(255, 230, 235, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -287,54 +304,77 @@
     }
 
     .play-icon {
-      width: 60px;
-      height: 60px;
+      width: 54px;
+      height: 54px;
       background: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 15px rgba(255, 143, 163, 0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
     .model-fullscreen-btn {
       position: absolute;
       bottom: 15px;
       right: 15px;
-      background: #ffffff;
-      border: 3px solid var(--soft-yellow);
-      font-family: 'Fredoka', sans-serif;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 184, 198, 0.5);
+      font-family: 'Comfortaa', sans-serif;
       font-weight: 700;
       color: var(--text-dark);
-      padding: 8px 16px;
-      border-radius: 20px;
+      padding: 6px 14px;
+      border-radius: 30px;
       cursor: pointer;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      font-size: 0.8rem;
       transition: all 0.2s ease;
     }
 
     .model-fullscreen-btn:hover {
-      background: var(--main-pink);
-      border-color: var(--main-pink);
+      background: var(--text-dark);
       color: white;
     }
 
-    /* Whimsical Popups / Modals */
+    /* NEW SECTION: Design Philosophy Showcase */
+    .philosophy-banner {
+      background: linear-gradient(135deg, #ffffff 0%, var(--pastel-pink) 100%);
+      border: 1px solid rgba(255, 184, 198, 0.4);
+      padding: 60px;
+      border-radius: 30px;
+      margin: 40px 0 100px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .philosophy-banner h3 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.8rem;
+    }
+
+    .philosophy-banner p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 850px;
+    }
+
+    /* Modal Framework */
     .modal {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(92, 65, 70, 0.5);
+      background-color: rgba(58, 46, 48, 0.4);
       z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       transition: opacity 0.3s ease;
     }
 
@@ -346,16 +386,16 @@
     .modal-content {
       position: relative;
       width: 85%;
-      max-width: 850px;
+      max-width: 900px;
       height: 75vh;
       background: #ffffff;
-      border: 6px solid var(--main-pink);
-      border-radius: 32px;
-      padding: 20px;
+      border: 1px solid rgba(255, 184, 198, 0.5);
+      border-radius: 24px;
+      padding: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 20px 50px rgba(92, 65, 70, 0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.05);
     }
 
     .modal-body {
@@ -368,42 +408,31 @@
 
     .close-btn {
       position: absolute;
-      top: -25px;
-      right: -25px;
+      top: -45px;
+      right: 0;
       color: #ffffff;
-      background: var(--deep-pink);
-      border: 4px solid white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 2rem;
-      line-height: 42px;
-      text-align: center;
+      font-size: 2.2rem;
       cursor: pointer;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .close-btn:hover {
-      transform: scale(1.1) rotate(90deg);
-      background: #ff5c75;
+      color: var(--main-pink);
     }
 
-    /* Filled Pastel Footer Blocks */
+    /* Refined Structured Footer */
     footer {
       width: 100%;
-      padding: 60px 40px !important;
-      background: linear-gradient(180deg, #ffffff 0%, var(--soft-yellow) 100%) !important;
+      padding: 80px 40px !important;
+      background: linear-gradient(180deg, #ffffff 0%, var(--pastel-pink) 100%) !important;
       color: var(--text-dark) !important;
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 700;
-      border-top: 4px solid var(--main-pink) !important;
-      margin-top: 100px !important;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 184, 198, 0.4) !important;
       position: relative;
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 1140px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -426,11 +455,11 @@
     .underlined-link {
       color: var(--text-dark) !important;
       text-decoration: none;
-      font-family: 'Fredoka', sans-serif;
+      font-family: 'Comfortaa', sans-serif;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       position: relative;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
       transition: color 0.2s ease;
     }
 
@@ -439,17 +468,16 @@
       position: absolute;
       width: 100%;
       transform: scaleX(0);
-      height: 4px;
+      height: 2px;
       bottom: 0;
       left: 0;
-      background-color: var(--deep-pink);
-      border-radius: 2px;
+      background-color: var(--main-pink);
       transform-origin: bottom right;
       transition: transform 0.3s ease;
     }
 
     .underlined-link:hover {
-      color: var(--deep-pink) !important;
+      color: var(--main-pink) !important;
     }
 
     .underlined-link:hover::after {
@@ -459,39 +487,33 @@
 
     #backToTopBtn {
       background-color: #ffffff !important;
-      color: var(--deep-pink) !important;
-      border: 3px solid var(--main-pink) !important;
-      width: 52px;
-      height: 52px;
+      color: var(--text-dark) !important;
+      border: 1px solid rgba(255, 184, 198, 0.6) !important;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 1.4rem;
-      font-weight: bold;
+      font-size: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 0px var(--main-pink);
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
     }
 
     #backToTopBtn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 0px var(--main-pink);
-      background-color: var(--main-pink) !important;
-      color: white !important;
-    }
-
-    #backToTopBtn:active {
-      transform: translateY(2px);
-      box-shadow: 0 4px 0px var(--main-pink);
+      background-color: var(--text-dark) !important;
+      color: #ffffff !important;
+      transform: translateY(-3px);
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.8rem; }
+      .hero h1 { font-size: 2.6rem; }
       header { padding: 15px; }
-      main { padding: 20px; }
+      main { padding: 0 20px; }
+      .philosophy-banner { padding: 30px; }
       footer {
-        padding: 40px 20px !important;
+        padding: 60px 24px !important;
         text-align: center;
       }
       .footer-content {
@@ -514,27 +536,49 @@
       <div class="logo">Naomi.</div>
       <ul class="nav-links">
         <li><a href="#hero">About</a></li>
+        <li><a href="#capabilities">Focus</a></li>
         <li><a href="#projects">Work</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <!-- Section 1: Hero Intro -->
     <section id="hero" class="hero">
       <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
       <p>
-        Welcome to my digital portfolio. I am passionate about blending creativity with code to build seamless, user-friendly experiences. Whether I'm solving a complex problem or designing an intuitive interface, every project here reflects my commitment to quality and modern design.
+        Welcome to my digital portfolio. I am passionate about blending creativity with code to build seamless, user-friendly experiences. Whether I'm solving a complex structural problem or mapping a spatial layout, every project here reflects my commitment to elegant, modern aesthetics.
       </p>
       <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
 
+    <!-- NEW Section 2: Expanded Focus Area Grid (Fills Space) -->
+    <section id="capabilities" class="capabilities-ribbon">
+      <div class="capability-card">
+        <span class="num">01 / LAYOUT</span>
+        <h3>2D Design Asset</h3>
+        <p>Deconstructing structural details and physical identity vectors down to precise balances.</p>
+      </div>
+      <div class="capability-card">
+        <span class="num">02 / DIMENSION</span>
+        <h3>3D Environments</h3>
+        <p>Manipulating virtual geometry, light values, and textures within spatial boundaries.</p>
+      </div>
+      <div class="capability-card">
+        <span class="num">03 / TIMELINE</span>
+        <h3>4D Media Space</h3>
+        <p>Formulating temporal media tracks and fluid structural video motion narratives.</p>
+      </div>
+    </section>
+
+    <!-- Section 3: Portfolio Core Works -->
     <section id="projects">
       <h2>Featured Projects</h2>
 
       <div class="projects-grid">
 
         <div class="project-card">
-          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 16px; margin-bottom: 20px; background-color: var(--soft-yellow); cursor: zoom-in; position: relative; border: 2px solid rgba(255, 211, 219, 0.5);">
+          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: var(--pastel-pink); cursor: zoom-in; position: relative;">
             <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
           <h3>2D Print</h3>
@@ -543,7 +587,7 @@
         </div>
 
         <div class="project-card">
-          <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 16px; margin-bottom: 20px; background-color: #ffffff; position: relative; border: 2px solid rgba(255, 211, 219, 0.5);">
+          <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: #ffffff; position: relative; border: 1px solid rgba(255, 184, 198, 0.3);">
             <model-viewer
               src="assets/Wrap Sonny.glb"
               alt="A 3D model of a Sonny Angel"
@@ -565,8 +609,8 @@
             <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
             <div class="play-overlay">
               <div class="play-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 5v14l11-7z" fill="#ff8fa3"/>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z" fill="#3a2e30"/>
                 </svg>
               </div>
             </div>
@@ -579,6 +623,13 @@
       </div>
     </section>
 
+    <!-- NEW Section 4: Creative Philosophy Frame (Fills Space) -->
+    <section class="philosophy-banner">
+      <h3>Design Perspective</h3>
+      <p>
+        I believe that functional layouts don't have to be cold and clinical. By introducing soft, pastel tones and responsive interactions into technical asset frames, digital interfaces can feel both warmly human and clean. Every layout, polygon track, and media loop is a balance of precision engineering and personal style.
+      </p>
+    </section>
   </main>
 
   <footer>
@@ -597,21 +648,22 @@
     </div>
   </footer>
 
+  <!-- Modal Asset Window -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
-        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 95%; max-height: 95%; object-fit: contain; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
 
         <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
 
-        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);"></video>
+        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);"></video>
       </div>
     </div>
   </div>
 
   <script>
-    // 1. Interactive Soft Pastel Pink Trail Effect
+    // 1. Subtle Radial Mouse Trail Effect
     const spotlight = document.getElementById('spotlight');
 
     document.addEventListener('mousemove', (e) => {
@@ -628,14 +680,14 @@
       spotlight.style.opacity = '1';
     });
 
-    // 2. Playful Bubble Burst Click Effect
+    // 2. Click Aura Ring Interaction
     document.addEventListener('click', function(e) {
       if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON') return;
 
       const ripple = document.createElement('div');
       ripple.classList.add('ripple');
 
-      const size = 60;
+      const size = 50;
       ripple.style.width = ripple.style.height = size + 'px';
       ripple.style.left = (e.clientX - size/2) + 'px';
       ripple.style.top = (e.clientY - size/2) + 'px';
@@ -644,10 +696,10 @@
 
       setTimeout(() => {
         ripple.remove();
-      }, 700);
+      }, 600);
     });
 
-    // 3. Interactive 2D Print Smooth Elastic Zoom
+    // 3. Smooth Elastic Zoom for 2D Card Artwork
     const passportImg = document.getElementById('passportArtwork');
 
     function zoomPrint(e) {
@@ -657,15 +709,16 @@
       const y = ((e.clientY - rect.top) / rect.height) * 100;
 
       passportImg.style.transformOrigin = `${x}% ${y}%`;
-      passportImg.style.transform = 'scale(1.6)';
+      passportImg.style.transform = 'scale(1.5)';
     }
 
+    // Reset Zoom State
     function resetPrint() {
       passportImg.style.transformOrigin = 'center center';
       passportImg.style.transform = 'scale(1)';
     }
 
-    // 4. Automated Date Syncing
+    // 4. Set Current Year Programmatically
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     function scrollToTop() {
@@ -675,7 +728,7 @@
       });
     }
 
-    // 5. Interactive Popups
+    // 5. Interactive Popups Controller Logic
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalViewer = document.getElementById('modal-viewer');
@@ -688,4 +741,60 @@
       }
 
       modalImg.style.display = 'none';
-      modalViewer.style
+      modalViewer.style.display = 'none';
+      modalVideo.style.display = 'none';
+
+      modalImg.src = '';
+      modalViewer.src = '';
+      modalVideo.src = '';
+
+      if (type === '2d') {
+        modalImg.src = 'assets/Tercero.png';
+        modalImg.style.display = 'block';
+      } else if (type === '3d') {
+        modalViewer.src = 'assets/Wrap Sonny.glb';
+        modalViewer.style.display = 'block';
+        setTimeout(() => {
+          modalViewer.resize();
+        }, 50);
+      } else if (type === '4d') {
+        modalVideo.src = 'assets/4DVideo2.mp4';
+        modalVideo.style.display = 'block';
+        modalVideo.play().catch(err => console.log("Autoplay blocked:", err));
+      }
+
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalVideo.pause();
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+
+      setTimeout(() => {
+        if (!modal.classList.contains('show')) {
+          modalImg.src = '';
+          modalViewer.src = '';
+          modalVideo.src = '';
+          modalImg.style.display = 'none';
+          modalViewer.style.display = 'none';
+          modalVideo.style.display = 'none';
+        }
+      }, 300);
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.classList.contains('modal-content') || e.target.classList.contains('modal-body')) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
