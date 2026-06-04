@@ -47,6 +47,26 @@
     <h3>2D Print</h3>
     <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
   </div>
+  // 2D Print Dynamic Hover Zoom Effect
+    const passportImg = document.getElementById('passportArtwork');
+
+    function zoomPrint(e) {
+      const container = e.currentTarget;
+      const rect = container.getBoundingClientRect();
+
+      // Calculate mouse position relative to the element container (0 to 100%)
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      // Dynamic scaling transform
+      passportImg.style.transformOrigin = `${x}% ${y}%`;
+      passportImg.style.transform = 'scale(1.8)';
+    }
+
+    function resetPrint() {
+      passportImg.style.transformOrigin = 'center center';
+      passportImg.style.transform = 'scale(1)';
+    }
 
 <div class="project-card">
 <div class="project-model-container">
