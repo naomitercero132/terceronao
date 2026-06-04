@@ -13,10 +13,106 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
+  <!-- Interactive Layout Styles -->
   <style>
+    /* Theme Variables for Interactive Toggle */
+    :root {
+      --bg-color: #0d0d11;
+      --card-bg: #16161a;
+      --text-color: #ffffff;
+      --text-muted: #a1a1aa;
+      --accent-color: #ff4a5a;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #f4f4f7;
+      --card-bg: #ffffff;
+      --text-color: #0d0d11;
+      --text-muted: #52525b;
+      --accent-color: #e11d48;
+    }
+
+    /* Live Smooth Theme Switching transition */
+    body {
+      background-color: var(--bg-color) !important;
+      color: var(--text-color) !important;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Theme Toggle Button Style */
+    .theme-toggle-btn {
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    [data-theme="light"] .theme-toggle-btn {
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .theme-toggle-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-color);
+    }
+
+    /* Project Filter Controls Layout */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    [data-theme="light"] .filter-btn {
+      border-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent-color);
+      color: #ffffff !important;
+      border-color: var(--accent-color);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 74, 90, 0.2);
+    }
+
+    /* Clean Card Layout Smooth Animation state */
+    .project-card {
+      background: var(--card-bg) !important;
+      transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card.hide {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+      position: absolute;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    /* Premium Footer Styles */
     footer {
       width: 100%;
-      padding: 80px 40px !important; /* Forces the generous professional breathing room */
+      padding: 80px 40px !important;
       background: linear-gradient(180deg, #0d0d11 0%, #060608 100%) !important;
       color: #a1a1aa !important;
       font-family: 'Inter', sans-serif;
@@ -27,7 +123,6 @@
       position: relative;
     }
 
-    /* Elegant glowing top accent line */
     footer::before {
       content: '';
       position: absolute;
@@ -60,7 +155,6 @@
       gap: 32px;
     }
 
-    /* Bolder, high-contrast links */
     .underlined-link {
       color: #ffffff !important;
       text-decoration: none;
@@ -95,7 +189,6 @@
       transform-origin: bottom left;
     }
 
-    /* Premium Back to Top Button */
     #backToTopBtn {
       background-color: #18181c !important;
       color: #ffffff !important;
@@ -146,6 +239,8 @@
       <ul class="nav-links">
         <li><a href="#hero">About</a></li>
         <li><a href="#projects">Work</a></li>
+        <!-- Interactive Theme Toggle Button Built-In -->
+        <li><button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">✨ Light Mode</button></li>
       </ul>
     </nav>
   </header>
@@ -162,9 +257,17 @@
     <section id="projects">
       <h2>Featured Projects</h2>
 
-      <div class="projects-grid">
+      <!-- Useful Layout Filter Buttons -->
+      <div class="filter-container">
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+        <button class="filter-btn" onclick="filterProjects('print', this)">2D Print</button>
+        <button class="filter-btn" onclick="filterProjects('digital', this)">3D & 4D Media</button>
+      </div>
 
-        <div class="project-card">
+      <div class="projects-grid" style="position: relative;">
+
+        <!-- 1. Interactive 2D Print Card -->
+        <div class="project-card" data-category="print">
           <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #1a1a1e; cursor: zoom-in; position: relative;">
             <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
@@ -173,7 +276,8 @@
           <a href="#" class="project-link" onclick="openProject('2d', event)">View Project</a>
         </div>
 
-        <div class="project-card">
+        <!-- 2. Interactive 3D Model Card -->
+        <div class="project-card" data-category="digital">
           <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #f0f0f0; position: relative;">
             <model-viewer
               src="assets/Wrap Sonny.glb"
@@ -191,7 +295,8 @@
           <a href="#" class="project-link" onclick="openProject('3d', event)">View Project</a>
         </div>
 
-        <div class="project-card">
+        <!-- 3. 4D Video Card -->
+        <div class="project-card" data-category="digital">
           <div class="video-preview-container" onclick="openProject('4d', event)">
             <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
             <div class="play-overlay">
@@ -212,6 +317,7 @@
 
   </main>
 
+  <!-- Clean Professional Footer Section -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -228,21 +334,58 @@
     </div>
   </footer>
 
+  <!-- Project Modal Overlay -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
+        <!-- 2D Image View -->
         <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
 
+        <!-- 3D Model View -->
         <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
 
+        <!-- 4D Video View -->
         <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"></video>
       </div>
     </div>
   </div>
 
   <script>
-    // 1. Interactive Spotlight Effect
+    // 1. Live Dark/Light Custom Theme Switcher
+    function toggleTheme() {
+      const body = document.body;
+      const themeBtn = document.getElementById('themeBtn');
+
+      if (body.getAttribute('data-theme') === 'light') {
+        body.removeAttribute('data-theme');
+        themeBtn.textContent = '✨ Light Mode';
+      } else {
+        body.setAttribute('data-theme', 'light');
+        themeBtn.textContent = '🌙 Dark Mode';
+      }
+    }
+
+    // 2. Useful Live Layout Filtering Logic
+    function filterProjects(category, buttonElement) {
+      // Remove 'active' selection design framework from all button nodes
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Highlight targeted button selection
+      buttonElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hide');
+        } else {
+          card.classList.add('hide');
+        }
+      });
+    }
+
+    // 3. Interactive Spotlight Effect
     const spotlight = document.getElementById('spotlight');
 
     document.addEventListener('mousemove', (e) => {
@@ -259,9 +402,9 @@
       spotlight.style.opacity = '1';
     });
 
-    // 2. Sleek Click Ripple Effect
+    // 4. Sleek Click Ripple Effect
     document.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON') return;
+      if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.classList.contains('filter-btn')) return;
 
       const ripple = document.createElement('div');
       ripple.classList.add('ripple');
@@ -278,7 +421,7 @@
       }, 600);
     });
 
-    // 3. Interactive 2D Print Zoom Effect
+    // 5. Interactive 2D Print Zoom Effect
     const passportImg = document.getElementById('passportArtwork');
 
     function zoomPrint(e) {
@@ -296,7 +439,7 @@
       passportImg.style.transform = 'scale(1)';
     }
 
-    // 4. Automated Footer Utilities
+    // 6. Automated Footer Utilities
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     function scrollToTop() {
@@ -306,7 +449,7 @@
       });
     }
 
-    // 5. Project Popups / Modals
+    // 7. Project Popups / Modals
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalViewer = document.getElementById('modal-viewer');
