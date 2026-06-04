@@ -13,7 +13,6 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
-  <!-- Proportional Layout Expansion (Pink & White Palette) -->
   <style>
     body {
       margin: 0;
@@ -564,10 +563,9 @@
 
       <div class="projects-grid">
 
-        <!-- 1. Interactive 2D Print Card -->
         <div class="project-card" data-category="print">
           <div class="media-wrapper" onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="background-color: #fff0f3; cursor: zoom-in;">
-            <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+            <img src="./assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
           <div>
             <h3>2D Print</h3>
@@ -576,11 +574,10 @@
           <a href="#" class="project-link" onclick="openProject('2d', event)">View Project ↗</a>
         </div>
 
-        <!-- 2. Interactive 3D Model Card -->
         <div class="project-card" data-category="digital">
           <div class="media-wrapper" style="background-color: #fff0f3;">
             <model-viewer
-              src="assets/Wrap Sonny.glb"
+              src="./assets/Wrap Sonny.glb"
               alt="A 3D model of a Sonny Angel"
               auto-rotate
               camera-controls
@@ -597,12 +594,10 @@
           <a href="#" class="project-link" onclick="openProject('3d', event)">View Project ↗</a>
         </div>
 
-        <!-- 3. 4D Video Card (Updated Target Path Location) -->
         <div class="project-card" data-category="digital">
           <div class="media-wrapper">
             <div class="video-preview-container" onclick="openProject('4d', event)" style="height: 100%; position: relative; cursor: pointer;">
-              <!-- Points directly to your repo assets location -->
-              <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+              <video src="./assets/4DVideo2.mp4" muted loop autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
               <div class="play-overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(45,35,39,0.15); display:flex; align-items:center; justify-content:center;">
                 <div class="play-icon" style="background: #ffffff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -632,7 +627,7 @@
       <div class="footer-right">
         <div class="footer-links">
           <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link">GitHub</a>
-          <a href="mailto:tercero.hurtado.na01@student.smc.edu" class="underlined-link">Email</a>
+          <a href="mailto:your.email@example.com" class="underlined-link">Email</a>
         </div>
         <button onclick="scrollToTop()" id="backToTopBtn" aria-label="Back to top">↑</button>
       </div>
@@ -644,7 +639,7 @@
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
         <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(255,184,203,0.3);">
-        <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 1000%;"></model-viewer>
+        <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
         <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(255,184,203,0.3);"></video>
       </div>
     </div>
@@ -713,17 +708,16 @@
       modalVideo.src = '';
 
       if (type === '2d') {
-        modalImg.src = 'assets/Tercero.png';
+        modalImg.src = './assets/Tercero.png';
         modalImg.style.display = 'block';
       } else if (type === '3d') {
-        modalViewer.src = 'assets/Wrap Sonny.glb';
+        modalViewer.src = './assets/Wrap Sonny.glb';
         modalViewer.style.display = 'block';
         setTimeout(() => {
           modalViewer.resize();
         }, 50);
       } else if (type === '4d') {
-        // Direct local or absolute target variable link for matching modal playback
-        modalVideo.src = 'assets/4DVideo2.mp4';
+        modalVideo.src = './assets/4DVideo2.mp4';
         modalVideo.style.display = 'block';
         modalVideo.play().catch(err => console.log("Autoplay blocked:", err));
       }
