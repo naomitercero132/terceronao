@@ -393,15 +393,20 @@ model-viewer {
   height: 100%;
   --poster-color: transparent; /* Removes any ugly loading flashes */
 }
+/* --- Cute & Interactive Footer Enhancements --- */
 footer {
   width: 100%;
-  padding: 40px 20px;
-  background-color: #0f0f11; /* Dark background to contrast with the site */
-  color: #a0a0a5; /* Soft gray text for modern legibility */
+  padding: 60px 20px 40px;
+  background-color: #ffd1dc; /* Soft cute pastel pink */
+  color: #5d4047; /* Warm dark brown-pink for readable contrast */
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  border-top: 1px solid #222225; /* Subtle separation line */
-  margin-top: 80px; /* Gives the project section breathing room */
+  font-size: 0.95rem;
+  border-top: 5px solid #ffb7c5; /* Thick pink accent border */
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  margin-top: 100px;
+  box-shadow: 0 -10px 40px rgba(255, 183, 197, 0.25);
+  position: relative;
 }
 
 .footer-content {
@@ -411,20 +416,190 @@ footer {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
 .footer-links a {
-  color: #ffffff;
+  color: #5d4047;
   text-decoration: none;
-  margin-left: 20px;
   font-family: 'Outfit', sans-serif;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
 }
 
 .footer-links a:hover {
-  color: #ff4a5a; /* Replace this with whatever your site's highlight/accent color is! */
+  color: #d63384;
+  transform: translateY(-3px) scale(1.08);
+  text-shadow: 0 4px 8px rgba(214, 51, 132, 0.15);
+}
+
+/* Wiggle animation on hover for links */
+.wiggle-hover:hover {
+  animation: wiggle 0.4s ease infinite alternate;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(-3deg) translateY(-2px); }
+  100% { transform: rotate(3deg) translateY(-2px); }
+}
+
+/* Mascot Container & Styling */
+.mascot-container {
+  position: absolute;
+  top: -82px;
+  left: 60px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.mascot-bunny {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 6px 12px rgba(214, 51, 132, 0.15));
+}
+
+.mascot-bunny:hover {
+  transform: scale(1.15) translateY(-5px);
+}
+
+.mascot-bunny:active {
+  transform: scale(0.9) translateY(0);
+}
+
+.mascot-bubble {
+  position: absolute;
+  bottom: 85px;
+  left: 20px;
+  background: white;
+  border: 2px solid #ffb7c5;
+  border-radius: 16px;
+  padding: 10px 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d63384;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(10px) scale(0.8);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mascot-bubble.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.mascot-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 25px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: white transparent;
+  display: block;
+  width: 0;
+}
+
+.mascot-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 24px;
+  border-width: 11px 11px 0;
+  border-style: solid;
+  border-color: #ffb7c5 transparent;
+  display: block;
+  width: 0;
+  z-index: -1;
+}
+
+/* Cute Send Love Button */
+.love-btn {
+  background: #d63384;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 6px 16px rgba(214, 51, 132, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.love-btn:hover {
+  background: #f14095;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 24px rgba(214, 51, 132, 0.35);
+}
+
+.love-btn:active {
+  transform: translateY(-1px) scale(0.95);
+}
+
+.love-btn span {
+  font-size: 1.2rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.love-btn:hover span {
+  transform: scale(1.3) rotate(15deg);
+  animation: heartbeat 0.8s infinite alternate;
+}
+
+@keyframes heartbeat {
+  to { transform: scale(1.3) rotate(15deg) scale(1.15); }
+}
+
+/* Sparkle / Heart Trail Particle CSS */
+.sparkle-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  user-select: none;
+  font-size: 18px;
+  animation: floatFade 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes floatFade {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.4) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Tactile bouncy project card lifts */
+.project-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 16px 36px rgba(214, 51, 132, 0.08) !important;
+  border-color: #ffb7c5 !important;
 }
 
 /* Make it look neat on mobile screens */
@@ -432,8 +607,14 @@ footer {
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
-  .footer-links a {
-    margin: 0 10px;
+  .footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .mascot-container {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

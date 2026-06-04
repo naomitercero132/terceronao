@@ -92,17 +92,41 @@
 
   </main>
 
-  <!-- Professional Interactive Footer Section -->
+  <!-- Cute Interactive Footer Section -->
   <footer>
+    <div class="mascot-container">
+      <div class="mascot-bubble" id="mascot-bubble">Hi there! 🌸</div>
+      <svg class="mascot-bunny" id="bunny-mascot" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="triggerMascot()">
+        <!-- Ears -->
+        <rect x="25" y="10" width="16" height="40" rx="8" fill="#ffffff" stroke="#ffb7c5" stroke-width="3"/>
+        <rect x="29" y="18" width="8" height="24" rx="4" fill="#ffccd5"/>
+        <rect x="59" y="10" width="16" height="40" rx="8" fill="#ffffff" stroke="#ffb7c5" stroke-width="3"/>
+        <rect x="63" y="18" width="8" height="24" rx="4" fill="#ffccd5"/>
+        <!-- Body / Head -->
+        <circle cx="50" cy="65" r="30" fill="#ffffff" stroke="#ffb7c5" stroke-width="3"/>
+        <!-- Eyes (Happy arcs) -->
+        <path d="M38 60 C39 63, 43 63, 44 60" stroke="#5d4047" stroke-width="3" stroke-linecap="round"/>
+        <path d="M56 60 C57 63, 61 63, 62 60" stroke="#5d4047" stroke-width="3" stroke-linecap="round"/>
+        <!-- Cheeks -->
+        <circle cx="34" cy="67" r="4" fill="#ff8da1" opacity="0.6"/>
+        <circle cx="66" cy="67" r="4" fill="#ff8da1" opacity="0.6"/>
+        <!-- Nose/Mouth -->
+        <path d="M48 65 L52 65" stroke="#5d4047" stroke-width="2" stroke-linecap="round"/>
+        <path d="M50 65 L50 67 C49 69, 47 69, 47 67" stroke="#5d4047" stroke-width="2" fill="none"/>
+        <path d="M50 65 L50 67 C51 69, 53 69, 53 67" stroke="#5d4047" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+
     <div class="footer-content">
       <div class="footer-left">
-        <p>&copy; <span id="current-year"></span> Naomi Tercero. Built with passion & code.</p>
+        <p>&copy; <span id="current-year"></span> Naomi Tercero. Made with 💖 & code.</p>
       </div>
 
       <div class="footer-right">
         <div class="footer-links">
-          <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link">GitHub</a>
-          <a href="mailto:your.email@example.com" class="underlined-link">Email</a>
+          <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link wiggle-hover">GitHub</a>
+          <a href="mailto:your.email@example.com" class="underlined-link wiggle-hover">Email</a>
+          <button class="love-btn" onclick="burstHearts(event)">Send Love <span>💖</span></button>
         </div>
         <button onclick="scrollToTop()" id="backToTopBtn" aria-label="Back to top">↑</button>
       </div>
@@ -267,6 +291,138 @@
         closeModal();
       }
     });
+
+    // 6. Sparkle Cursor Trail
+    let lastX = 0;
+    let lastY = 0;
+    const sparkleEmojis = ['🌸', '✨', '💖', '⭐', '💕', '🍬'];
+
+    document.addEventListener('mousemove', (e) => {
+      const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+      if (dist < 15) return; // limit frequency
+
+      lastX = e.clientX;
+      lastY = e.clientY;
+
+      const particle = document.createElement('span');
+      particle.classList.add('sparkle-particle');
+      particle.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+      particle.style.left = (e.clientX - 10) + 'px';
+      particle.style.top = (e.clientY - 10) + 'px';
+      
+      // Randomize font size slightly
+      particle.style.fontSize = Math.random() * 10 + 14 + 'px';
+
+      document.body.appendChild(particle);
+
+      // Auto remove from DOM
+      setTimeout(() => {
+        particle.remove();
+      }, 800);
+    });
+
+    // 7. Interactive Footer Mascot Bunny
+    const bunnyBubble = document.getElementById('mascot-bubble');
+    const bunnyMascot = document.getElementById('bunny-mascot');
+    let bubbleTimeout;
+
+    const bunnyMessages = [
+      "Have a lovely day! 🌸",
+      "You are amazing! ✨",
+      "Thanks for visiting! 🧸",
+      "Code is magic! 🌸",
+      "Be kind to yourself! 💕",
+      "Stay creative! 🎨",
+      "You're doing great! 🌟",
+      "Sending positive vibes! 🐰",
+      "You shine bright! ✨"
+    ];
+
+    function triggerMascot() {
+      // Pick random message
+      const msg = bunnyMessages[Math.floor(Math.random() * bunnyMessages.length)];
+      bunnyBubble.textContent = msg;
+      
+      // Show bubble
+      bunnyBubble.classList.add('show');
+      
+      // Hop animation on click
+      bunnyMascot.style.transform = 'scale(0.85) translateY(12px)';
+      setTimeout(() => {
+        bunnyMascot.style.transform = '';
+      }, 150);
+
+      // Clear existing timeout
+      clearTimeout(bubbleTimeout);
+
+      // Hide after 3.5s
+      bubbleTimeout = setTimeout(() => {
+        bunnyBubble.classList.remove('show');
+      }, 3500);
+    }
+
+    // Auto greet visitor after a small delay
+    setTimeout(() => {
+      if (bunnyBubble && !bunnyBubble.classList.contains('show')) {
+        bunnyBubble.textContent = "Welcome to my space! 💖";
+        bunnyBubble.classList.add('show');
+        bubbleTimeout = setTimeout(() => {
+          bunnyBubble.classList.remove('show');
+        }, 4000);
+      }
+    }, 2000);
+
+    // 8. Love Burst Confetti Effect
+    function burstHearts(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      for (let i = 0; i < 16; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = ['💖', '💕', '✨', '🌸', '💝', '⭐'][Math.floor(Math.random() * 6)];
+        heart.style.position = 'fixed';
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '100001';
+        heart.style.fontSize = Math.random() * 8 + 16 + 'px';
+        heart.style.userSelect = 'none';
+        
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 5 + 3;
+        const vx = Math.cos(angle) * speed;
+        // Upward bias: y speed is slightly reduced/negative (going up)
+        const vy = Math.sin(angle) * speed - 1.5;
+        
+        document.body.appendChild(heart);
+        
+        let px = x;
+        let py = y;
+        let opacity = 1;
+        let rotation = Math.random() * 360;
+        const rotationSpeed = Math.random() * 8 - 4;
+        
+        function animate() {
+          if (opacity <= 0.02) {
+            heart.remove();
+            return;
+          }
+          px += vx;
+          py += vy;
+          opacity -= 0.025; // fade out speed
+          rotation += rotationSpeed;
+          
+          heart.style.left = px + 'px';
+          heart.style.top = py + 'px';
+          heart.style.opacity = opacity;
+          heart.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+          
+          requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+      }
+    }
   </script>
 </body>
 </html>
