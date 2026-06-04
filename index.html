@@ -114,7 +114,14 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
-        <!-- Dynamic content injected via Javascript -->
+        <!-- 2D Image View -->
+        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+        
+        <!-- 3D Model View -->
+        <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
+        
+        <!-- 4D Video View -->
+        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"></video>
       </div>
     </div>
   </div>
@@ -186,51 +193,40 @@
 
     // 5. Project Popups / Modals
     const modal = document.getElementById('project-modal');
-    const modalBody = document.getElementById('modal-body');
+    const modalImg = document.getElementById('modal-img');
+    const modalViewer = document.getElementById('modal-viewer');
+    const modalVideo = document.getElementById('modal-video');
 
     function openProject(type, event) {
       if (event) {
         event.preventDefault();
         event.stopPropagation();
       }
-
-      // Clear previous content
-      modalBody.innerHTML = '';
-
+      
+      // Hide all modal views first
+      modalImg.style.display = 'none';
+      modalViewer.style.display = 'none';
+      modalVideo.style.display = 'none';
+      
+      // Reset sources to prevent old media flashing
+      modalImg.src = '';
+      modalViewer.src = '';
+      modalVideo.src = '';
+      
       if (type === '2d') {
-        // Image popup
-        const img = document.createElement('img');
-        img.src = 'assets/Tercero.png';
-        img.alt = '2D Print Passport Deconstruction artwork';
-        img.style.maxWidth = '90%';
-        img.style.maxHeight = '90%';
-        img.style.objectFit = 'contain';
-        img.style.borderRadius = '8px';
-        img.style.boxShadow = '0 8px 32px rgba(0,0,0,0.5)';
-        modalBody.appendChild(img);
+        modalImg.src = 'assets/Tercero.png';
+        modalImg.style.display = 'block';
       } else if (type === '3d') {
-        // 3D model viewer popup
-        const viewer = document.createElement('model-viewer');
-        viewer.src = 'assets/Wrap Sonny.glb';
-        viewer.alt = 'A 3D model of a Sonny Angel';
-        viewer.setAttribute('auto-rotate', '');
-        viewer.setAttribute('camera-controls', '');
-        viewer.setAttribute('shadow-intensity', '1');
-        viewer.setAttribute('interaction-prompt', 'auto');
-        viewer.style.width = '100%';
-        viewer.style.height = '100%';
-        modalBody.appendChild(viewer);
+        modalViewer.src = 'assets/Wrap Sonny.glb';
+        modalViewer.style.display = 'block';
+        // Force model-viewer to recalculate size after displaying
+        setTimeout(() => {
+          modalViewer.resize();
+        }, 50);
       } else if (type === '4d') {
-        // Video popup
-        const video = document.createElement('video');
-        video.src = 'assets/4DVideo2.mp4';
-        video.setAttribute('controls', '');
-        video.setAttribute('autoplay', '');
-        video.style.maxWidth = '95%';
-        video.style.maxHeight = '95%';
-        video.style.borderRadius = '8px';
-        video.style.boxShadow = '0 8px 32px rgba(0,0,0,0.5)';
-        modalBody.appendChild(video);
+        modalVideo.src = 'assets/4DVideo2.mp4';
+        modalVideo.style.display = 'block';
+        modalVideo.play().catch(err => console.log("Autoplay blocked:", err));
       }
 
       // Show modal
@@ -239,18 +235,21 @@
     }
 
     function closeModal() {
-      // Pause or clean up video if active to prevent audio playing in background
-      const video = modalBody.querySelector('video');
-      if (video) {
-        video.pause();
-      }
+      // Pause video if active
+      modalVideo.pause();
+      
       modal.classList.remove('show');
       document.body.style.overflow = ''; // Re-enable background scrolling
-
-      // Wait for transition to complete before clearing content
+      
+      // Clear sources after fade-out transition to clean memory
       setTimeout(() => {
         if (!modal.classList.contains('show')) {
-          modalBody.innerHTML = '';
+          modalImg.src = '';
+          modalViewer.src = '';
+          modalVideo.src = '';
+          modalImg.style.display = 'none';
+          modalViewer.style.display = 'none';
+          modalVideo.style.display = 'none';
         }
       }, 300);
     }
