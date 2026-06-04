@@ -14,332 +14,59 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background-color: #ffffff;
-      color: #2d2327;
-    }
-
-    header {
+    footer {
       width: 100%;
-      padding: 40px 0;
-      background-color: #ffffff;
-    }
-
-    nav {
-      width: 92% !important;
-      max-width: 1700px !important;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      font-size: calc(1.5rem + 0.5vw);
-      color: #ff4b72;
-      cursor: pointer;
-      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .logo:hover {
-      transform: scale(1.08);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-links a {
-      color: #8c767e;
-      text-decoration: none;
+      padding: 80px 40px !important; /* Forces the generous professional breathing room */
+      background: linear-gradient(180deg, #0d0d11 0%, #060608 100%) !important;
+      color: #a1a1aa !important;
       font-family: 'Inter', sans-serif;
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-
-    .nav-links a:hover {
-      color: #ff4b72;
-      transform: translateY(-2px);
-    }
-
-    main {
-      width: 92% !important;
-      max-width: 1700px !important;
-      margin: 0 auto;
-    }
-
-    .hero {
-      min-height: 65vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 140px 0 !important;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: calc(3rem + 2.5vw) !important;
-      line-height: 1.1;
-      margin-bottom: 30px;
-      font-family: 'Outfit', sans-serif;
-      color: #2d2327;
-    }
-
-    .hero h1 .highlight {
-      color: #ff4b72;
-    }
-
-    .hero p {
-      font-size: calc(1.1rem + 0.4vw) !important;
-      line-height: 1.7 !important;
-      color: #615056;
-      margin-bottom: 50px;
-    }
-
-    .btn-primary {
-      background: #ff4b72;
-      color: #ffffff !important;
-      padding: 16px 32px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 1.1rem;
-      display: inline-block;
-      box-shadow: 0 10px 25px rgba(255, 75, 114, 0.2);
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .btn-primary:hover {
-      background: #e0365b;
-      transform: scale(1.05) translateY(-3px);
-      box-shadow: 0 15px 30px rgba(255, 75, 114, 0.35);
-    }
-
-    .capabilities-section {
-      padding: 100px 0;
-      border-top: 1px solid #ffe3eb;
-      border-bottom: 1px solid #ffe3eb;
-      margin-bottom: 100px;
-    }
-
-    .cap-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-    }
-
-    .cap-box {
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .cap-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .cap-box h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: calc(2.5rem + 1vw);
-      margin: 0 0 10px 0;
-      color: #ffb8cb;
-    }
-
-    .cap-box h4 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.3rem;
-      margin: 0 0 15px 0;
-      color: #2d2327;
-    }
-
-    .cap-box p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #7d6870;
-      margin: 0;
-    }
-
-    #projects {
-      padding: 60px 0 140px 0 !important;
-      text-align: center;
-    }
-
-    #projects h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: calc(2.2rem + 1vw);
-      margin-bottom: 50px;
-      color: #2d2327;
-    }
-
-    .filter-container {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 60px;
-    }
-
-    .filter-btn {
-      background: #fff0f3;
-      color: #8c767e;
-      border: 1px solid #ffd1dc;
-      padding: 14px 28px;
-      border-radius: 40px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: #ff4b72;
-      color: #ffffff !important;
-      border-color: #ff4b72;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(255, 75, 114, 0.25);
-    }
-
-    .projects-grid {
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 50px !important;
-      width: 100% !important;
-      text-align: left;
-    }
-
-    .project-card {
-      width: 100% !important;
-      margin: 0 !important;
-      background: #fff8f9;
-      border: 1px solid #ffe6ec;
-      border-radius: 16px;
-      padding: 32px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(255, 184, 203, 0.4);
-      border-color: #ffd1dc;
-    }
-
-    .project-card .media-wrapper {
-      height: 380px !important;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 24px;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+      margin-top: 120px !important;
       position: relative;
     }
 
-    .project-card .media-wrapper img,
-    .project-card .media-wrapper video {
-      transition: transform 0.5s ease;
-    }
-
-    .project-card:hover .media-wrapper img {
-      transform: scale(1.05);
-    }
-
-    .project-card h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.6rem;
-      margin: 0 0 12px 0;
-      color: #2d2327;
-    }
-
-    .project-card p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #7d6870;
-      margin: 0 0 24px 0;
-    }
-
-    .project-link {
-      color: #ff4b72;
-      text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 1.1rem;
-      display: inline-block;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .project-link:hover {
-      color: #e0365b;
-    }
-
-    .project-card:hover .project-link {
-      transform: translateX(6px);
-    }
-
-    .project-card.hide {
-      opacity: 0;
-      transform: scale(0.9) translateY(20px);
+    /* Elegant glowing top accent line */
+    footer::before {
+      content: '';
       position: absolute;
-      pointer-events: none;
-      visibility: hidden;
-    }
-
-    footer {
-      width: 100%;
-      padding: 120px 0 !important;
-      background: #fff0f3 !important;
-      color: #8c767e !important;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      border-top: 1px solid #ffd1dc !important;
-      margin-top: 100px !important;
+      top: -1px;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #ff4a5a, transparent);
+      opacity: 0.6;
     }
 
     .footer-content {
-      width: 92%;
-      max-width: 1700px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: 30px;
     }
 
     .footer-right {
       display: flex;
       align-items: center;
-      gap: 60px;
+      gap: 40px;
     }
 
     .footer-links {
       display: flex;
-      gap: 50px;
+      gap: 32px;
     }
 
+    /* Bolder, high-contrast links */
     .underlined-link {
-      color: #ff4b72 !important;
+      color: #ffffff !important;
       text-decoration: none;
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: 0.02em;
       position: relative;
       padding-bottom: 6px;
@@ -354,9 +81,13 @@
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: #ff4b72;
+      background-color: #ff4a5a;
       transform-origin: bottom right;
       transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .underlined-link:hover {
+      color: #ff4a5a !important;
     }
 
     .underlined-link:hover::after {
@@ -364,155 +95,56 @@
       transform-origin: bottom left;
     }
 
+    /* Premium Back to Top Button */
     #backToTopBtn {
-      background-color: #ffffff !important;
-      color: #ff4b72 !important;
-      border: 1px solid #ffd1dc !important;
-      width: 60px;
-      height: 60px;
+      background-color: #18181c !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     #backToTopBtn:hover {
-      background-color: #ff4b72 !important;
-      color: #ffffff !important;
+      background-color: #ffffff !important;
+      color: #0d0d11 !important;
       transform: translateY(-5px);
-      border-color: #ff4b72 !important;
-      box-shadow: 0 10px 20px rgba(255, 75, 114, 0.2);
-    }
-
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(45, 35, 39, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      z-index: 10000;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .modal.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-content {
-      position: relative;
-      width: 90%;
-      max-width: 1100px;
-      height: 80vh;
-      background: #ffffff;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      font-size: 2.5rem;
-      color: #8c767e;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      z-index: 10100;
-    }
-
-    .close-btn:hover {
-      color: #ff4b72;
-    }
-
-    .modal-body {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .model-fullscreen-btn {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: #ffffff;
-      color: #ff4b72;
-      border: 1px solid #ffd1dc;
-      padding: 10px 18px;
-      border-radius: 20px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-
-    .model-fullscreen-btn:hover {
-      background: #ff4b72;
-      color: #ffffff;
-      border-color: #ff4b72;
-    }
-
-    @media (max-width: 1200px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-      .cap-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-      }
+      border-color: #ffffff !important;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
     }
 
     @media (max-width: 768px) {
-      .projects-grid {
-        grid-template-columns: 1fr !important;
-        gap: 40px !important;
-      }
-      .cap-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .hero {
-        padding: 80px 0 !important;
-      }
       footer {
-        padding: 80px 0 !important;
+        padding: 60px 24px !important;
+        text-align: center;
       }
       .footer-content {
         flex-direction: column-reverse;
-        text-align: center;
-        gap: 40px;
+        gap: 35px;
       }
       .footer-right {
         flex-direction: column;
-        gap: 30px;
+        gap: 25px;
       }
     }
   </style>
 </head>
 <body>
 
+  <div id="spotlight"></div>
+
   <header>
     <nav>
-      <div class="logo" onclick="scrollToTop()">Naomi.</div>
+      <div class="logo">Naomi.</div>
       <ul class="nav-links">
         <li><a href="#hero">About</a></li>
-        <li><a href="#capabilities">Core</a></li>
         <li><a href="#projects">Work</a></li>
       </ul>
     </nav>
@@ -527,57 +159,24 @@
       <a href="#projects" class="btn-primary">Explore My Work</a>
     </section>
 
-    <section id="capabilities" class="capabilities-section">
-      <div class="cap-grid">
-        <div class="cap-box">
-          <h3>01</h3>
-          <h4>2D Print Assets</h4>
-          <p>Deconstructing structural components, layout frameworks, and physical spatial balance.</p>
-        </div>
-        <div class="cap-box">
-          <h3>02</h3>
-          <h4>3D Modeling</h4>
-          <p>Manipulating virtual dimensions, asset configurations, textures, and interactive layouts.</p>
-        </div>
-        <div class="cap-box">
-          <h3>03</h3>
-          <h4>4D Media Production</h4>
-          <p>Structuring time-driven assets, sequence timing logic, and immersive video narratives.</p>
-        </div>
-        <div class="cap-box">
-          <h3>04</h3>
-          <h4>Creative Code</h4>
-          <p>Integrating modern frontend technologies with elegant user interactive dynamics.</p>
-        </div>
-      </div>
-    </section>
-
     <section id="projects">
       <h2>Featured Projects</h2>
 
-      <div class="filter-container">
-        <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
-        <button class="filter-btn" onclick="filterProjects('print', this)">2D Print</button>
-        <button class="filter-btn" onclick="filterProjects('digital', this)">3D & 4D Media</button>
-      </div>
-
       <div class="projects-grid">
 
-        <div class="project-card" data-category="print">
-          <div class="media-wrapper" onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="background-color: #fff0f3; cursor: zoom-in;">
-            <img src="./Asset/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+        <div class="project-card">
+          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #1a1a1e; cursor: zoom-in; position: relative;">
+            <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
-          <div>
-            <h3>2D Print</h3>
-            <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
-          </div>
-          <a href="#" class="project-link" onclick="openProject('2d', event)">View Project ↗</a>
+          <h3>2D Print</h3>
+          <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
+          <a href="#" class="project-link" onclick="openProject('2d', event)">View Project</a>
         </div>
 
-        <div class="project-card" data-category="digital">
-          <div class="media-wrapper" style="background-color: #fff0f3;">
+        <div class="project-card">
+          <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #f0f0f0; position: relative;">
             <model-viewer
-              src="./Asset/Wrap Sonny.glb"
+              src="assets/Wrap Sonny.glb"
               alt="A 3D model of a Sonny Angel"
               auto-rotate
               camera-controls
@@ -587,35 +186,30 @@
             </model-viewer>
             <button class="model-fullscreen-btn" onclick="openProject('3d', event)">Fullscreen ↗</button>
           </div>
-          <div>
-            <h3>3D Model</h3>
-            <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
-          </div>
-          <a href="#" class="project-link" onclick="openProject('3d', event)">View Project ↗</a>
+          <h3>3D Model</h3>
+          <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
+          <a href="#" class="project-link" onclick="openProject('3d', event)">View Project</a>
         </div>
 
-        <div class="project-card" data-category="digital">
-          <div class="media-wrapper">
-            <div class="video-preview-container" onclick="openProject('4d', event)" style="height: 100%; position: relative; cursor: pointer;">
-              <video src="./Asset/4DVideo.mp4" muted loop autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-              <div class="play-overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(45,35,39,0.15); display:flex; align-items:center; justify-content:center;">
-                <div class="play-icon" style="background: #ffffff; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 5v14l11-7z" fill="#ff4b72"/>
-                  </svg>
-                </div>
+        <div class="project-card">
+          <div class="video-preview-container" onclick="openProject('4d', event)">
+            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z" fill="#0d0d11"/>
+                </svg>
               </div>
             </div>
           </div>
-          <div>
-            <h3>4D Video</h3>
-            <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
-          </div>
-          <a href="#" class="project-link" onclick="openProject('4d', event)">View Project ↗</a>
+          <h3>4D Video</h3>
+          <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
+          <a href="#" class="project-link" onclick="openProject('4d', event)">View Project</a>
         </div>
 
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -638,30 +232,53 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
-        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(255,184,203,0.3);">
+        <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+
         <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
-        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(255,184,203,0.3);"></video>
+
+        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"></video>
       </div>
     </div>
   </div>
 
   <script>
-    function filterProjects(category, buttonElement) {
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
+    // 1. Interactive Spotlight Effect
+    const spotlight = document.getElementById('spotlight');
 
-      buttonElement.classList.add('active');
-
-      const cards = document.querySelectorAll('.project-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
+    document.addEventListener('mousemove', (e) => {
+      requestAnimationFrame(() => {
+        spotlight.style.left = e.clientX + 'px';
+        spotlight.style.top = e.clientY + 'px';
       });
-    }
+    });
 
+    document.addEventListener('mouseleave', () => {
+      spotlight.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      spotlight.style.opacity = '1';
+    });
+
+    // 2. Sleek Click Ripple Effect
+    document.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON') return;
+
+      const ripple = document.createElement('div');
+      ripple.classList.add('ripple');
+
+      const size = 50;
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - size/2) + 'px';
+      ripple.style.top = (e.clientY - size/2) + 'px';
+
+      document.body.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+
+    // 3. Interactive 2D Print Zoom Effect
     const passportImg = document.getElementById('passportArtwork');
 
     function zoomPrint(e) {
@@ -671,7 +288,7 @@
       const y = ((e.clientY - rect.top) / rect.height) * 100;
 
       passportImg.style.transformOrigin = `${x}% ${y}%`;
-      passportImg.style.transform = 'scale(1.4)';
+      passportImg.style.transform = 'scale(1.8)';
     }
 
     function resetPrint() {
@@ -679,6 +296,7 @@
       passportImg.style.transform = 'scale(1)';
     }
 
+    // 4. Automated Footer Utilities
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     function scrollToTop() {
@@ -688,6 +306,7 @@
       });
     }
 
+    // 5. Project Popups / Modals
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalViewer = document.getElementById('modal-viewer');
@@ -708,17 +327,16 @@
       modalVideo.src = '';
 
       if (type === '2d') {
-        modalImg.src = './Asset/Tercero.png';
+        modalImg.src = 'assets/Tercero.png';
         modalImg.style.display = 'block';
       } else if (type === '3d') {
-        modalViewer.src = './Asset/Wrap Sonny.glb';
+        modalViewer.src = 'assets/Wrap Sonny.glb';
         modalViewer.style.display = 'block';
         setTimeout(() => {
           modalViewer.resize();
         }, 50);
       } else if (type === '4d') {
-        // Corrected modal video target link
-        modalVideo.src = './Asset/4DVideo.mp4';
+        modalVideo.src = 'assets/4DVideo2.mp4';
         modalVideo.style.display = 'block';
         modalVideo.play().catch(err => console.log("Autoplay blocked:", err));
       }
