@@ -40,12 +40,13 @@
       <h2>Featured Projects</h2>
 
       <div class="project-card">
-  <img src="assets/Tercero.png" alt="2D Print" class="project-image">
-  <h3>2D Print</h3>
-  <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
-  <!-- Updated link to open the new 2D Print Modal -->
-  <a href="#" class="project-link" onclick="openPrintModal(event)">View Project</a>
-</div>
+    <!-- Interactive Pan/Zoom Viewer Container -->
+    <div class="project-print-container" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)">
+      <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" class="interactive-print-image">
+    </div>
+    <h3>2D Print</h3>
+    <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
+  </div>
 
 <div class="project-card">
 <div class="project-model-container">
