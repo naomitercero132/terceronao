@@ -13,7 +13,7 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
-  <!-- Proportional Layout Expansion (Original Dark Colors Only) -->
+  <!-- Proportional Layout Expansion (Original Colors Preserved) -->
   <style>
     /* Reset defaults for expansive full-screen environments */
     body {
@@ -41,6 +41,12 @@
       font-family: 'Outfit', sans-serif;
       font-weight: 700;
       font-size: calc(1.5rem + 0.5vw);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .logo:hover {
+      transform: scale(1.08);
     }
 
     .nav-links {
@@ -57,11 +63,13 @@
       font-family: 'Inter', sans-serif;
       font-weight: 500;
       font-size: 1.1rem;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
 
     .nav-links a:hover {
       color: #ffffff;
+      transform: translateY(-2px);
     }
 
     /* Primary Dynamic Grid Framework */
@@ -71,32 +79,43 @@
       margin: 0 auto;
     }
 
-    /* Immersive & Deep Hero Section */
+    /* Centered Immersive Hero Section */
     .hero {
-      min-height: 65vh; /* Takes up more visual real estate on initial launch */
+      min-height: 65vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center; /* Centered layout */
+      text-align: center; /* Centered layout */
       padding: 140px 0 !important;
-      max-width: 1100px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: calc(3rem + 2.5vw) !important; /* Forces bold, large presence on wider displays */
+      font-size: calc(3rem + 2.5vw) !important;
       line-height: 1.1;
       margin-bottom: 30px;
       font-family: 'Outfit', sans-serif;
     }
 
     .hero p {
-      font-size: calc(1.1rem + 0.4vw) !important; /* Scales smoothly so text never looks tiny */
+      font-size: calc(1.1rem + 0.4vw) !important;
       line-height: 1.7 !important;
       color: #a1a1aa;
       margin-bottom: 50px;
     }
 
-    /* Structural space filling capability architecture (Using original borders) */
+    .btn-primary {
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Structural space filling capability architecture */
     .capabilities-section {
       padding: 100px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -108,6 +127,15 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 40px;
+    }
+
+    .cap-box {
+      text-align: center; /* Centered content details */
+      transition: transform 0.3s ease;
+    }
+
+    .cap-box:hover {
+      transform: translateY(-5px);
     }
 
     .cap-box h3 {
@@ -132,9 +160,10 @@
       margin: 0;
     }
 
-    /* Spacious & Impactful Project Gallery Setting */
+    /* Centered Project Gallery Setting */
     #projects {
       padding: 60px 0 140px 0 !important;
+      text-align: center; /* Centered main title */
     }
 
     #projects h2 {
@@ -145,7 +174,7 @@
 
     .filter-container {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center; /* Centered filters layout */
       gap: 16px;
       margin-bottom: 60px;
     }
@@ -175,8 +204,9 @@
     .projects-grid {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
-      gap: 50px !important; /* Expanded separation grid system */
+      gap: 50px !important;
       width: 100% !important;
+      text-align: left; /* Keep project text cleanly aligned inside their blocks */
     }
 
     .project-card {
@@ -184,22 +214,37 @@
       margin: 0 !important;
       background: #16161a;
       border-radius: 16px;
-      padding: 32px; /* Amplified inner padding to breathe better */
+      padding: 32px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
     }
 
-    /* Scaled asset cards to match massive displays cleanly */
+    /* High Interactive Lift and Depth Effects */
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Scaled asset cards */
     .project-card .media-wrapper {
-      height: 380px !important; /* Elevated baseline height for visual dominance */
+      height: 380px !important;
       width: 100%;
       overflow: hidden;
       border-radius: 12px;
       margin-bottom: 24px;
       position: relative;
+    }
+
+    .project-card .media-wrapper img,
+    .project-card .media-wrapper video {
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .media-wrapper img {
+      transform: scale(1.05);
     }
 
     .project-card h3 {
@@ -220,6 +265,12 @@
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
       font-size: 1.1rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-link {
+      transform: translateX(6px);
     }
 
     .project-card.hide {
@@ -356,11 +407,9 @@
 </head>
 <body>
 
-  <div id="spotlight"></div>
-
   <header>
     <nav>
-      <div class="logo">Naomi.</div>
+      <div class="logo" onclick="scrollToTop()">Naomi.</div>
       <ul class="nav-links">
         <li><a href="#hero">About</a></li>
         <li><a href="#capabilities">Core</a></li>
@@ -370,16 +419,16 @@
   </header>
 
   <main>
-    <!-- Expanded Hero Area -->
+    <!-- Centered Hero Area -->
     <section id="hero" class="hero">
       <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
       <p>
         Welcome to my digital portfolio. I am passionate about blending creativity with code to build seamless, user-friendly experiences. Whether I'm solving a complex problem or designing an intuitive interface, every project here reflects my commitment to quality and modern design.
       </p>
-      <a href="#projects" class="btn-primary">Explore My Work</a>
+      <a href="#projects" class="btn-primary" style="background: #ffffff; color: #0d0d11; padding: 16px 32px; border-radius: 30px; text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.1rem; display: inline-block;">Explore My Work</a>
     </section>
 
-    <!-- Structural Space Filling Capability Grid -->
+    <!-- Centered Capability Grid -->
     <section id="capabilities" class="capabilities-section">
       <div class="cap-grid">
         <div class="cap-box">
@@ -405,7 +454,7 @@
       </div>
     </section>
 
-    <!-- Up-scaled Project Segment -->
+    <!-- Project Segment -->
     <section id="projects">
       <h2>Featured Projects</h2>
 
@@ -426,7 +475,7 @@
             <h3>2D Print</h3>
             <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
           </div>
-          <a href="#" class="project-link" onclick="openProject('2d', event)">View Project</a>
+          <a href="#" class="project-link" onclick="openProject('2d', event)">View Project ↗</a>
         </div>
 
         <!-- 2. Interactive 3D Model Card -->
@@ -447,7 +496,7 @@
             <h3>3D Model</h3>
             <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
           </div>
-          <a href="#" class="project-link" onclick="openProject('3d', event)">View Project</a>
+          <a href="#" class="project-link" onclick="openProject('3d', event)">View Project ↗</a>
         </div>
 
         <!-- 3. 4D Video Card -->
@@ -468,7 +517,7 @@
             <h3>4D Video</h3>
             <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
           </div>
-          <a href="#" class="project-link" onclick="openProject('4d', event)">View Project</a>
+          <a href="#" class="project-link" onclick="openProject('4d', event)">View Project ↗</a>
         </div>
 
       </div>
@@ -527,43 +576,7 @@
       });
     }
 
-    // 2. Interactive Spotlight Effect
-    const spotlight = document.getElementById('spotlight');
-
-    document.addEventListener('mousemove', (e) => {
-      requestAnimationFrame(() => {
-        spotlight.style.left = e.clientX + 'px';
-        spotlight.style.top = e.clientY + 'px';
-      });
-    });
-
-    document.addEventListener('mouseleave', () => {
-      spotlight.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-      spotlight.style.opacity = '1';
-    });
-
-    // 3. Sleek Click Ripple Effect
-    document.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.classList.contains('filter-btn')) return;
-
-      const ripple = document.createElement('div');
-      ripple.classList.add('ripple');
-
-      const size = 50;
-      ripple.style.width = ripple.style.height = size + 'px';
-      ripple.style.left = (e.clientX - size/2) + 'px';
-      ripple.style.top = (e.clientY - size/2) + 'px';
-
-      document.body.appendChild(ripple);
-
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    });
-
-    // 4. Interactive 2D Print Zoom Effect
+    // 2. Interactive 2D Print Zoom Effect
     const passportImg = document.getElementById('passportArtwork');
 
     function zoomPrint(e) {
@@ -573,15 +586,16 @@
       const y = ((e.clientY - rect.top) / rect.height) * 100;
 
       passportImg.style.transformOrigin = `${x}% ${y}%`;
-      passportImg.style.transform = 'scale(1.8)';
+      passportImg.style.transform = 'scale(1.4)';
     }
 
+    // Smooth reset when leaving picture boundaries
     function resetPrint() {
       passportImg.style.transformOrigin = 'center center';
       passportImg.style.transform = 'scale(1)';
     }
 
-    // 5. Automated Footer Utilities
+    // 3. Automated Footer Utilities
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     function scrollToTop() {
@@ -591,7 +605,7 @@
       });
     }
 
-    // 6. Project Popups / Modals
+    // 4. Project Popups / Modals
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalViewer = document.getElementById('modal-viewer');
