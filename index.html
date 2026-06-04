@@ -43,11 +43,12 @@
 
         <!-- 1. Interactive 2D Print Card -->
         <div class="project-card">
-          <div onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #1a1a1e; cursor: zoom-in; position: relative;">
+          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #1a1a1e; cursor: zoom-in; position: relative;">
             <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
           <h3>2D Print</h3>
           <p>A deconstruction of my personal passport to create a look-alike model of Mexico. Explores physical identity and design execution.</p>
+          <a href="#" class="project-link" onclick="openProject('2d', event)">View Project</a>
         </div>
 
         <!-- 2. Interactive 3D Model Card -->
@@ -62,19 +63,28 @@
               interaction-prompt="auto"
               style="width: 100%; height: 100%;">
             </model-viewer>
+            <button class="model-fullscreen-btn" onclick="openProject('3d', event)">Fullscreen ↗</button>
           </div>
           <h3>3D Model</h3>
           <p>Creating a new look for my Sonny Angel and adding personality to my liking. Focuses on 3D manipulation and creative direction.</p>
+          <a href="#" class="project-link" onclick="openProject('3d', event)">View Project</a>
         </div>
 
         <!-- 3. 4D Video Card -->
         <div class="project-card">
-          <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #1a1a1e; position: relative;">
-            <img src="assets/video_placeholder.png" alt="4D Video Placeholder" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div class="video-preview-container" onclick="openProject('4d', event)">
+            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z" fill="#0d0d11"/>
+                </svg>
+              </div>
+            </div>
           </div>
           <h3>4D Video</h3>
           <p>A combination of personal videos I love, demonstrating my favorite things. Explores video editing and timeline narratives.</p>
-          <a href="#" class="project-link">View Project</a>
+          <a href="#" class="project-link" onclick="openProject('4d', event)">View Project</a>
         </div>
 
       </div>
@@ -98,6 +108,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Project Modal Overlay -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-body" class="modal-body">
+        <!-- Dynamic content injected via Javascript -->
+      </div>
+    </div>
+  </div>
 
   <script>
     // 1. Interactive Spotlight Effect
@@ -163,6 +183,91 @@
         behavior: 'smooth'
       });
     }
+
+    // 5. Project Popups / Modals
+    const modal = document.getElementById('project-modal');
+    const modalBody = document.getElementById('modal-body');
+
+    function openProject(type, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      // Clear previous content
+      modalBody.innerHTML = '';
+
+      if (type === '2d') {
+        // Image popup
+        const img = document.createElement('img');
+        img.src = 'assets/Tercero.png';
+        img.alt = '2D Print Passport Deconstruction artwork';
+        img.style.maxWidth = '90%';
+        img.style.maxHeight = '90%';
+        img.style.objectFit = 'contain';
+        img.style.borderRadius = '8px';
+        img.style.boxShadow = '0 8px 32px rgba(0,0,0,0.5)';
+        modalBody.appendChild(img);
+      } else if (type === '3d') {
+        // 3D model viewer popup
+        const viewer = document.createElement('model-viewer');
+        viewer.src = 'assets/Wrap Sonny.glb';
+        viewer.alt = 'A 3D model of a Sonny Angel';
+        viewer.setAttribute('auto-rotate', '');
+        viewer.setAttribute('camera-controls', '');
+        viewer.setAttribute('shadow-intensity', '1');
+        viewer.setAttribute('interaction-prompt', 'auto');
+        viewer.style.width = '100%';
+        viewer.style.height = '100%';
+        modalBody.appendChild(viewer);
+      } else if (type === '4d') {
+        // Video popup
+        const video = document.createElement('video');
+        video.src = 'assets/4DVideo2.mp4';
+        video.setAttribute('controls', '');
+        video.setAttribute('autoplay', '');
+        video.style.maxWidth = '95%';
+        video.style.maxHeight = '95%';
+        video.style.borderRadius = '8px';
+        video.style.boxShadow = '0 8px 32px rgba(0,0,0,0.5)';
+        modalBody.appendChild(video);
+      }
+
+      // Show modal
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Disable background scrolling
+    }
+
+    function closeModal() {
+      // Pause or clean up video if active to prevent audio playing in background
+      const video = modalBody.querySelector('video');
+      if (video) {
+        video.pause();
+      }
+      modal.classList.remove('show');
+      document.body.style.overflow = ''; // Re-enable background scrolling
+
+      // Wait for transition to complete before clearing content
+      setTimeout(() => {
+        if (!modal.classList.contains('show')) {
+          modalBody.innerHTML = '';
+        }
+      }, 300);
+    }
+
+    // Close modal when clicking outside the content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.classList.contains('modal-content') || e.target.classList.contains('modal-body')) {
+        closeModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
