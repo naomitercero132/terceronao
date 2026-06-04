@@ -31,7 +31,6 @@
 
     body {
       background-color: var(--bg-cream);
-      /* Subtle geometric grid to softly texture the whitespace */
       background-image:
         linear-gradient(rgba(255, 184, 198, 0.07) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 184, 198, 0.07) 1px, transparent 1px);
@@ -42,7 +41,6 @@
       position: relative;
     }
 
-    /* Soft Pastel Pink Aura Following the Mouse */
     #spotlight {
       position: fixed;
       top: 0;
@@ -56,7 +54,6 @@
       transition: opacity 0.4s ease;
     }
 
-    /* Soft expanding ripple upon clicking */
     .ripple {
       position: fixed;
       border: 2px solid rgba(255, 184, 198, 0.4);
@@ -71,7 +68,6 @@
       100% { transform: scale(2.2); opacity: 0; }
     }
 
-    /* Header Nav Configuration */
     header {
       width: 100%;
       padding: 30px 40px 0 40px;
@@ -119,7 +115,6 @@
       color: var(--main-pink);
     }
 
-    /* Main Grid Structure */
     main {
       max-width: 1140px;
       margin: 0 auto;
@@ -176,7 +171,6 @@
       box-shadow: 0 6px 20px rgba(255, 184, 198, 0.4);
     }
 
-    /* Capabilities Grid Panel */
     .capabilities-ribbon {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -212,7 +206,6 @@
       line-height: 1.5;
     }
 
-    /* Projects Display Configuration */
     #projects {
       padding-bottom: 80px;
     }
@@ -269,7 +262,6 @@
       color: var(--main-pink);
     }
 
-    /* Video & Media Integration Engine */
     .video-preview-container {
       width: 100%;
       height: 250px;
@@ -337,7 +329,6 @@
       color: white;
     }
 
-    /* Design Philosophy Showcase */
     .philosophy-banner {
       background: linear-gradient(135deg, #ffffff 0%, var(--pastel-pink) 100%);
       border: 1px solid rgba(255, 184, 198, 0.4);
@@ -361,7 +352,6 @@
       max-width: 850px;
     }
 
-    /* Get In Touch Form */
     .contact-section {
       margin-bottom: 60px;
     }
@@ -458,7 +448,6 @@
       transform: translate(3px, -3px);
     }
 
-    /* Modal Framework */
     .modal {
       position: fixed;
       top: 0;
@@ -497,7 +486,6 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.05);
     }
 
-    /* Explore My Work Multi-Grid */
     .explore-modal-content {
       max-width: 1100px;
       height: auto;
@@ -554,7 +542,6 @@
       color: var(--main-pink);
     }
 
-    /* Refined Structured Footer */
     footer {
       width: 100%;
       padding: 80px 40px !important;
@@ -680,7 +667,6 @@
   </header>
 
   <main>
-    <!-- Section 1: Hero Intro -->
     <section id="hero" class="hero">
       <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
       <p>
@@ -689,7 +675,6 @@
       <button class="btn-primary" onclick="openExploreModal(event)">Explore My Work</button>
     </section>
 
-    <!-- Section 2: Expanded Focus Area Grid -->
     <section id="capabilities" class="capabilities-ribbon">
       <div class="capability-card">
         <span class="num">01 / LAYOUT</span>
@@ -708,7 +693,6 @@
       </div>
     </section>
 
-    <!-- Section 3: Portfolio Core Works -->
     <section id="projects">
       <h2>Featured Projects</h2>
 
@@ -741,9 +725,10 @@
           <a href="#" class="project-link" onclick="openProject('3d', event)">View Project ↗</a>
         </div>
 
+        <!-- 4D VIDEO CONTAINER -->
         <div class="project-card">
           <div class="video-preview-container" onclick="openProject('4d', event)">
-            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <video src="assets/resized.mp4" muted loop autoplay playsinline></video>
             <div class="play-overlay">
               <div class="play-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -760,7 +745,6 @@
       </div>
     </section>
 
-    <!-- Section 4: Creative Philosophy Frame -->
     <section class="philosophy-banner">
       <h3>Design Perspective</h3>
       <p>
@@ -768,7 +752,6 @@
       </p>
     </section>
 
-    <!-- Section 5: Get In Touch Form -->
     <section id="contact" class="contact-section">
       <h2>Get In Touch</h2>
       <p class="contact-subtitle">Have a project in mind or just want to say hello? Drop a note below!</p>
@@ -855,7 +838,7 @@
 
         <div class="project-card">
           <div class="video-preview-container" style="height: 220px;" onclick="openProjectFromExplore('4d', event)">
-            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <video src="assets/resized.mp4" muted loop autoplay playsinline></video>
             <div class="play-overlay">
               <div class="play-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -872,23 +855,21 @@
     </div>
   </div>
 
-  <!-- Modal Asset Window (Full View Player with Controls) -->
+  <!-- Main Popup / Lightbox Modal -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
         <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
-
         <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
 
-        <!-- Video element upgraded with dynamic player controls -->
-        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); background-color: #000;"></video>
+        <!-- Video Popup Element with Interactive Player Controls -->
+        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); background-color: #000;"></video>
       </div>
     </div>
   </div>
 
   <script>
-    // 1. Subtle Radial Mouse Trail Effect
     const spotlight = document.getElementById('spotlight');
 
     document.addEventListener('mousemove', (e) => {
@@ -898,40 +879,29 @@
       });
     });
 
-    document.addEventListener('mouseleave', () => {
-      spotlight.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-      spotlight.style.opacity = '1';
-    });
+    document.addEventListener('mouseleave', () => { spotlights.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { spotlight.style.opacity = '1'; });
 
-    // 2. Click Aura Ring Interaction
     document.addEventListener('click', function(e) {
       if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
       const ripple = document.createElement('div');
       ripple.classList.add('ripple');
-
       const size = 50;
       ripple.style.width = ripple.style.height = size + 'px';
       ripple.style.left = (e.clientX - size/2) + 'px';
       ripple.style.top = (e.clientY - size/2) + 'px';
 
       document.body.appendChild(ripple);
-
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
+      setTimeout(() => { ripple.remove(); }, 600);
     });
 
-    // 3. Smooth Elastic Zoom for 2D Card Artworks
     function zoomPrint(e, imgId) {
       const imgNode = document.getElementById(imgId);
       const container = e.currentTarget;
       const rect = container.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
-
       imgNode.style.transformOrigin = `${x}% ${y}%`;
       imgNode.style.transform = 'scale(1.5)';
     }
@@ -942,17 +912,12 @@
       imgNode.style.transform = 'scale(1)';
     }
 
-    // 4. Set Current Year Programmatically
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 5. Explore Projects Pop-up Window Controls
     const exploreModal = document.getElementById('explore-modal');
 
     function openExploreModal(event) {
@@ -970,12 +935,9 @@
 
     function openProjectFromExplore(type, event) {
       closeExploreModal();
-      setTimeout(() => {
-        openProject(type, event);
-      }, 300);
+      setTimeout(() => { openProject(type, event); }, 300);
     }
 
-    // 6. Interactive Popups Controller Logic (Full Media Viewers)
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalViewer = document.getElementById('modal-viewer');
@@ -990,7 +952,6 @@
       modalImg.style.display = 'none';
       modalViewer.style.display = 'none';
       modalVideo.style.display = 'none';
-
       modalImg.src = '';
       modalViewer.src = '';
       modalVideo.src = '';
@@ -1001,14 +962,11 @@
       } else if (type === '3d') {
         modalViewer.src = 'assets/Wrap Sonny.glb';
         modalViewer.style.display = 'block';
-        setTimeout(() => {
-          modalViewer.resize();
-        }, 50);
+        setTimeout(() => { modalViewer.resize(); }, 50);
       } else if (type === '4d') {
-        // Points directly to your media file and turns on full visibility & playback interaction controls
-        modalVideo.src = 'assets/4DVideo2.mp4';
+        modalVideo.src = 'assets/resized.mp4';
         modalVideo.style.display = 'block';
-        modalVideo.play().catch(err => console.log("Autoplay blocked by browser rules:", err));
+        modalVideo.play().catch(err => console.log("Autoplay caught:", err));
       }
 
       modal.classList.add('show');
@@ -1016,13 +974,11 @@
     }
 
     function closeModal() {
-      // Pause video when closed so sound doesn't bleed into background
       modalVideo.pause();
       modal.classList.remove('show');
       if (!exploreModal.classList.contains('show')) {
         document.body.style.overflow = '';
       }
-
       setTimeout(() => {
         if (!modal.classList.contains('show')) {
           modalImg.src = '';
@@ -1035,7 +991,6 @@
       }, 300);
     }
 
-    // Close overlays securely by clicking background backdrop spaces
     exploreModal.addEventListener('click', (e) => {
       if (e.target === exploreModal || e.target.classList.contains('explore-modal-content')) {
         closeExploreModal();
