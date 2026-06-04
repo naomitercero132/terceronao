@@ -12,6 +12,129 @@
   <link rel="stylesheet" href="style.css">
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+  <style>
+    footer {
+      width: 100%;
+      padding: 80px 40px !important; /* Forces the generous professional breathing room */
+      background: linear-gradient(180deg, #0d0d11 0%, #060608 100%) !important;
+      color: #a1a1aa !important;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+      margin-top: 120px !important;
+      position: relative;
+    }
+
+    /* Elegant glowing top accent line */
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #ff4a5a, transparent);
+      opacity: 0.6;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    /* Bolder, high-contrast links */
+    .underlined-link {
+      color: #ffffff !important;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      position: relative;
+      padding-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .underlined-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #ff4a5a;
+      transform-origin: bottom right;
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .underlined-link:hover {
+      color: #ff4a5a !important;
+    }
+
+    .underlined-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    /* Premium Back to Top Button */
+    #backToTopBtn {
+      background-color: #18181c !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #backToTopBtn:hover {
+      background-color: #ffffff !important;
+      color: #0d0d11 !important;
+      transform: translateY(-5px);
+      border-color: #ffffff !important;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 60px 24px !important;
+        text-align: center;
+      }
+      .footer-content {
+        flex-direction: column-reverse;
+        gap: 35px;
+      }
+      .footer-right {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -158,7 +281,6 @@
     // 3. Interactive 2D Print Zoom Effect
     const passportImg = document.getElementById('passportArtwork');
 
-    // Make sure interaction script remains localized to grid frame boundary limits
     function zoomPrint(e) {
       const container = e.currentTarget;
       const rect = container.getBoundingClientRect();
@@ -196,12 +318,10 @@
         event.stopPropagation();
       }
 
-      // Hide all modal views first
       modalImg.style.display = 'none';
       modalViewer.style.display = 'none';
       modalVideo.style.display = 'none';
 
-      // Reset sources to prevent old media flashing
       modalImg.src = '';
       modalViewer.src = '';
       modalVideo.src = '';
@@ -221,7 +341,6 @@
         modalVideo.play().catch(err => console.log("Autoplay blocked:", err));
       }
 
-      // Show modal
       modal.classList.add('show');
       document.body.style.overflow = 'hidden';
     }
@@ -243,14 +362,12 @@
       }, 300);
     }
 
-    // Close modal when clicking outside the content
     modal.addEventListener('click', (e) => {
       if (e.target === modal || e.target.classList.contains('modal-content') || e.target.classList.contains('modal-body')) {
         closeModal();
       }
     });
 
-    // Close modal with Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('show')) {
         closeModal();
