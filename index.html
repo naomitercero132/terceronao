@@ -166,6 +166,8 @@
       border-radius: 50px;
       transition: all 0.25s ease;
       box-shadow: 0 4px 15px rgba(58, 46, 48, 0.1);
+      cursor: pointer;
+      border: none;
     }
 
     .btn-primary:hover {
@@ -359,7 +361,7 @@
       max-width: 850px;
     }
 
-    /* NEW SECTION: "Write To Me" Contact Form Component */
+    /* Get In Touch Form */
     .contact-section {
       margin-bottom: 60px;
     }
@@ -495,6 +497,41 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.05);
     }
 
+    /* NEW POP-UP CONFIGURATION: Explore My Work Multi-Grid */
+    .explore-modal-content {
+      max-width: 1100px;
+      height: auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 40px;
+      display: block;
+    }
+
+    .explore-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .explore-modal-header h2 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 2rem;
+      color: var(--text-dark);
+    }
+
+    .explore-close-btn {
+      color: var(--text-dark);
+      font-size: 2.2rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+
+    .explore-close-btn:hover {
+      color: var(--main-pink);
+    }
+
     .modal-body {
       width: 100%;
       height: 100%;
@@ -610,6 +647,7 @@
       main { padding: 0 20px; }
       .philosophy-banner { padding: 30px; }
       .contact-container { padding: 30px; }
+      .explore-modal-content { padding: 20px; }
       footer {
         padding: 60px 24px !important;
         text-align: center;
@@ -648,7 +686,7 @@
       <p>
         Welcome to my digital portfolio. I am passionate about blending creativity with code to build seamless, user-friendly experiences. Whether I'm solving a complex structural problem or mapping a spatial layout, every project here reflects my commitment to elegant, modern aesthetics.
       </p>
-      <a href="#projects" class="btn-primary">Explore My Work</a>
+      <button class="btn-primary" onclick="openExploreModal(event)">Explore My Work</button>
     </section>
 
     <!-- Section 2: Expanded Focus Area Grid -->
@@ -677,7 +715,7 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: var(--pastel-pink); cursor: zoom-in; position: relative;">
+          <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event, 'passportArtwork')" onmouseleave="resetPrint('passportArtwork')" style="width: 100%; height: 250px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: var(--pastel-pink); cursor: zoom-in; position: relative;">
             <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
           </div>
           <h3>2D Print</h3>
@@ -730,13 +768,12 @@
       </p>
     </section>
 
-    <!-- NEW Section 5: Get In Touch Form (Fills out the end of the site beautifully) -->
+    <!-- Section 5: Get In Touch Form -->
     <section id="contact" class="contact-section">
       <h2>Get In Touch</h2>
       <p class="contact-subtitle">Have a project in mind or just want to say hello? Drop a note below!</p>
 
       <div class="contact-container">
-        <!-- Replace action URL with a real backend setup like Formspree or Netlify later if needed -->
         <form action="#" method="POST">
           <div class="form-group">
             <label for="name">Your Name</label>
@@ -780,7 +817,62 @@
     </div>
   </footer>
 
-  <!-- Modal Asset Window -->
+  <!-- NEW POP-UP MODAL: Displays Only Your 3 Projects -->
+  <div id="explore-modal" class="modal">
+    <div class="modal-content explore-modal-content">
+      <div class="explore-modal-header">
+        <h2>My Selected Work</h2>
+        <span class="explore-close-btn" onclick="closeExploreModal()">&times;</span>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div onclick="openProjectFromExplore('2d', event)" onmousemove="zoomPrint(event, 'modalPassportArtwork')" onmouseleave="resetPrint('modalPassportArtwork')" style="width: 100%; height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: var(--pastel-pink); cursor: zoom-in; position: relative;">
+            <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="modalPassportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+          </div>
+          <h3>2D Print</h3>
+          <p>A deconstruction of my personal passport to create a look-alike model of Mexico.</p>
+          <a href="#" class="project-link" onclick="openProjectFromExplore('2d', event)">View Project ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div style="width: 100%; height: 220px; overflow: hidden; border-radius: 12px; margin-bottom: 20px; background-color: #ffffff; position: relative; border: 1px solid rgba(255, 184, 198, 0.3);">
+            <model-viewer
+              src="assets/Wrap Sonny.glb"
+              alt="A 3D model of a Sonny Angel"
+              auto-rotate
+              camera-controls
+              shadow-intensity="1"
+              interaction-prompt="auto"
+              style="width: 100%; height: 100%;">
+            </model-viewer>
+            <button class="model-fullscreen-btn" onclick="openProjectFromExplore('3d', event)">Fullscreen ↗</button>
+          </div>
+          <h3>3D Model</h3>
+          <p>Creating a new look for my Sonny Angel and adding personality to my liking.</p>
+          <a href="#" class="project-link" onclick="openProjectFromExplore('3d', event)">View Project ↗</a>
+        </div>
+
+        <div class="project-card">
+          <div class="video-preview-container" style="height: 220px;" onclick="openProjectFromExplore('4d', event)">
+            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <div class="play-overlay">
+              <div class="play-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z" fill="#3a2e30"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h3>4D Video</h3>
+          <p>A combination of personal videos I love, demonstrating my favorite things.</p>
+          <a href="#" class="project-link" onclick="openProjectFromExplore('4d', event)">View Project ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Asset Window (Full View Player) -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -831,23 +923,22 @@
       }, 600);
     });
 
-    // 3. Smooth Elastic Zoom for 2D Card Artwork
-    const passportImg = document.getElementById('passportArtwork');
-
-    function zoomPrint(e) {
+    // 3. Smooth Elastic Zoom for 2D Card Artworks
+    function zoomPrint(e, imgId) {
+      const imgNode = document.getElementById(imgId);
       const container = e.currentTarget;
       const rect = container.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-      passportImg.style.transformOrigin = `${x}% ${y}%`;
-      passportImg.style.transform = 'scale(1.5)';
+      imgNode.style.transformOrigin = `${x}% ${y}%`;
+      imgNode.style.transform = 'scale(1.5)';
     }
 
-    // Reset Zoom State
-    function resetPrint() {
-      passportImg.style.transformOrigin = 'center center';
-      passportImg.style.transform = 'scale(1)';
+    function resetPrint(imgId) {
+      const imgNode = document.getElementById(imgId);
+      imgNode.style.transformOrigin = 'center center';
+      imgNode.style.transform = 'scale(1)';
     }
 
     // 4. Set Current Year Programmatically
@@ -860,7 +951,31 @@
       });
     }
 
-    // 5. Interactive Popups Controller Logic
+    // 5. Explore Projects Pop-up Window Controls
+    const exploreModal = document.getElementById('explore-modal');
+
+    function openExploreModal(event) {
+      if (event) event.preventDefault();
+      exploreModal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeExploreModal() {
+      exploreModal.classList.remove('show');
+      if (!modal.classList.contains('show')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    function openProjectFromExplore(type, event) {
+      // Closes the explore grid pop-up and routes directly to full screen media viewer
+      closeExploreModal();
+      setTimeout(() => {
+        openProject(type, event);
+      }, 300);
+    }
+
+    // 6. Interactive Popups Controller Logic (Full Media Viewers)
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalViewer = document.getElementById('modal-viewer');
@@ -902,7 +1017,9 @@
     function closeModal() {
       modalVideo.pause();
       modal.classList.remove('show');
-      document.body.style.overflow = '';
+      if (!exploreModal.classList.contains('show')) {
+        document.body.style.overflow = '';
+      }
 
       setTimeout(() => {
         if (!modal.classList.contains('show')) {
@@ -916,6 +1033,13 @@
       }, 300);
     }
 
+    // Close overlays securely by clicking background backdrop spaces
+    exploreModal.addEventListener('click', (e) => {
+      if (e.target === exploreModal || e.target.classList.contains('explore-modal-content')) {
+        closeExploreModal();
+      }
+    });
+
     modal.addEventListener('click', (e) => {
       if (e.target === modal || e.target.classList.contains('modal-content') || e.target.classList.contains('modal-body')) {
         closeModal();
@@ -923,8 +1047,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('show')) {
+      if (e.key === 'Escape') {
         closeModal();
+        closeExploreModal();
       }
     });
   </script>
