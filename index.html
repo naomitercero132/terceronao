@@ -497,7 +497,7 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.05);
     }
 
-    /* NEW POP-UP CONFIGURATION: Explore My Work Multi-Grid */
+    /* Explore My Work Multi-Grid */
     .explore-modal-content {
       max-width: 1100px;
       height: auto;
@@ -817,7 +817,7 @@
     </div>
   </footer>
 
-  <!-- NEW POP-UP MODAL: Displays Only Your 3 Projects -->
+  <!-- Explore Projects Pop-up Window -->
   <div id="explore-modal" class="modal">
     <div class="modal-content explore-modal-content">
       <div class="explore-modal-header">
@@ -872,7 +872,7 @@
     </div>
   </div>
 
-  <!-- Modal Asset Window (Full View Player) -->
+  <!-- Modal Asset Window (Full View Player with Controls) -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -881,7 +881,8 @@
 
         <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
 
-        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);"></video>
+        <!-- Video element upgraded with dynamic player controls -->
+        <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); background-color: #000;"></video>
       </div>
     </div>
   </div>
@@ -968,7 +969,6 @@
     }
 
     function openProjectFromExplore(type, event) {
-      // Closes the explore grid pop-up and routes directly to full screen media viewer
       closeExploreModal();
       setTimeout(() => {
         openProject(type, event);
@@ -1005,9 +1005,10 @@
           modalViewer.resize();
         }, 50);
       } else if (type === '4d') {
+        // Points directly to your media file and turns on full visibility & playback interaction controls
         modalVideo.src = 'assets/4DVideo2.mp4';
         modalVideo.style.display = 'block';
-        modalVideo.play().catch(err => console.log("Autoplay blocked:", err));
+        modalVideo.play().catch(err => console.log("Autoplay blocked by browser rules:", err));
       }
 
       modal.classList.add('show');
@@ -1015,6 +1016,7 @@
     }
 
     function closeModal() {
+      // Pause video when closed so sound doesn't bleed into background
       modalVideo.pause();
       modal.classList.remove('show');
       if (!exploreModal.classList.contains('show')) {
