@@ -13,56 +13,8 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
-  <!-- Interactive Layout Styles -->
+  <!-- Interactive Features Matching Original Colors -->
   <style>
-    /* Theme Variables for Interactive Toggle */
-    :root {
-      --bg-color: #0d0d11;
-      --card-bg: #16161a;
-      --text-color: #ffffff;
-      --text-muted: #a1a1aa;
-      --accent-color: #ff4a5a;
-    }
-
-    [data-theme="light"] {
-      --bg-color: #f4f4f7;
-      --card-bg: #ffffff;
-      --text-color: #0d0d11;
-      --text-muted: #52525b;
-      --accent-color: #e11d48;
-    }
-
-    /* Live Smooth Theme Switching transition */
-    body {
-      background-color: var(--bg-color) !important;
-      color: var(--text-color) !important;
-      transition: background-color 0.4s ease, color 0.4s ease;
-    }
-
-    /* Theme Toggle Button Style */
-    .theme-toggle-btn {
-      background: var(--card-bg);
-      color: var(--text-color);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 500;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    [data-theme="light"] .theme-toggle-btn {
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .theme-toggle-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent-color);
-    }
-
     /* Project Filter Controls Layout */
     .filter-container {
       display: flex;
@@ -72,8 +24,8 @@
     }
 
     .filter-btn {
-      background: var(--card-bg);
-      color: var(--text-muted);
+      background: #16161a; /* Matches original dark grid card coloring */
+      color: #a1a1aa;
       border: 1px solid rgba(255, 255, 255, 0.08);
       padding: 10px 20px;
       border-radius: 30px;
@@ -83,21 +35,17 @@
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    [data-theme="light"] .filter-btn {
-      border-color: rgba(0, 0, 0, 0.05);
-    }
-
+    /* Active State highlights using clean white/silver contrast instead of red */
     .filter-btn.active, .filter-btn:hover {
-      background: var(--accent-color);
-      color: #ffffff !important;
-      border-color: var(--accent-color);
+      background: #ffffff;
+      color: #0d0d11 !important;
+      border-color: #ffffff;
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(255, 74, 90, 0.2);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
     }
 
-    /* Clean Card Layout Smooth Animation state */
+    /* Smooth transition animation classes for layout sorting filtering */
     .project-card {
-      background: var(--card-bg) !important;
       transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
     }
 
@@ -109,7 +57,7 @@
       visibility: hidden;
     }
 
-    /* Premium Footer Styles */
+    /* Premium Original Tone Footer Styles */
     footer {
       width: 100%;
       padding: 80px 40px !important;
@@ -130,7 +78,7 @@
       left: 10%;
       width: 80%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #ff4a5a, transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       opacity: 0.6;
     }
 
@@ -175,13 +123,13 @@
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: #ff4a5a;
+      background-color: #ffffff;
       transform-origin: bottom right;
       transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .underlined-link:hover {
-      color: #ff4a5a !important;
+      color: #ffffff !important;
     }
 
     .underlined-link:hover::after {
@@ -239,8 +187,6 @@
       <ul class="nav-links">
         <li><a href="#hero">About</a></li>
         <li><a href="#projects">Work</a></li>
-        <!-- Interactive Theme Toggle Button Built-In -->
-        <li><button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">✨ Light Mode</button></li>
       </ul>
     </nav>
   </header>
@@ -352,27 +298,11 @@
   </div>
 
   <script>
-    // 1. Live Dark/Light Custom Theme Switcher
-    function toggleTheme() {
-      const body = document.body;
-      const themeBtn = document.getElementById('themeBtn');
-
-      if (body.getAttribute('data-theme') === 'light') {
-        body.removeAttribute('data-theme');
-        themeBtn.textContent = '✨ Light Mode';
-      } else {
-        body.setAttribute('data-theme', 'light');
-        themeBtn.textContent = '🌙 Dark Mode';
-      }
-    }
-
-    // 2. Useful Live Layout Filtering Logic
+    // 1. Live Layout Filtering Logic
     function filterProjects(category, buttonElement) {
-      // Remove 'active' selection design framework from all button nodes
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      // Highlight targeted button selection
       buttonElement.classList.add('active');
 
       const cards = document.querySelectorAll('.project-card');
@@ -385,7 +315,7 @@
       });
     }
 
-    // 3. Interactive Spotlight Effect
+    // 2. Interactive Spotlight Effect
     const spotlight = document.getElementById('spotlight');
 
     document.addEventListener('mousemove', (e) => {
@@ -402,7 +332,7 @@
       spotlight.style.opacity = '1';
     });
 
-    // 4. Sleek Click Ripple Effect
+    // 3. Sleek Click Ripple Effect
     document.addEventListener('click', function(e) {
       if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.classList.contains('filter-btn')) return;
 
@@ -421,7 +351,7 @@
       }, 600);
     });
 
-    // 5. Interactive 2D Print Zoom Effect
+    // 4. Interactive 2D Print Zoom Effect
     const passportImg = document.getElementById('passportArtwork');
 
     function zoomPrint(e) {
@@ -439,7 +369,7 @@
       passportImg.style.transform = 'scale(1)';
     }
 
-    // 6. Automated Footer Utilities
+    // 5. Automated Footer Utilities
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     function scrollToTop() {
@@ -449,7 +379,7 @@
       });
     }
 
-    // 7. Project Popups / Modals
+    // 6. Project Popups / Modals
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalViewer = document.getElementById('modal-viewer');
