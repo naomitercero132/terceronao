@@ -41,7 +41,6 @@
 
       <div class="projects-grid">
 
-        <!-- 1. Interactive 2D Print Card -->
         <div class="project-card">
           <div onclick="openProject('2d', event)" onmousemove="zoomPrint(event)" onmouseleave="resetPrint(event)" style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #1a1a1e; cursor: zoom-in; position: relative;">
             <img src="assets/Tercero.png" alt="2D Print Passport Deconstruction artwork" id="passportArtwork" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
@@ -51,7 +50,6 @@
           <a href="#" class="project-link" onclick="openProject('2d', event)">View Project</a>
         </div>
 
-        <!-- 2. Interactive 3D Model Card -->
         <div class="project-card">
           <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: #f0f0f0; position: relative;">
             <model-viewer
@@ -70,7 +68,6 @@
           <a href="#" class="project-link" onclick="openProject('3d', event)">View Project</a>
         </div>
 
-        <!-- 3. 4D Video Card -->
         <div class="project-card">
           <div class="video-preview-container" onclick="openProject('4d', event)">
             <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
@@ -92,59 +89,30 @@
 
   </main>
 
-  <!-- Cute Interactive Footer Section -->
   <footer>
-    <div class="mascot-container">
-      <div class="mascot-bubble" id="mascot-bubble">Hi there!</div>
-      <svg class="mascot-bunny" id="bunny-mascot" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="triggerMascot()">
-        <!-- Ears -->
-        <rect x="25" y="10" width="16" height="40" rx="8" fill="#ffffff" stroke="#ffb7c5" stroke-width="3"/>
-        <rect x="29" y="18" width="8" height="24" rx="4" fill="#ffccd5"/>
-        <rect x="59" y="10" width="16" height="40" rx="8" fill="#ffffff" stroke="#ffb7c5" stroke-width="3"/>
-        <rect x="63" y="18" width="8" height="24" rx="4" fill="#ffccd5"/>
-        <!-- Body / Head -->
-        <circle cx="50" cy="65" r="30" fill="#ffffff" stroke="#ffb7c5" stroke-width="3"/>
-        <!-- Eyes (Happy arcs) -->
-        <path d="M38 60 C39 63, 43 63, 44 60" stroke="#5d4047" stroke-width="3" stroke-linecap="round"/>
-        <path d="M56 60 C57 63, 61 63, 62 60" stroke="#5d4047" stroke-width="3" stroke-linecap="round"/>
-        <!-- Cheeks -->
-        <circle cx="34" cy="67" r="4" fill="#ff8da1" opacity="0.6"/>
-        <circle cx="66" cy="67" r="4" fill="#ff8da1" opacity="0.6"/>
-        <!-- Nose/Mouth -->
-        <path d="M48 65 L52 65" stroke="#5d4047" stroke-width="2" stroke-linecap="round"/>
-        <path d="M50 65 L50 67 C49 69, 47 69, 47 67" stroke="#5d4047" stroke-width="2" fill="none"/>
-        <path d="M50 65 L50 67 C51 69, 53 69, 53 67" stroke="#5d4047" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
-
     <div class="footer-content">
       <div class="footer-left">
-        <p>&copy; <span id="current-year"></span> Naomi Tercero. Made with <svg width="12" height="12" viewBox="0 0 24 24" fill="#d63384" style="display: inline-block; vertical-align: middle; margin: 0 2px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> & code.</p>
+        <p>&copy; <span id="current-year"></span> Naomi Tercero. Built with passion & code.</p>
       </div>
 
       <div class="footer-right">
         <div class="footer-links">
-          <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link wiggle-hover">GitHub</a>
-          <a href="mailto:your.email@example.com" class="underlined-link wiggle-hover">Email</a>
-          <button class="love-btn" onclick="burstHearts(event)">Send Love <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span></button>
+          <a href="https://github.com/naomitercero132" target="_blank" rel="noopener noreferrer" class="underlined-link">GitHub</a>
+          <a href="mailto:your.email@example.com" class="underlined-link">Email</a>
         </div>
         <button onclick="scrollToTop()" id="backToTopBtn" aria-label="Back to top">↑</button>
       </div>
     </div>
   </footer>
 
-  <!-- Project Modal Overlay -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
-        <!-- 2D Image View -->
         <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-        
-        <!-- 3D Model View -->
+
         <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
-        
-        <!-- 4D Video View -->
+
         <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"></video>
       </div>
     </div>
@@ -190,6 +158,7 @@
     // 3. Interactive 2D Print Zoom Effect
     const passportImg = document.getElementById('passportArtwork');
 
+    // Make sure interaction script remains localized to grid frame boundary limits
     function zoomPrint(e) {
       const container = e.currentTarget;
       const rect = container.getBoundingClientRect();
@@ -226,24 +195,23 @@
         event.preventDefault();
         event.stopPropagation();
       }
-      
+
       // Hide all modal views first
       modalImg.style.display = 'none';
       modalViewer.style.display = 'none';
       modalVideo.style.display = 'none';
-      
+
       // Reset sources to prevent old media flashing
       modalImg.src = '';
       modalViewer.src = '';
       modalVideo.src = '';
-      
+
       if (type === '2d') {
         modalImg.src = 'assets/Tercero.png';
         modalImg.style.display = 'block';
       } else if (type === '3d') {
         modalViewer.src = 'assets/Wrap Sonny.glb';
         modalViewer.style.display = 'block';
-        // Force model-viewer to recalculate size after displaying
         setTimeout(() => {
           modalViewer.resize();
         }, 50);
@@ -255,17 +223,14 @@
 
       // Show modal
       modal.classList.add('show');
-      document.body.style.overflow = 'hidden'; // Disable background scrolling
+      document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
-      // Pause video if active
       modalVideo.pause();
-      
       modal.classList.remove('show');
-      document.body.style.overflow = ''; // Re-enable background scrolling
-      
-      // Clear sources after fade-out transition to clean memory
+      document.body.style.overflow = '';
+
       setTimeout(() => {
         if (!modal.classList.contains('show')) {
           modalImg.src = '';
@@ -291,148 +256,6 @@
         closeModal();
       }
     });
-
-    // 6. Sparkle Cursor Trail (SVG Sparkles)
-    let lastX = 0;
-    let lastY = 0;
-    const sparkleColors = ['#ffb7c5', '#ffccd5', '#d63384', '#f14095', '#ff8da1'];
-    const sparkleShapes = [
-      // Star/Sparkle
-      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="COLOR"/></svg>',
-      // Heart
-      '<svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="COLOR"/></svg>',
-      // Circle
-      '<svg width="6" height="6" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="COLOR"/></svg>'
-    ];
-
-    document.addEventListener('mousemove', (e) => {
-      const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
-      if (dist < 15) return; // limit frequency
-
-      lastX = e.clientX;
-      lastY = e.clientY;
-
-      const particle = document.createElement('div');
-      particle.classList.add('sparkle-particle');
-      
-      const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-      const shapeTemplate = sparkleShapes[Math.floor(Math.random() * sparkleShapes.length)];
-      particle.innerHTML = shapeTemplate.replace('COLOR', color);
-
-      particle.style.left = (e.clientX - 6) + 'px';
-      particle.style.top = (e.clientY - 6) + 'px';
-
-      document.body.appendChild(particle);
-
-      // Auto remove from DOM
-      setTimeout(() => {
-        particle.remove();
-      }, 800);
-    });
-
-    // 7. Interactive Footer Mascot Bunny
-    const bunnyBubble = document.getElementById('mascot-bubble');
-    const bunnyMascot = document.getElementById('bunny-mascot');
-    let bubbleTimeout;
-
-    const bunnyMessages = [
-      "Have a lovely day!",
-      "You are amazing!",
-      "Thanks for visiting!",
-      "Code is magic!",
-      "Be kind to yourself!",
-      "Stay creative!",
-      "You're doing great!",
-      "Sending positive vibes!",
-      "You shine bright!"
-    ];
-
-    function triggerMascot() {
-      // Pick random message
-      const msg = bunnyMessages[Math.floor(Math.random() * bunnyMessages.length)];
-      bunnyBubble.textContent = msg;
-      
-      // Show bubble
-      bunnyBubble.classList.add('show');
-      
-      // Hop animation on click
-      bunnyMascot.style.transform = 'scale(0.85) translateY(12px)';
-      setTimeout(() => {
-        bunnyMascot.style.transform = '';
-      }, 150);
-
-      // Clear existing timeout
-      clearTimeout(bubbleTimeout);
-
-      // Hide after 3.5s
-      bubbleTimeout = setTimeout(() => {
-        bunnyBubble.classList.remove('show');
-      }, 3500);
-    }
-
-    // Auto greet visitor after a small delay
-    setTimeout(() => {
-      if (bunnyBubble && !bunnyBubble.classList.contains('show')) {
-        bunnyBubble.textContent = "Welcome to my space!";
-        bunnyBubble.classList.add('show');
-        bubbleTimeout = setTimeout(() => {
-          bunnyBubble.classList.remove('show');
-        }, 4000);
-      }
-    }, 2000);
-
-    // 8. Love Burst Confetti Effect (SVG Hearts)
-    function burstHearts(e) {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      const colors = ['#d63384', '#f14095', '#ff8da1', '#ffccd5', '#ffb7c5'];
-
-      for (let i = 0; i < 16; i++) {
-        const heart = document.createElement('div');
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        heart.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="${color}"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
-        heart.style.position = 'fixed';
-        heart.style.left = x + 'px';
-        heart.style.top = y + 'px';
-        heart.style.pointerEvents = 'none';
-        heart.style.zIndex = '100001';
-        heart.style.userSelect = 'none';
-        
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 5 + 3;
-        const vx = Math.cos(angle) * speed;
-        // Upward bias: y speed is slightly reduced/negative (going up)
-        const vy = Math.sin(angle) * speed - 1.5;
-        
-        document.body.appendChild(heart);
-        
-        let px = x;
-        let py = y;
-        let opacity = 1;
-        let rotation = Math.random() * 360;
-        const rotationSpeed = Math.random() * 8 - 4;
-        
-        function animate() {
-          if (opacity <= 0.02) {
-            heart.remove();
-            return;
-          }
-          px += vx;
-          py += vy;
-          opacity -= 0.025; // fade out speed
-          rotation += rotationSpeed;
-          
-          heart.style.left = px + 'px';
-          heart.style.top = py + 'px';
-          heart.style.opacity = opacity;
-          heart.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
-          
-          requestAnimationFrame(animate);
-        }
-        requestAnimationFrame(animate);
-      }
-    }
   </script>
 </body>
 </html>
