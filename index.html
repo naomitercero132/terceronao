@@ -238,8 +238,6 @@
     }
 
     .project-card:hover {
-<<<<<<< HEAD
-=======
       transform: translateY(-5px);
       border-color: var(--main-pink);
     }
@@ -681,7 +679,6 @@
   </header>
 
   <main>
-    <!-- Section 1: Hero Intro -->
     <section id="hero" class="hero">
       <h1>Hello, I'm <span class="highlight">Naomi</span>.</h1>
       <p>
@@ -690,7 +687,6 @@
       <button class="btn-primary" onclick="openExploreModal(event)">Explore My Work</button>
     </section>
 
-    <!-- Section 2: Expanded Focus Area Grid -->
     <section id="capabilities" class="capabilities-ribbon">
       <div class="capability-card">
         <span class="num">01 / LAYOUT</span>
@@ -709,7 +705,6 @@
       </div>
     </section>
 
-    <!-- Section 3: Portfolio Core Works -->
     <section id="projects">
       <h2>Featured Projects</h2>
 
@@ -744,7 +739,9 @@
 
         <div class="project-card">
           <div class="video-preview-container" onclick="openProject('4d', event)">
-            <video src="assets/resized.mp4" muted loop autoplay playsinline></video>
+            <video muted loop autoplay playsinline preload="auto">
+              <source src="assets/4DVideo2.mp4" type="video/mp4">
+            </video>
             <div class="play-overlay">
               <div class="play-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -761,7 +758,6 @@
       </div>
     </section>
 
-    <!-- Section 4: Creative Philosophy Frame -->
     <section class="philosophy-banner">
       <h3>Design Perspective</h3>
       <p>
@@ -769,7 +765,6 @@
       </p>
     </section>
 
-    <!-- Section 5: Get In Touch Form -->
     <section id="contact" class="contact-section">
       <h2>Get In Touch</h2>
       <p class="contact-subtitle">Have a project in mind or just want to say hello? Drop a note below!</p>
@@ -818,7 +813,6 @@
     </div>
   </footer>
 
-  <!-- Explore Projects Pop-up Window -->
   <div id="explore-modal" class="modal">
     <div class="modal-content explore-modal-content">
       <div class="explore-modal-header">
@@ -856,7 +850,9 @@
 
         <div class="project-card">
           <div class="video-preview-container" style="height: 220px;" onclick="openProjectFromExplore('4d', event)">
-            <video src="assets/4DVideo2.mp4" muted loop autoplay playsinline></video>
+            <video muted loop autoplay playsinline preload="auto">
+              <source src="assets/4DVideo2.mp4" type="video/mp4">
+            </video>
             <div class="play-overlay">
               <div class="play-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -873,16 +869,14 @@
     </div>
   </div>
 
-  <!-- Modal Asset Window (Full View Player with Controls) -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
       <div id="modal-body" class="modal-body">
         <img id="modal-img" src="" alt="Project Artwork" style="display: none; max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
 
-        <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%;"></model-viewer>
+        <model-viewer id="modal-viewer" src="" alt="A 3D model" auto-rotate camera-controls shadow-intensity="1" interaction-prompt="auto" style="display: none; width: 100%; height: 100%"></model-viewer>
 
-        <!-- Video element upgraded with dynamic player controls -->
         <video id="modal-video" src="" controls style="display: none; max-width: 95%; max-height: 95%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); background-color: #000;"></video>
       </div>
     </div>
@@ -1006,7 +1000,6 @@
           modalViewer.resize();
         }, 50);
       } else if (type === '4d') {
-        // Points directly to your media file and turns on full visibility & playback interaction controls
         modalVideo.src = 'assets/4DVideo2.mp4';
         modalVideo.style.display = 'block';
         modalVideo.play().catch(err => console.log("Autoplay blocked by browser rules:", err));
@@ -1017,7 +1010,6 @@
     }
 
     function closeModal() {
-      // Pause video when closed so sound doesn't bleed into background
       modalVideo.pause();
       modal.classList.remove('show');
       if (!exploreModal.classList.contains('show')) {
@@ -1058,4 +1050,3 @@
   </script>
 </body>
 </html>
->>>>>>> parent of be13c45 (update)
